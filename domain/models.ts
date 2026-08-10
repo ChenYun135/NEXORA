@@ -1,6 +1,7 @@
 export type LocalizedText = { en: string; zh: string };
-export type ProvenanceKind = "source_fact" | "derived_metric" | "ai_interpretation";
-export interface Source { id:string; name:string; url:string; publisher?:string; accessedAt:string; license?:string; }
+export type ProvenanceKind = "observed_public_data" | "derived_metric" | "nexora_composite_score" | "ai_interpretation";
+export type SourceType = "research" | "patent" | "economic" | "government" | "university" | "company" | "methodology";
+export interface Source { id:string; name:string; url:string; sourceType:SourceType; publisher?:string; accessedAt:string; license?:string; }
 export interface Provenance { kind:ProvenanceKind; sources:Source[]; methodology?:string; }
 export interface Entity { id:string; name:LocalizedText; description?:LocalizedText; sources?:Source[]; }
 export interface Industry extends Entity { maturity:"emerging"|"scaling"|"established"; technologies:string[]; }
@@ -15,7 +16,7 @@ export interface Organization extends Entity { organizationType:string; cityId?:
 export interface City extends Entity { regionId:string; countryId:string; }
 export interface Region extends Entity { countryId:string; }
 export interface Country extends Entity { isoCode:string; }
-export interface Metric { id:string; name:LocalizedText; value:number; unit:string; observedAt:string; provenance:Provenance; }
+export interface Metric { id:string; name:LocalizedText; value:number; unit:string; observedAt:string; geography:string; timePeriod:string; methodology:string; isDerived:boolean; confidence:number; notes?:LocalizedText; provenance:Provenance; }
 export interface Signal extends Entity { strength:number; momentum:number; metricIds:string[]; }
 export type RelationshipType = "belongs_to"|"develops"|"researches"|"relates_to"|"supports"|"regulates"|"invests_in"|"located_in";
 export interface Relationship { id:string; fromId:string; toId:string; type:RelationshipType; provenance:Provenance; }
