@@ -19,3 +19,16 @@ Production providers will normalize records behind the interfaces in `services/p
 生产数据将通过 `services/providers.ts` 中的接口标准化。每条来源记录保留权威链接、发布机构、来源类型、获取日期、适用许可、地理范围和时间范围。衍生指标必须记录方法，综合评分必须披露组成，AI 解读必须保持独立。
 
 NEXORA does not ingest personal or sensitive data and does not create person-level innovation scoring. NEXORA 不采集个人或敏感数据，也不进行个人层面的创新评分。
+
+## Radar signal mapping / Radar 信号映射
+
+| Radar category | Candidate public source | 未来公共数据源 |
+|---|---|---|
+| Research | OpenAlex | 论文、主题、机构与引用 |
+| Patents | USPTO Open Data; future official international patent sources | 专利与技术分类 |
+| Economic context | World Bank, Data.gov, official national statistics | 经济与创新背景 |
+| Policy | Official government agencies | 政策文件与公共计划 |
+| Institutions | Official university sources | 机构级公开科研信息 |
+| Companies | Official company disclosures only | 仅限企业官方公开信息 |
+
+Sprint 3 does not perform broad live ingestion or scrape private profiles. Provider integrations remain isolated from visualization components and must support fallback, caching, rate-limit handling, and complete provenance before activation.
