@@ -1,0 +1,52 @@
+# NEXORA Documentation Index / 文档索引
+
+Release: **NEXORA Integration Audit 1**
+
+## Product / 产品
+
+- [PRODUCT_VISION.md](./PRODUCT_VISION.md) · [PRODUCT_ARCHITECTURE.md](./PRODUCT_ARCHITECTURE.md) · [NEXORA_DESIGN_BIBLE.md](./NEXORA_DESIGN_BIBLE.md)
+- [METHODOLOGY_INDEX.md](./METHODOLOGY_INDEX.md) · [PRODUCT_DEMO_SCRIPT.md](./PRODUCT_DEMO_SCRIPT.md)
+- [POST_SPRINT_INTEGRATION_AUDIT.md](./POST_SPRINT_INTEGRATION_AUDIT.md)
+- [NEXORA_CURRENT_LIMITATIONS.md](./NEXORA_CURRENT_LIMITATIONS.md) · [TECHNICAL_DEBT.md](./TECHNICAL_DEBT.md) · [PUBLIC_RELEASE_READINESS.md](./PUBLIC_RELEASE_READINESS.md)
+
+## Data / 数据
+
+- Architecture and model: [PUBLIC_DATA_ARCHITECTURE.md](./PUBLIC_DATA_ARCHITECTURE.md), [PUBLIC_DATA_CANONICAL_MODEL.md](./PUBLIC_DATA_CANONICAL_MODEL.md), [DATA_MODEL.md](./DATA_MODEL.md)
+- Operations and trust: [PRODUCTION_DATA_OPERATIONS.md](./PRODUCTION_DATA_OPERATIONS.md), [DATA_PROVENANCE.md](./DATA_PROVENANCE.md), [DATA_LINEAGE.md](./DATA_LINEAGE.md), [DATA_QUALITY.md](./DATA_QUALITY.md), [DATA_FRESHNESS.md](./DATA_FRESHNESS.md), [DATA_LICENSE_AUDIT.md](./DATA_LICENSE_AUDIT.md)
+- Security: [PRODUCTION_DATA_SECURITY.md](./PRODUCTION_DATA_SECURITY.md), [PRODUCTION_DATA_ROLLBACK.md](./PRODUCTION_DATA_ROLLBACK.md)
+
+## Atlas / 产业图谱
+
+- [ATLAS_ARCHITECTURE.md](./ATLAS_ARCHITECTURE.md) · [ATLAS_DATA_MODEL.md](./ATLAS_DATA_MODEL.md) · [ATLAS_METHOD.md](./ATLAS_METHOD.md)
+
+## Radar / 机会雷达
+
+- [RADAR_ARCHITECTURE.md](./RADAR_ARCHITECTURE.md) · [RADAR_DATA_MODEL.md](./RADAR_DATA_MODEL.md) · [RADAR_METHOD.md](./RADAR_METHOD.md) · [RADAR_SCORE_METHOD.md](./RADAR_SCORE_METHOD.md)
+
+## Ecosystems / 创新生态
+
+- [ECOSYSTEMS_ARCHITECTURE.md](./ECOSYSTEMS_ARCHITECTURE.md) · [ECOSYSTEMS_DATA_MODEL.md](./ECOSYSTEMS_DATA_MODEL.md) · [ECOSYSTEMS_METHOD.md](./ECOSYSTEMS_METHOD.md) · [ECOSYSTEMS_NETWORK_METRICS.md](./ECOSYSTEMS_NETWORK_METRICS.md)
+
+## Policy / 政策
+
+- [POLICY_ARCHITECTURE.md](./POLICY_ARCHITECTURE.md) · [POLICY_DATA_MODEL.md](./POLICY_DATA_MODEL.md) · [POLICY_METHOD.md](./POLICY_METHOD.md) · [POLICY_PROVENANCE.md](./POLICY_PROVENANCE.md)
+
+## Organizations / 组织
+
+- [ORGANIZATIONS_ARCHITECTURE.md](./ORGANIZATIONS_ARCHITECTURE.md) · [ORGANIZATIONS_DATA_MODEL.md](./ORGANIZATIONS_DATA_MODEL.md) · [ORGANIZATIONS_METHOD.md](./ORGANIZATIONS_METHOD.md) · [ORGANIZATIONS_PROVENANCE.md](./ORGANIZATIONS_PROVENANCE.md)
+
+## NEXORA AI
+
+- Architecture: [AI_ARCHITECTURE.md](./AI_ARCHITECTURE.md), [AI_PROVIDER.md](./AI_PROVIDER.md), [AI_RETRIEVAL.md](./AI_RETRIEVAL.md)
+- Trust: [AI_GROUNDING.md](./AI_GROUNDING.md), [AI_CITATIONS.md](./AI_CITATIONS.md), [AI_RESPONSE_POLICY.md](./AI_RESPONSE_POLICY.md), [AI_LIMITATIONS.md](./AI_LIMITATIONS.md)
+- Operations: [AI_SECURITY.md](./AI_SECURITY.md), [AI_PRIVACY.md](./AI_PRIVACY.md), [AI_EVALUATION.md](./AI_EVALUATION.md), [AI_OPERATIONS.md](./AI_OPERATIONS.md)
+
+## Simulator / 情景模拟
+
+- [SYSTEM_DYNAMICS_MODEL.md](./SYSTEM_DYNAMICS_MODEL.md) · [SCENARIO_ASSUMPTIONS.md](./SCENARIO_ASSUMPTIONS.md) · [SIMULATOR_CALIBRATION.md](./SIMULATOR_CALIBRATION.md) · [SIMULATION_REPRODUCIBILITY.md](./SIMULATION_REPRODUCIBILITY.md) · [SIMULATION_LIMITATIONS.md](./SIMULATION_LIMITATIONS.md)
+
+## Unified search readiness / 统一搜索准备度
+
+Atlas regions, Radar technologies, Ecosystem contexts/nodes, policies, organizations, scenarios and presets already use stable IDs. Local search implementations are domain-specific and do not yet share a ranker or index. A future unified search can federate these registries without changing entity IDs; it should return entity type, canonical ID, localized label, evidence state and destination query parameters. No global search was added in this integration audit.
+
+Atlas 区域、Radar 技术、生态上下文/节点、政策、组织、情景和预设均已有稳定 ID。本地搜索仍按领域实现，尚无共享排序器或索引。未来统一搜索可直接联合这些注册表，无需更改实体 ID；结果应包含实体类型、标准 ID、双语名称、证据状态和目标查询参数。本次集成审计未新增大型全局搜索。

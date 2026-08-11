@@ -1,7 +1,9 @@
 "use client";
-import Link from "next/link";
-import { useMemo, useState, type CSSProperties } from "react";
+import Link from "@/components/safe-link";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { atlasHotspots, atlasIndustries, metricOrder, type AtlasHotspot, type IndustryId } from "@/data/demo/atlas";
+import { useNexoraLanguage } from "@/hooks/use-nexora-language";
+import { parseAtlasQuery } from "@/lib/product-query";
 import styles from "./atlas.module.css";
 
 type Lang="en"|"zh"; type Layer=IndustryId|"all"; type PanelTab="overview"|"ecosystem"|"evidence";
@@ -15,7 +17,8 @@ const pos=(h:AtlasHotspot)=>({"--x":`${((h.longitude+180)/360)*100}%`,"--y":`${(
 const policyJurisdiction=(region:AtlasHotspot)=>region.id==="sf"||region.id==="la"?"california":["paris","berlin"].includes(region.id)?"european-union":region.country.en.toLowerCase().replaceAll(" ","-");
 
 export function Atlas(){
- const [lang,setLang]=useState<Lang>("en"),[layer,setLayer]=useState<Layer>("all"),[selectedId,setSelectedId]=useState("sf"),[zoom,setZoom]=useState(1),[tab,setTab]=useState<PanelTab>("overview"),[panel,setPanel]=useState(true),[left,setLeft]=useState("sf"),[right,setRight]=useState("shenzhen");
+ const [lang,setLang]=useNexoraLanguage(),[layer,setLayer]=useState<Layer>("all"),[selectedId,setSelectedId]=useState("sf"),[zoom,setZoom]=useState(1),[tab,setTab]=useState<PanelTab>("overview"),[panel,setPanel]=useState(true),[left,setLeft]=useState("sf"),[right,setRight]=useState("shenzhen");
+ useEffect(()=>{const timer=window.setTimeout(()=>{const query=parseAtlasQuery(window.location.search);if(query.regionId){setSelectedId(query.regionId);setPanel(true)}if(query.industryId)setLayer(query.industryId)},0);return()=>window.clearTimeout(timer)},[]);
  const t=ui[lang], selected=atlasHotspots.find(h=>h.id===selectedId)??atlasHotspots[0], leftRegion=atlasHotspots.find(h=>h.id===left)!,rightRegion=atlasHotspots.find(h=>h.id===right)!;
  const focusIndustry=layer==="all"?atlasIndustries[0]:atlasIndustries.find(i=>i.id===layer)!;
  const ranked=useMemo(()=>[...atlasHotspots].sort((a,b)=>(b.industries[focusIndustry.id]??0)-(a.industries[focusIndustry.id]??0)).slice(0,6),[focusIndustry.id]);

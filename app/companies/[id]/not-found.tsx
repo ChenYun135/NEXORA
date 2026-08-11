@@ -1,2 +1,2 @@
-import Link from "next/link";
+import Link from "@/components/safe-link";
 export default function OrganizationNotFound(){return <main style={{minHeight:"100vh",display:"grid",placeContent:"center",gap:12,textAlign:"center",background:"#020711",color:"#edf6fc",fontFamily:"var(--font-geist)",padding:24}}><small style={{color:"#50d0c7",letterSpacing:2}}>NEXORA ORGANIZATIONS / 404</small><h1>Organization not found<br/><span style={{fontSize:".55em",color:"#8fa4b5"}}>未找到该组织</span></h1><p style={{color:"#6c8294"}}>The requested organization profile is unavailable.</p><Link style={{color:"#9182f4"}} href="/companies">← Return to Organizations / 返回组织智能</Link></main>}

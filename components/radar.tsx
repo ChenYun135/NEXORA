@@ -1,7 +1,9 @@
 "use client";
-import Link from "next/link";
-import { useMemo, useState, type CSSProperties } from "react";
+import Link from "@/components/safe-link";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { calculateOpportunityScore, technologyMatchesFilters } from "@/lib/radar-score";
+import { parseRadarQuery } from "@/lib/product-query";
+import { useNexoraLanguage } from "@/hooks/use-nexora-language";
 import { opportunityScoreConfig, radarIndustries, radarSignals, radarSnapshot, radarTechnologies } from "@/data/demo/radar";
 import type { ConfidenceLevel, EmergingTechnology, OpportunityDimensionKey, SignalCategory, TechnologyStage, TrendDirection } from "@/domain/radar";
 import styles from "./radar.module.css";
@@ -20,7 +22,8 @@ const dimensionName=(key:OpportunityDimensionKey,lang:Lang)=>opportunityScoreCon
 const nodePosition=(tech:EmergingTechnology)=>{const industry=radarIndustries.find(i=>i.id===tech.industryId)!;const peers=radarTechnologies.filter(t=>t.industryId===tech.industryId);const offset=(peers.findIndex(t=>t.id===tech.id)-(peers.length-1)/2)*7;const angle=(-90+industry.sectorIndex*40+offset)*Math.PI/180;const radius=stages[tech.stage].radius;return {"--x":`${50+Math.cos(angle)*radius}%`,"--y":`${50+Math.sin(angle)*radius}%`} as CSSProperties};
 
 export function Radar(){
- const [lang,setLang]=useState<Lang>("en"),[industry,setIndustry]=useState("all"),[region,setRegion]=useState("all"),[category,setCategory]=useState<SignalCategory|"all">("all"),[stage,setStage]=useState<TechnologyStage|"all">("all"),[confidence,setConfidence]=useState<ConfidenceLevel|"all">("all"),[minimum,setMinimum]=useState("all"),[direction,setDirection]=useState<TrendDirection|"all">("all"),[window,setWindow]=useState<Window>("3Y"),[selectedId,setSelectedId]=useState("ai-agents"),[panelTab,setPanelTab]=useState<PanelTab>("overview"),[panelOpen,setPanelOpen]=useState(true),[sort,setSort]=useState("overall");
+ const [lang,setLang]=useNexoraLanguage(),[industry,setIndustry]=useState("all"),[region,setRegion]=useState("all"),[category,setCategory]=useState<SignalCategory|"all">("all"),[stage,setStage]=useState<TechnologyStage|"all">("all"),[confidence,setConfidence]=useState<ConfidenceLevel|"all">("all"),[minimum,setMinimum]=useState("all"),[direction,setDirection]=useState<TrendDirection|"all">("all"),[window,setWindow]=useState<Window>("3Y"),[selectedId,setSelectedId]=useState("ai-agents"),[panelTab,setPanelTab]=useState<PanelTab>("overview"),[panelOpen,setPanelOpen]=useState(true),[sort,setSort]=useState("overall");
+ useEffect(()=>{const timer=globalThis.setTimeout(()=>{const query=parseRadarQuery(globalThis.location.search);if(query.technologyId){setSelectedId(query.technologyId);setPanelOpen(true)}if(query.region)setRegion(query.region)},0);return()=>globalThis.clearTimeout(timer)},[]);
  const t=copy[lang],selected=radarTechnologies.find(x=>x.id===selectedId)??radarTechnologies[0],score=(tech:EmergingTechnology)=>calculateOpportunityScore(tech.metrics,opportunityScoreConfig);
  const filtered=useMemo(()=>radarTechnologies.filter(tech=>technologyMatchesFilters(tech,{industry:industry==="all"?undefined:industry,region:region==="all"?undefined:region,stage:stage==="all"?undefined:stage,confidence:confidence==="all"?undefined:confidence,categoryKey:category==="all"?undefined:categories[category].dimension,minimumMomentum:minimum==="all"?undefined:Number(minimum)},opportunityScoreConfig)),[industry,region,stage,confidence,category,minimum]);
  const leaderboard=useMemo(()=>[...filtered].sort((a,b)=>{if(sort==="stage")return stages[b.stage].rank-stages[a.stage].rank;const key=sort==="overall"?null:sort as OpportunityDimensionKey;const av=key?a.metrics.find(m=>m.key===key)?.value:score(a).value;const bv=key?b.metrics.find(m=>m.key===key)?.value:score(b).value;return (bv??-1)-(av??-1)}),[filtered,sort]);

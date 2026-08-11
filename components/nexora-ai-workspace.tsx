@@ -1,8 +1,9 @@
 "use client";
 import { FormEvent,useCallback,useEffect,useRef,useState } from "react";
-import Link from "next/link";
+import Link from "@/components/safe-link";
 import type { AIAnswer,AILanguage,AIQueryContext,EvidenceItem,EvidencePack } from "@/domain/ai";
 import styles from "./nexora-ai-workspace.module.css";
+import { useNexoraLanguage } from "@/hooks/use-nexora-language";
 
 type Result={answer:AIAnswer;evidencePack:EvidencePack;provider:{id:string;modelIdentifier:string|null;liveModelConfigured:boolean;generationMode:string}};
 type Panel="evidence"|"sources"|"gaps";
@@ -20,7 +21,7 @@ const emptyContext:AIQueryContext={technologyIds:[],regionIds:[],organizationIds
 
 function queryContextFromUrl(){const p=new URLSearchParams(window.location.search),one=(key:string)=>{const v=p.get(key);return v&&/^[a-z0-9-]{1,80}$/.test(v)?[v]:[]};return {q:(p.get("q")??"").slice(0,600),context:{...emptyContext,technologyIds:one("technology"),regionIds:one("region"),organizationIds:one("organization"),policyIds:one("policy"),industryIds:one("industry")}}}
 
-export function NexoraAIWorkspace(){const [lang,setLang]=useState<AILanguage>("en"),[question,setQuestion]=useState(""),[context,setContext]=useState<AIQueryContext>(emptyContext),[result,setResult]=useState<Result|null>(null),[loading,setLoading]=useState(false),[error,setError]=useState(""),[panel,setPanel]=useState<Panel>("evidence"),[showWhy,setShowWhy]=useState(false),[history,setHistory]=useState<{q:string;at:string}[]>([]),booted=useRef(false),t=C[lang];
+export function NexoraAIWorkspace(){const [lang,setLang]=useNexoraLanguage(),[question,setQuestion]=useState(""),[context,setContext]=useState<AIQueryContext>(emptyContext),[result,setResult]=useState<Result|null>(null),[loading,setLoading]=useState(false),[error,setError]=useState(""),[panel,setPanel]=useState<Panel>("evidence"),[showWhy,setShowWhy]=useState(false),[history,setHistory]=useState<{q:string;at:string}[]>([]),booted=useRef(false),t=C[lang];
  const run=useCallback(async(text:string,ctx:AIQueryContext,answerLang:AILanguage)=>{const clean=text.trim();if(!clean)return;setLoading(true);setError("");setShowWhy(false);try{const response=await fetch("/api/ai",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({text:clean,language:answerLang,context:ctx})});const data=await response.json() as Result&{message?:string};if(!response.ok)throw new Error(data.message??"SAFE_FAILURE");setResult(data);setHistory(h=>[{q:clean,at:new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"})},...h].slice(0,6));setPanel("evidence")}catch{setError(t.error)}finally{setLoading(false)}},[t.error]);
  useEffect(()=>{if(booted.current)return;booted.current=true;const timer=window.setTimeout(()=>{const initial=queryContextFromUrl();setContext(initial.context);if(initial.q){setQuestion(initial.q);void run(initial.q,initial.context,lang)}},0);return()=>window.clearTimeout(timer)},[lang,run]);
  const submit=(e:FormEvent)=>{e.preventDefault();void run(question,context,lang)},selectStarter=(q:string)=>{setQuestion(q);void run(q,context,lang)},clear=()=>{setQuestion("");setResult(null);setError("");setContext(emptyContext)};
