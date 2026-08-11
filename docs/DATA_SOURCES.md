@@ -55,3 +55,11 @@ Sprint 5 does not perform live policy ingestion. It uses policy-style demo recor
 - South Korea: MOTIE, MSIT, and official sources.
 
 Production ingestion belongs to Sprint 7. Every imported policy record must preserve legal-status evidence, canonical source URL, document identifiers, jurisdiction, publication and effective dates, language, funding stage, original currency, retrieval time, confidence inputs, and evidence state. No private political, business, or individual data is permitted.
+
+## Organizations source roadmap / 组织数据来源路线图
+
+Sprint 6 uses 65 clearly marked bilingual Demo Entities and performs no live ingestion. Production identity should begin with official organization pages and public registries; public activity links may then use OpenAlex, USPTO or other official patent offices, government award databases, official policy/program pages, regulatory filings, and organization-authored public announcements. Every entity, role, presence, relationship, research, patent, policy, and funding claim must retain field-level evidence and validity dates.
+
+Sprint 6 使用 65 条清晰标记的双语演示实体，不进行实时采集。生产身份数据应优先采用组织官网与公共注册信息；公开活动关联可使用 OpenAlex、USPTO 或其他官方专利机构、政府资助数据库、官方政策或计划页面、监管披露和组织发布的公开公告。实体、角色、区域存在、关系、科研、专利、政策与资助声明均须保留字段级证据和有效期。
+
+The complete Sprint 7 input contract is maintained in `docs/PUBLIC_DATA_REQUIREMENTS.md`. It excludes personal emails, phone numbers, employee/founder tracking, private cap tables, private funding, cookies, sessions, and inferred sensitive information.

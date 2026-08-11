@@ -1,5 +1,6 @@
 import type { Patent, Policy, ResearchPaper, Source } from "@/domain/models";
 import type { PolicyRecord, PolicySignal, PolicySource, PolicyTimelineEvent } from "@/domain/policy";
+import type { OrganizationProfile, OrganizationRelationship, OrganizationSignal, OrganizationSource, OrganizationType } from "@/domain/organizations";
 export interface ResearchDataProvider { search(query:string):Promise<ResearchPaper[]>; }
 export interface PatentDataProvider { search(query:string):Promise<Patent[]>; }
 export interface LegacyPolicyDataProvider { search(query:string):Promise<Policy[]>; }
@@ -18,3 +19,15 @@ export interface EconomicDataProvider { getIndicator(code:string, region:string)
 export interface AIProvider { interpret(prompt:string, context:unknown):Promise<{text:string; model:string}>; }
 export interface AtlasGeographyProvider { getRegions(industryId?:string):Promise<{id:string;latitude:number;longitude:number;sources:Source[]}[]>; }
 export interface InstitutionDataProvider { searchByRegion(regionId:string):Promise<{id:string;name:string;sources:Source[]}[]>; }
+export interface OrganizationDataProvider {
+ getOrganizations():Promise<OrganizationProfile[]>;
+ getOrganizationById(id:string):Promise<OrganizationProfile|null>;
+ searchOrganizations(query:string):Promise<OrganizationProfile[]>;
+ getOrganizationsByIndustry(industryId:string):Promise<OrganizationProfile[]>;
+ getOrganizationsByTechnology(technologyId:string):Promise<OrganizationProfile[]>;
+ getOrganizationsByRegion(regionId:string):Promise<OrganizationProfile[]>;
+ getOrganizationsByType(type:OrganizationType):Promise<OrganizationProfile[]>;
+ getOrganizationRelationships(organizationId?:string):Promise<OrganizationRelationship[]>;
+ getOrganizationSignals(organizationId?:string):Promise<OrganizationSignal[]>;
+ getOrganizationSources(organizationId?:string):Promise<OrganizationSource[]>;
+}

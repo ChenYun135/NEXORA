@@ -9,7 +9,7 @@ const copy = {
 } as const;
 
 export function Dashboard(){
- const [lang,setLang]=useState<"en"|"zh">("en"); const [menu,setMenu]=useState(false); const t=copy[lang];
+ const [lang,setLang]=useState<"en"|"zh">("en"); const [menu,setMenu]=useState(false); const base=copy[lang]; const t={...base,nav:base.nav.map((n,i)=>i===2?(lang==="en"?["Organizations","Organization Intelligence"]:["组织","组织智能"]):n)};
  return <div className="app">
   <aside className={`sidebar ${menu?"open":""}`}><div className="brand"><span className="brand-mark">N</span>NEXORA</div><nav className="nav" aria-label="Primary navigation"><Link className="nav-link active" href="/"><span className="nav-icon">01</span><span><span className="nav-title">{t.home}</span><span className="nav-sub">{t.overview}</span></span></Link>{t.nav.map((n,i)=><Link className="nav-link" href={`/${["atlas","radar","companies","ecosystems","policy","simulator","ai"][i]}`} key={n[0]}><span className="nav-icon">{String(i+2).padStart(2,"0")}</span><span><span className="nav-title">{n[0]}</span><span className="nav-sub">{n[1]}</span></span></Link>)}</nav><div className="side-foot">NEXORA FOUNDATION<br/>INTELLIGENCE SYSTEM / 01</div></aside>
   <main className="main"><header className="topbar"><div className="top-actions"><button className="menu-btn" onClick={()=>setMenu(!menu)} aria-label="Toggle navigation">☰</button><span className="crumb">NEXORA / {t.overview}</span></div><div className="top-actions"><span className="live">{t.live}</span><div className="lang" aria-label="Language"><button className={lang==="en"?"on":""} onClick={()=>setLang("en")}>EN</button><button className={lang==="zh"?"on":""} onClick={()=>setLang("zh")}>中文</button></div></div></header>
