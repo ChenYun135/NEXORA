@@ -40,3 +40,18 @@ Sprint 4 uses only structured demo relationships. Future production mapping may 
 Sprint 4 仅使用结构化演示关系。未来生产映射可使用 OpenAlex 的公开科研合作、USPTO 的公开专利关系、NSF / NIH / DOE / SBIR-STTR 的公共资助与项目记录、官方政策门户、大学官方网站，以及企业官方新闻稿或监管披露中的公开合作信息。
 
 No private-person profiles, contact details, inferred personal relationships, browser data, or sensitive records are permitted. Every production edge must retain source URL, publisher, retrieval date, observation period, evidence status, and confidence. Snapshot identifiers and validity periods are reserved for future longitudinal evolution analysis.
+
+## Policy source roadmap / 政策来源路线图
+
+Sprint 5 does not perform live policy ingestion. It uses policy-style demo records behind `PolicyDataProvider`. Future primary-source mapping may include:
+
+- United States: Congress.gov, Federal Register, White House, NSF, DOE, NIST, SBA, Department of Commerce, and official CHIPS program sources.
+- California: CA.gov, California Energy Commission, Governor's Office, GO-Biz, and official state agencies.
+- European Union: EUR-Lex, European Commission, Horizon Europe, and official Digital Strategy sources.
+- United Kingdom: GOV.UK, UKRI, and official departments.
+- China: State Council, MIIT, NDRC, MOST, and official government sources.
+- Singapore: gov.sg, EDB, A*STAR, and official agencies.
+- Japan: METI, MEXT, Cabinet Office, and official sources.
+- South Korea: MOTIE, MSIT, and official sources.
+
+Production ingestion belongs to Sprint 7. Every imported policy record must preserve legal-status evidence, canonical source URL, document identifiers, jurisdiction, publication and effective dates, language, funding stage, original currency, retrieval time, confidence inputs, and evidence state. No private political, business, or individual data is permitted.

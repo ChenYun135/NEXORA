@@ -1,5 +1,5 @@
-import type { LocalizedText, Provenance, Relationship } from "@/domain/models";
-import type { ConfidenceAssessment, EmergingIndustry, EmergingTechnology, EvidenceRecord, MomentumMetric, OpportunityDimensionKey, OpportunityScoreConfig, SignalCategory, SignalObservation, TechnologyStage, TimeSeriesPoint, TrendDirection } from "@/domain/radar";
+import type { LocalizedText, Provenance, Relationship } from "../../domain/models.ts";
+import type { ConfidenceAssessment, EmergingIndustry, EmergingTechnology, EvidenceRecord, MomentumMetric, OpportunityDimensionKey, OpportunityScoreConfig, SignalCategory, SignalObservation, TechnologyStage, TimeSeriesPoint, TrendDirection } from "../../domain/radar.ts";
 
 const L=(en:string,zh:string):LocalizedText=>({en,zh});
 export const radarIndustries:EmergingIndustry[]=[
