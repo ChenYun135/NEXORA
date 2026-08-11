@@ -6,7 +6,7 @@ const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
 const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.SITE_URL ?? "https://nexora-intelligence.openai.site"),
+  metadataBase: new URL(process.env.SITE_URL ?? "https://nexora-future-intelligence.chenyunwh2010.chatgpt.site"),
   title: "NEXORA — Future Industry Intelligence",
   description: "Map what’s emerging. Understand what drives it. See what comes next.",
   icons: { icon: "/favicon.svg" },

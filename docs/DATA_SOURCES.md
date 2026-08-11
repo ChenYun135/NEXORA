@@ -32,3 +32,11 @@ NEXORA does not ingest personal or sensitive data and does not create person-lev
 | Companies | Official company disclosures only | 仅限企业官方公开信息 |
 
 Sprint 3 does not perform broad live ingestion or scrape private profiles. Provider integrations remain isolated from visualization components and must support fallback, caching, rate-limit handling, and complete provenance before activation.
+
+## Ecosystems relationship mapping / 创新生态关系映射
+
+Sprint 4 uses only structured demo relationships. Future production mapping may use OpenAlex for public research collaboration; USPTO for public patent relationships; NSF, NIH, DOE, and SBIR/STTR records for public grants and programs; official policy portals for policy support; official university pages for public institutional programs; and official corporate press releases or regulatory filings for disclosed partnerships. World Bank, Data.gov, and official statistics may provide regional context.
+
+Sprint 4 仅使用结构化演示关系。未来生产映射可使用 OpenAlex 的公开科研合作、USPTO 的公开专利关系、NSF / NIH / DOE / SBIR-STTR 的公共资助与项目记录、官方政策门户、大学官方网站，以及企业官方新闻稿或监管披露中的公开合作信息。
+
+No private-person profiles, contact details, inferred personal relationships, browser data, or sensitive records are permitted. Every production edge must retain source URL, publisher, retrieval date, observation period, evidence status, and confidence. Snapshot identifiers and validity periods are reserved for future longitudinal evolution analysis.

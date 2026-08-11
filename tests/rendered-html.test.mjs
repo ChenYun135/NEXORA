@@ -8,7 +8,11 @@ async function render(pathname="/"){
  return worker.fetch(new Request(`http://localhost${pathname}`,{headers:{accept:"text/html"}}),{ASSETS:{fetch:async()=>new Response("Not found",{status:404})}},{waitUntil(){},passThroughOnException(){}});
 }
 test("renders the NEXORA product routes",async()=>{
- for(const [path,expected] of [["/","Map what"],["/atlas","NEXORA Atlas"],["/radar","NEXORA Radar"]]){const response=await render(path);assert.equal(response.status,200);assert.match(response.headers.get("content-type")??"",/^text\/html\b/i);assert.match(await response.text(),new RegExp(expected,"i"));}
+ for(const [path,expected] of [["/","Map what"],["/atlas","NEXORA Atlas"],["/radar","NEXORA Radar"],["/ecosystems","NEXORA Ecosystems"]]){const response=await render(path);assert.equal(response.status,200);assert.match(response.headers.get("content-type")??"",/^text\/html\b/i);assert.match(await response.text(),new RegExp(expected,"i"));}
+});
+test("Ecosystems exposes network intelligence, trust and cross-navigation",async()=>{
+ const html=await(await render("/ecosystems")).text();assert.match(html,/Map the networks behind innovation/i);assert.match(html,/Innovation network canvas/i);assert.match(html,/DEMO/i);assert.match(html,/Evidence coverage/i);assert.match(html,/Ecosystem Health/i);assert.match(html,/\/atlas\?region=/i);assert.match(html,/\/radar\?technology=/i);
+ const [component,css]=await Promise.all([readFile(new URL("../components/ecosystems.tsx",import.meta.url),"utf8"),readFile(new URL("../components/ecosystems.module.css",import.meta.url),"utf8")]);assert.match(component,/setLang\("zh"\)/);assert.match(component,/betweennessCentrality/);assert.match(component,/neighborhood/);assert.match(css,/prefers-reduced-motion:\s*reduce/);
 });
 test("Radar exposes trust, interaction and cross-navigation",async()=>{
  const html=await(await render("/radar")).text();
