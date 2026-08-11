@@ -2,6 +2,7 @@ import type { Patent, Policy, ResearchPaper, Source } from "@/domain/models";
 import type { PolicyRecord, PolicySignal, PolicySource, PolicyTimelineEvent } from "@/domain/policy";
 import type { OrganizationProfile, OrganizationRelationship, OrganizationSignal, OrganizationSource, OrganizationType } from "@/domain/organizations";
 import type { CanonicalObservation, OrganizationIdentityCandidate, ProviderHealth, ProviderId, ProviderPage } from "@/domain/public-data";
+import type { AIProviderRequest, AIProviderResponse } from "@/domain/ai";
 export interface ResearchDataProvider { search(query:string):Promise<ResearchPaper[]>; }
 export interface PatentDataProvider { search(query:string):Promise<Patent[]>; }
 export interface LegacyPolicyDataProvider { search(query:string):Promise<Policy[]>; }
@@ -18,6 +19,7 @@ export interface PolicyDataProvider {
 }
 export interface EconomicDataProvider { getIndicator(code:string, region:string):Promise<{value:number;sources:Source[]}>; }
 export interface AIProvider { interpret(prompt:string, context:unknown):Promise<{text:string; model:string}>; }
+export interface GroundedAIProvider {readonly id:string;readonly modelIdentifier:string|null;isAvailable():boolean;generateGroundedAnswer(request:AIProviderRequest):Promise<AIProviderResponse>;}
 export interface AtlasGeographyProvider { getRegions(industryId?:string):Promise<{id:string;latitude:number;longitude:number;sources:Source[]}[]>; }
 export interface InstitutionDataProvider { searchByRegion(regionId:string):Promise<{id:string;name:string;sources:Source[]}[]>; }
 export interface OrganizationDataProvider {
