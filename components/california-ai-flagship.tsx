@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "@/components/safe-link";
 import { useNexoraLanguage } from "@/hooks/use-nexora-language";
-import { californiaAIRegistry, californiaAIAnnual, californiaAIThemes, californiaAIThreeYearGrowth } from "@/data/cases/california-ai/case";
+import { californiaAIRegistry, californiaAIAnnual, californiaAIThemes, californiaAIThreeYearGrowth, californiaAICompletePeriodCagr } from "@/data/cases/california-ai/case";
 import { californiaAIOrganizations } from "@/data/cases/california-ai/organizations";
 import { californiaAIPolicies } from "@/data/cases/california-ai/policies";
 import { californiaAIRelationships } from "@/data/cases/california-ai/relationships";
@@ -11,7 +11,14 @@ import { californiaAICoverage, californiaAIDataQualityReport } from "@/data/case
 import { californiaAIFindings } from "@/data/cases/california-ai/findings";
 import { californiaAICalibration, californiaAIScenarioPreset } from "@/data/cases/california-ai/calibration";
 import { californiaAISources } from "@/data/cases/california-ai/sources";
+import { californiaAIFundingAwards, californiaAIFundingSnapshot } from "@/data/cases/california-ai/funding";
+import { californiaAITalentIndicators, californiaAITalentLimitations } from "@/data/cases/california-ai/talent";
+import { californiaAIPatentStatus } from "@/data/cases/california-ai/patents";
+import { californiaAIEntrepreneurship } from "@/data/cases/california-ai/entrepreneurship";
+import { californiaAICapitalFeasibility } from "@/data/cases/california-ai/capital";
+import { californiaAICrossLayerAnalysis, californiaAIEvidenceLayers, californiaAINetworkMetrics, californiaAIRadarProfile } from "@/data/cases/california-ai/empirical";
 import styles from "./california-ai-flagship.module.css";
+import empiricalStyles from "./california-ai-empirical.module.css";
 
 const copy = {
   en: {
@@ -22,9 +29,9 @@ const copy = {
     formula: "Transparent metric", formulaText: "Three-year change = ((2025 works − 2022 works) ÷ 2022 works) × 100.",
     themes: "03 / Technology signals", themesSub: "Curated theme subtotals from explicit OpenAlex primary-topic mappings.",
     orgs: "04 / Organization landscape", orgsSub: "Verified public identities and descriptive roles—never an importance ranking.",
-    network: "05 / Verified research network", networkSub: "Co-authorship within the selected ten-institution AI subset.",
+    network: "07 / Verified research network", networkSub: "Co-authorship within the reproducible 16-institution coverage frame.",
     policies: "06 / Policy context", policiesSub: "Official instruments and intended mechanisms; policy presence does not prove impact.",
-    findings: "07 / Evidence-backed findings", gaps: "What this case does not yet measure", scenario: "08 / Evidence-informed scenario lab",
+    findings: "09 / Evidence-backed findings", gaps: "What this case does not yet measure", scenario: "10 / Evidence-informed scenario lab",
     sources: "Sources & methodology", built: "How this case was built", methods: "Methodology", provenance: "Provenance", dictionary: "Data dictionary", reproduce: "Reproducibility",
     explore: "Continue through NEXORA", unavailable: "Unavailable", observed: "Observed Public Data", derived: "Derived from Public Data", verified: "Verified Public Entity", relationship: "Verified Relationship", officialPolicy: "Verified Official Policy", simulated: "Partially Calibrated Scenario Model",
     works: "unique works", institutions: "research institutions", organizations: "verified organizations", policiesCount: "official policies", edges: "promoted relationships", incomplete: "incomplete year", complete: "last complete year", sourceNative: "source-native years only",
@@ -39,9 +46,9 @@ const copy = {
     formula: "透明指标", formulaText: "三年变化 =（2025 年成果数 − 2022 年成果数）÷ 2022 年成果数 × 100。",
     themes: "03 / 技术信号", themesSub: "依据明确的 OpenAlex 主主题映射形成的策划主题小计。",
     orgs: "04 / 组织格局", orgsSub: "核验公开身份并描述角色，绝不构成重要性排名。",
-    network: "05 / 已核验科研网络", networkSub: "选定十所机构 AI 科研子集中的共著关系。",
+    network: "07 / 已核验科研网络", networkSub: "可复现的 16 机构覆盖框架中的共著关系。",
     policies: "06 / 政策语境", policiesSub: "官方政策工具及其预期机制；政策存在不等于产生影响。",
-    findings: "07 / 证据支持的发现", gaps: "本案例尚未测量什么", scenario: "08 / 证据知情情景实验室",
+    findings: "09 / 证据支持的发现", gaps: "本案例尚未测量什么", scenario: "10 / 证据知情情景实验室",
     sources: "来源与方法", built: "本案例如何构建", methods: "方法说明", provenance: "来源追溯", dictionary: "数据字典", reproduce: "可复现性",
     explore: "继续探索 NEXORA", unavailable: "不可用", observed: "公开观测数据", derived: "源自公共数据的衍生指标", verified: "已核验公开组织", relationship: "已核验关系", officialPolicy: "已核验官方政策", simulated: "部分校准情景模型",
     works: "唯一科研成果", institutions: "科研机构", organizations: "已核验组织", policiesCount: "官方政策", edges: "纳入关系", incomplete: "未完整年份", complete: "最近完整年份", sourceNative: "仅采用来源原生年份",
@@ -95,9 +102,15 @@ export function CaliforniaAIFlagship() {
     <section id="evidence" className={styles.section}>
       <SectionHead eyebrow="EVIDENCE COVERAGE / 证据覆盖" title={t.coverage} subtitle={t.coverageIntro}/>
       <div className={styles.stats}>
-        <Metric value={snapshot.totals.uniqueWorks.toLocaleString("en-US")} label={t.works} status={t.observed}/><Metric value="10" label={t.institutions} status={t.verified}/><Metric value="25" label={t.organizations} status={t.verified}/><Metric value="12" label={t.policiesCount} status={t.officialPolicy}/><Metric value="20" label={t.edges} status={t.relationship}/>
+        <Metric value={snapshot.totals.uniqueWorks.toLocaleString("en-US")} label={t.works} status={t.observed}/><Metric value={String(snapshot.totals.institutionCount)} label={t.institutions} status={t.verified}/><Metric value={String(californiaAIOrganizations.length)} label={t.organizations} status={t.verified}/><Metric value={String(californiaAIPolicies.length)} label={t.policiesCount} status={t.officialPolicy}/><Metric value={String(californiaAIRelationships.length)} label={t.edges} status={t.relationship}/>
       </div>
       <div className={styles.coverageGrid}>{californiaAICoverage.map((item) => <article key={item.id} className={item.level === "UNAVAILABLE" ? styles.mutedCard : ""}><header><h3>{item.label[lang]}</h3><span data-level={item.level}>{statusLabel[item.level][lang]}</span></header><p>{item.note[lang]}</p></article>)}</div>
+    </section>
+
+    <section className={styles.section}>
+      <SectionHead eyebrow="EMPIRICAL LAYERS / 实证证据层" title={lang === "en" ? "Evidence layers" : "证据层"} subtitle={lang === "en" ? "Observed, derived, not configured and unavailable states remain distinct at every point of use." : "观测、衍生、未配置与不可用状态在每个使用点都保持区分。"}/>
+      <div className={empiricalStyles.layerGrid}>{californiaAIEvidenceLayers.map((layer) => <article key={layer.id}><span>{layer.status.replaceAll("_", " ")}</span><h3>{layer.id.replaceAll("-", " ")}</h3><strong>{layer.records === null ? "—" : layer.records.toLocaleString("en-US")}</strong><p>{layer.provider ?? (lang === "en" ? "No provider passed" : "无来源通过")}</p><small>{layer.period ?? (lang === "en" ? "No period" : "无时间范围")}</small></article>)}</div>
+      <p className={styles.warning}>△ {californiaAIPatentStatus.note[lang]}</p>
     </section>
 
     <section className={styles.section}>
@@ -113,9 +126,23 @@ export function CaliforniaAIFlagship() {
       <SectionHead eyebrow="OPENALEX / OBSERVED PUBLIC DATA" title={t.research} subtitle={t.researchSub}/>
       <div className={styles.researchGrid}>
         <article className={styles.chartPanel}><header><h3>2015—2026</h3><span>{t.sourceNative}</span></header><div className={styles.annualChart} role="img" aria-label={lang === "en" ? "Annual OpenAlex work counts from 2015 through incomplete 2026" : "2015 年至尚未完整的 2026 年 OpenAlex 年度成果数"}>{californiaAIAnnual.map((row) => <div key={row.year} className={row.incomplete ? styles.incomplete : ""}><i style={{ height: `${Math.max(6, row.workCount / maxAnnual * 100)}%` }}/><b>{row.workCount.toLocaleString("en-US")}</b><span>{row.year}</span></div>)}</div><p className={styles.warning}>△ {t.warning2026}</p></article>
-        <article className={styles.metricPanel}><span>{t.derived}</span><strong>{californiaAIThreeYearGrowth}%</strong><h3>{lang === "en" ? "2022 → 2025 observed-work change" : "2022 → 2025 观测成果变化"}</h3><p>{t.formulaText}</p><dl><div><dt>2022</dt><dd>2,240</dd></div><div><dt>2025</dt><dd>2,606</dd></div><div><dt>{t.complete}</dt><dd>2025</dd></div></dl><p className={styles.caution}>{lang === "en" ? "Activity volume ≠ research quality, citation impact or economic impact." : "活动规模 ≠ 科研质量、引用影响或经济影响。"}</p></article>
+        <article className={styles.metricPanel}><span>{t.derived}</span><strong>{californiaAIThreeYearGrowth}%</strong><h3>{lang === "en" ? "2022 → 2025 observed-work change" : "2022 → 2025 观测成果变化"}</h3><p>{t.formulaText}</p><dl><div><dt>2022</dt><dd>{californiaAIAnnual.find(row => row.year === 2022)?.workCount.toLocaleString("en-US")}</dd></div><div><dt>2025</dt><dd>{californiaAIAnnual.find(row => row.year === 2025)?.workCount.toLocaleString("en-US")}</dd></div><div><dt>2015—2025 CAGR</dt><dd>{californiaAICompletePeriodCagr}%</dd></div></dl><p className={styles.caution}>{lang === "en" ? "Activity volume ≠ research quality, citation impact or economic impact." : "活动规模 ≠ 科研质量、引用影响或经济影响。"}</p></article>
       </div>
       <ContextLinks links={[["/radar?industry=artificial-intelligence&region=california", lang === "en" ? "Explore real research signals in Radar" : "在雷达中探索真实科研信号"]]}/>
+    </section>
+
+    <section className={styles.section}>
+      <SectionHead eyebrow="BLS OEWS + NSF AWARDS" title={lang === "en" ? "05 / Talent & public funding" : "05 / 人才与公共资金"} subtitle={lang === "en" ? "Two new official evidence layers with deliberately narrow constructs and periods." : "两个新增官方证据层，构念与时间范围均被刻意限定。"}/>
+      <div className={empiricalStyles.empiricalGrid}>
+        <article className={styles.panel}><h3>{lang === "en" ? "AI-adjacent technical workforce" : "AI 邻近技术劳动力"}</h3><p className={styles.caution}>{californiaAITalentLimitations[lang]}</p>{californiaAITalentIndicators.map((item) => <div className={empiricalStyles.empiricalRow} key={item.id}><div><b>{item.label[lang]}</b><small>{item.soc} · MAY 2025</small></div><strong>{item.employment.toLocaleString("en-US")}</strong><span>LQ {item.locationQuotient}</span></div>)}</article>
+        <article className={styles.panel}><h3>{lang === "en" ? "NSF 2025 title-qualified awards" : "NSF 2025 标题级筛选奖项"}</h3><div className={empiricalStyles.fundingSummary}><strong>${(californiaAIFundingSnapshot.totals.obligatedUSD / 1_000_000).toFixed(1)}M</strong><span>{californiaAIFundingSnapshot.totals.awardCount} {lang === "en" ? "awards" : "个奖项"} · {californiaAIFundingSnapshot.totals.recipientCount} {lang === "en" ? "recipients" : "个受资助主体"}</span></div>{californiaAIFundingAwards.slice(0, 5).map((award) => <a className={empiricalStyles.awardRow} key={award.id} href={award.sourceUrl} target="_blank" rel="noreferrer"><b>{award.title}</b><small>{award.recipientName} · ${award.fundsObligatedUSD.toLocaleString("en-US")}</small></a>)}<p className={styles.warning}>△ {lang === "en" ? "Nominal obligations from one agency and one award year; not total California AI funding." : "仅为一个机构、一个奖项年度的名义已拨付金额；不代表加州 AI 资金总额。"}</p></article>
+      </div>
+    </section>
+
+    <section className={styles.section}>
+      <SectionHead eyebrow="RADAR + ECOSYSTEMS / CASE-SPECIFIC" title={lang === "en" ? "06 / Empirical signal profile" : "06 / 实证信号画像"} subtitle={lang === "en" ? "A bounded evidence index and within-dataset network metrics; never a forecast or importance ranking." : "有边界的证据指数与数据集内网络指标；绝不是预测或重要性排名。"}/>
+      <div className={empiricalStyles.signalGrid}><article className={styles.metricPanel}><span>{californiaAIRadarProfile.status.replaceAll("_", " ")}</span><strong>{californiaAIRadarProfile.composite}</strong><h3>{lang === "en" ? "California AI evidence index" : "加州 AI 证据指数"}</h3><p>{lang === "en" ? californiaAIRadarProfile.warning : "不同地理与参考期限制了可比性；这是证据指数摘要，不是预测或排名。"}</p><small>SENSITIVITY {californiaAIRadarProfile.sensitivity.range.join("—")}</small></article><article className={styles.panel}>{californiaAIRadarProfile.signals.map((signal) => <div className={empiricalStyles.signalRow} key={signal.id}><span>{signal.id.replaceAll("-", " ")}</span><i><em style={{width:`${signal.score}%`}}/></i><b>{signal.score}</b><small>W {signal.weight}</small></div>)}</article><article className={styles.panel}><h3>{lang === "en" ? "Network centrality" : "网络中心性"}</h3>{californiaAINetworkMetrics.slice(0, 6).map((metric) => <div className={empiricalStyles.empiricalRow} key={metric.institutionId}><div><b>{metric.name}</b><small>{metric.scopeLabel}</small></div><strong>{metric.degree}</strong><span>Σ {metric.weightedDegree}</span></div>)}</article></div>
+      <p className={styles.warning}>△ {californiaAICrossLayerAnalysis.note[lang]}</p>
     </section>
 
     <section className={styles.section}>
@@ -145,11 +172,11 @@ export function CaliforniaAIFlagship() {
     </section>
 
     <section id="findings" className={styles.section}>
-      <SectionHead eyebrow="GROUNDED SYNTHESIS" title={t.findings} subtitle={lang === "en" ? "Every finding carries support IDs, evidence status and a limitation." : "每项发现均包含支持 ID、证据状态与限制。"}/>
-      <div className={styles.findings}>{californiaAIFindings.map((finding, i) => <article key={finding.id}><span>{String(i + 1).padStart(2, "0")}</span><div><h3>{finding.title[lang]}</h3><p>{finding.claim[lang]}</p><small>{finding.status.replaceAll("_", " ")} · {finding.supportIds.join(" · ")}</small><aside>△ {finding.limitation[lang]}</aside></div></article>)}</div>
+      <SectionHead eyebrow="GROUNDED SYNTHESIS" title={t.findings} subtitle={lang === "en" ? "Every finding carries a confidence class, support IDs, evidence status and a limitation." : "每项发现均包含置信类别、支持 ID、证据状态与限制。"}/>
+      <div className={styles.findings}>{californiaAIFindings.map((finding, i) => <article key={finding.id}><span>{String(i + 1).padStart(2, "0")}</span><div><h3>{finding.title[lang]}</h3><p>{finding.claim[lang]}</p><small>{finding.confidence} · {finding.status.replaceAll("_", " ")} · {finding.supportIds.join(" · ")}</small><aside>△ {finding.limitation[lang]}</aside></div></article>)}</div>
     </section>
 
-    <section className={`${styles.section} ${styles.gaps}`}><SectionHead eyebrow="EVIDENCE GAPS / 证据缺口" title={t.gaps} subtitle={lang === "en" ? "Unavailable means not measured in this snapshot—not absent in California." : "不可用表示本快照尚未测量，并不代表加州不存在相应活动。"}/><div>{californiaAICoverage.filter((item) => item.level === "UNAVAILABLE" || item.level === "LIMITED").map((item) => <article key={item.id}><span>{statusLabel[item.level][lang]}</span><h3>{item.label[lang]}</h3><p>{item.note[lang]}</p></article>)}</div></section>
+    <section className={`${styles.section} ${styles.gaps}`}><SectionHead eyebrow="EVIDENCE GAPS / 证据缺口" title={t.gaps} subtitle={lang === "en" ? "Unavailable means not measured in this snapshot—not absent in California." : "不可用表示本快照尚未测量，并不代表加州不存在相应活动。"}/><div>{californiaAICoverage.filter((item) => item.level === "UNAVAILABLE" || item.level === "LIMITED").map((item) => <article key={item.id}><span>{statusLabel[item.level][lang]}</span><h3>{item.label[lang]}</h3><p>{item.note[lang]}</p></article>)}</div><p className={styles.caution}>{californiaAIEntrepreneurship.note[lang]} {californiaAICapitalFeasibility.reason[lang]}</p></section>
 
     <section className={styles.section}>
       <SectionHead eyebrow="SIMULATOR / SCENARIO ≠ FORECAST" title={t.scenario} subtitle={californiaAIScenarioPreset.warning[lang]}/>
@@ -158,7 +185,7 @@ export function CaliforniaAIFlagship() {
 
     <section id="sources" className={styles.section}>
       <SectionHead eyebrow="TRACEABILITY / 可追溯性" title={t.sources} subtitle={lang === "en" ? `${californiaAISources.length} canonical source entries; official links only, no model-generated URLs.` : `${californiaAISources.length} 条规范来源登记；仅使用官方链接，不使用模型生成网址。`}/>
-      <div className={styles.methodGrid}><Link href="/docs/CA_AI_METHODOLOGY.md"><span>01</span><h3>{t.methods}</h3><p>{lang === "en" ? "Research, network, organization and policy methods." : "科研、网络、组织与政策方法。"}</p></Link><Link href="/docs/CA_AI_PROVENANCE.md"><span>02</span><h3>{t.provenance}</h3><p>{lang === "en" ? "Provider, retrieval, transformation and case use." : "提供方、检索、转换与案例用途。"}</p></Link><Link href="/docs/CA_AI_DATA_DICTIONARY.md"><span>03</span><h3>{t.dictionary}</h3><p>{lang === "en" ? "Fields, units, status, nullability and transformations." : "字段、单位、状态、可空性与转换。"}</p></Link><Link href="/docs/CA_AI_REPRODUCIBILITY.md"><span>04</span><h3>{t.reproduce}</h3><p>{lang === "en" ? "Targeted refresh, snapshot and deterministic gates." : "定向刷新、快照与确定性门禁。"}</p></Link></div>
+      <div className={styles.methodGrid}><Link href="/docs/CA_AI_EMPIRICAL_DATA_PLAN.md"><span>01</span><h3>{t.methods}</h3><p>{lang === "en" ? "Constructs, providers, coverage gates and empirical roadmap." : "构念、来源、覆盖门槛与实证路线。"}</p></Link><Link href="/docs/CA_AI_PROVENANCE.md"><span>02</span><h3>{t.provenance}</h3><p>{lang === "en" ? "Provider, retrieval, transformation and case use." : "提供方、检索、转换与案例用途。"}</p></Link><Link href="/docs/CA_AI_DATA_DICTIONARY.md"><span>03</span><h3>{t.dictionary}</h3><p>{lang === "en" ? "Fields, units, status, nullability and transformations." : "字段、单位、状态、可空性与转换。"}</p></Link><Link href="/docs/CA_AI_REPRODUCIBILITY.md"><span>04</span><h3>{t.reproduce}</h3><p>{lang === "en" ? "Provider-specific refresh, atomic promotion and deterministic exports." : "按来源刷新、原子晋级与确定性导出。"}</p></Link></div>
       <details className={styles.quality}><summary>{t.quality} · {californiaAIDataQualityReport.status}</summary><div>{californiaAIDataQualityReport.checks.map((check) => <p key={check.id}><b>{check.status}</b> {check.detail}</p>)}<h3>{t.rejected}: {californiaAIDataQualityReport.rejectedRecords}</h3>{californiaAIDataQualityReport.rejectedReasons.map((reason) => <p key={reason}>△ {reason}</p>)}</div></details>
     </section>
 
@@ -170,4 +197,3 @@ export function CaliforniaAIFlagship() {
 function SectionHead({ eyebrow, title, subtitle }: { eyebrow: string; title: string; subtitle: string }) { return <header className={styles.sectionHead}><span>{eyebrow}</span><div><h2>{title}</h2><p>{subtitle}</p></div></header>; }
 function Metric({ value, label, status }: { value: string; label: string; status: string }) { return <article><strong>{value}</strong><h3>{label}</h3><span>{status}</span></article>; }
 function ContextLinks({ links }: { links: string[][] }) { return <nav className={styles.contextLinks} aria-label="Contextual case links">{links.map(([href, label]) => <Link key={href} href={href}>{label} →</Link>)}</nav>; }
-

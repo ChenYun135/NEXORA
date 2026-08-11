@@ -1,6 +1,9 @@
-export const californiaAIPublicFunding = [
-  { id: "funding-calcompute", title: { en: "CalCompute public cloud framework", zh: "CalCompute 公共云框架" }, agency: "California Government Operations Agency", stage: "AUTHORIZED", amount: null, currency: null, relevance: { en: "SB 53 authorizes a consortium and framework process; it does not establish a verified award amount in this case snapshot.", zh: "SB 53 授权成立联合体并制定框架；本案例快照未核验到具体拨款金额。" }, officialUrl: "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB53" },
-  { id: "funding-nairr", title: { en: "National AI Research Resource Pilot", zh: "国家人工智能研究资源试点" }, agency: "U.S. National Science Foundation", stage: "ACTIVE_PROGRAM", amount: null, currency: null, relevance: { en: "Selected federal research-infrastructure context; no California-specific award total is asserted.", zh: "作为联邦科研基础设施背景纳入；不主张加州获得了特定总额。" }, officialUrl: "https://www.nsf.gov/focus-areas/artificial-intelligence/nairr" },
-  { id: "funding-ca-competes", title: { en: "California Competes Tax Credit", zh: "加州竞争力税收抵免" }, agency: "GO-Biz", stage: "ACTIVE_PROGRAM", amount: null, currency: null, relevance: { en: "General business incentive context; eligibility does not demonstrate an AI award or impact.", zh: "仅作一般企业激励背景；符合资格并不代表获得人工智能项目奖励或产生影响。" }, officialUrl: "https://business.ca.gov/california-competes-tax-credit/" },
-] as const;
+import snapshot from "./funding-snapshot.json" with { type: "json" };
 
+export const californiaAIFundingSnapshot = snapshot;
+export const californiaAIFundingAwards = snapshot.awards.map((award) => ({ ...award, evidenceId: `ca-ai-nsf-award-${award.id}`, status: "OBSERVED_PUBLIC_DATA" as const }));
+
+export const californiaAIPublicFunding = [
+  { id: "funding-nsf-2025-title-qualified", title: { en: "NSF 2025 California AI title-qualified awards", zh: "NSF 2025 年加州 AI 标题级筛选奖项" }, agency: "U.S. National Science Foundation", stage: "OBSERVED_AWARDS", amount: snapshot.totals.obligatedUSD, currency: "USD", relevance: { en: `${snapshot.totals.awardCount} deduplicated awards across ${snapshot.totals.recipientCount} recipients; title-taxonomy bounded, not total California AI funding.`, zh: `${snapshot.totals.awardCount} 个去重奖项，覆盖 ${snapshot.totals.recipientCount} 个受资助主体；受标题词表约束，不代表加州 AI 资金总额。` }, officialUrl: snapshot.query.sourceUrl },
+  { id: "funding-calcompute", title: { en: "CalCompute public cloud framework", zh: "CalCompute 公共云框架" }, agency: "California Government Operations Agency", stage: "AUTHORIZED_CONTEXT", amount: null, currency: null, relevance: { en: "Authorization context only; no verified award amount is asserted.", zh: "仅作授权背景；不主张存在已核验拨款金额。" }, officialUrl: "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB53" },
+] as const;

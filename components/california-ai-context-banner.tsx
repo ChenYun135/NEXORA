@@ -9,12 +9,12 @@ import styles from "./california-ai-context-banner.module.css";
 type Module = "atlas"|"radar"|"ecosystems"|"policy"|"companies"|"ai"|"simulator";
 const details = {
  atlas:{en:"Canonical California geography · Bay Area deepest evidence · selected-institution research regions",zh:"规范加州地理 · 湾区证据最深 · 选定机构科研区域"},
- radar:{en:"Real OpenAlex research activity is available for seven mapped themes; prototype Opportunity Scores below remain Demo.",zh:"七类映射主题已有真实 OpenAlex 科研活动；下方原型机会分数仍为 Demo。"},
- ecosystems:{en:"20 verified OpenAlex co-authorship edges are available within the selected ten-institution subset.",zh:"选定十所机构子集中已有 20 条核验 OpenAlex 共著边。"},
+ radar:{en:"Case-specific empirical signals combine research, verified network, NSF funding and AI-adjacent talent; global prototype scores remain Demo.",zh:"案例实证信号结合科研、核验网络、NSF 资助与 AI 邻近人才；全局原型分数仍为 Demo。"},
+ ecosystems:{en:"40 promoted OpenAlex co-authorship edges are available within a reproducible 16-institution coverage frame.",zh:"可复现的 16 机构覆盖框架中已有 40 条纳入展示的 OpenAlex 共著边。"},
  policy:{en:"12 official California AI instruments cover adoption, procurement, transparency, workforce and sector mechanisms.",zh:"12 项加州官方 AI 政策工具覆盖采用、采购、透明度、劳动力与行业机制。"},
- companies:{en:"25 verified public organization identities; descriptive roles are not an importance ranking.",zh:"25 个已核验公开组织身份；描述性角色不构成重要性排名。"},
- ai:{en:"Case retrieval defaults to production California AI evidence and excludes Demo evidence.",zh:"案例检索默认使用加州 AI 生产证据，并排除 Demo 证据。"},
- simulator:{en:"California AI evidence-informed baseline: observed and derived inputs stay separate from assumptions and unavailable inputs.",zh:"加州 AI 证据知情基线：观测与衍生输入同假设及不可用输入分离。"},
+ companies:{en:"31 verified public organization identities; descriptive roles and coverage tiers are not importance rankings.",zh:"31 个已核验公开组织身份；描述性角色与覆盖层级不构成重要性排名。"},
+ ai:{en:"Case retrieval includes production research, talent, NSF funding, policy and network evidence; Demo evidence is excluded.",zh:"案例检索纳入生产级科研、人才、NSF 资助、政策与网络证据，并排除 Demo。"},
+ simulator:{en:"Empirical baseline v2 separates observed, empirically derived, proxy-calibrated, assumption and unavailable inputs.",zh:"实证基线 v2 区分观测、实证衍生、代理校准、假设与不可用输入。"},
 } as const;
 
 export function CaliforniaAIContextBanner({module}:{module:Module}){

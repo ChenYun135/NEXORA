@@ -18,3 +18,7 @@ As of **2026-08-10**, NEXORA is a private, Owner-only hybrid prototype. It combi
 - **Accessibility:** Keyboard focus, semantic status text, reduced motion and text/table alternatives are present; advanced canvas manipulation remains more efficient on desktop.
 
 Future flagship slot: **California AI real-data case**. This release reserves only the concept and route handoff pattern; it adds no fabricated case data and does not begin Post-Sprint 02.
+
+## California AI empirical v2 / 加州 AI 实证 v2
+
+The live private case now integrates research/network, BLS talent and NSF awards. It remains bounded: no statewide research census, no AI-worker count, no multi-agency funding total, no live patents, no AI-startup formation series, no reusable venture-capital series, and no causal/econometric validation. / 私有案例已接入科研/网络、BLS 人才与 NSF 奖项，但仍无全州普查、AI 从业人数、多机构资金总额、实时专利、AI 初创形成、可复用风投资列或因果/计量验证。

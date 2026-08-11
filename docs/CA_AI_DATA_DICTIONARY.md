@@ -14,3 +14,4 @@
 
 Null is never converted to zero.
 
+v2 adds: OpenAlex `coverageTier` (coverage volume only), BLS `soc`, `employment`, `locationQuotient`, `annualMeanWageUSD`, NSF `fundsObligatedUSD`, `estimatedTotalUSD`, `awardDate`, `recipientName`, provider `status`, Radar `score/weight/basis`, and network `degree/weightedDegree`. Currency is nominal USD. `NOT_CONFIGURED` and `UNAVAILABLE` remain distinct. / v2 新增覆盖层级、BLS、NSF、Radar 与网络字段；币种为名义美元，未配置与不可用严格区分。

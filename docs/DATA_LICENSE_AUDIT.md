@@ -19,3 +19,5 @@ Commercial-use and raw redistribution questions marked REVIEW_REQUIRED require f
 - Official organization pages are used for identity and public location metadata only.
 - NSF and GO-Biz pages are used for program-stage context only; no award totals are inferred.
 - `data/cases/california-ai/sources.ts` is the machine-readable source registry. Sources without an explicit reusable-data license remain `metadata/link only` and require review before any broader redistribution.
+
+Post-Sprint 03: OpenAlex and ROR metadata are CC0; BLS and NSF official public data are used with attribution and retrieval dates; USPTO documentation is linked but no keyed records are stored; Census BFS is feasibility context only. No proprietary capital or deal data is included. / OpenAlex 与 ROR 为 CC0；BLS 与 NSF 保留署名和检索日期；未存储 USPTO 密钥数据；未纳入专有资本数据。

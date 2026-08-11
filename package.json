@@ -23,6 +23,7 @@
     "data:quality": "node --experimental-strip-types scripts/data-pipeline.ts quality",
     "data:case:california-ai": "node --experimental-strip-types scripts/california-ai-refresh.ts --write",
     "data:case:california-ai:dry-run": "node --experimental-strip-types scripts/california-ai-refresh.ts",
+    "data:case:california-ai:export": "node --experimental-strip-types scripts/california-ai-exports.ts",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"
   },

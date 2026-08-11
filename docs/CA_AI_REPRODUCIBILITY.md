@@ -10,3 +10,4 @@ The snapshot records case version, taxonomy version, source query URLs, institut
 
 Reproducing a later date can legitimately yield different values because OpenAlex backfills records and updates topic classification. Any promoted refresh must update the changelog and re-run the data-quality gate.
 
+v2 commands: `npm run data:case:california-ai:dry-run -- --provider=openalex|funding` and `npm run data:case:california-ai -- --provider=openalex|funding`. The script retries transient failures, validates counts, writes `.next`, then atomically promotes. Existing snapshots are last-known-good until all provider gates pass. / v2 支持按来源干跑与原子晋级；全部门禁通过前保留最近已知良好快照。

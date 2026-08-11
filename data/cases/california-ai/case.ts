@@ -2,7 +2,7 @@ import snapshot from "./openalex-snapshot.json" with { type: "json" };
 
 export type CaseLanguage = "en" | "zh";
 export type CaseText = { en: string; zh: string };
-export type EvidenceStatus = "OBSERVED_PUBLIC_DATA" | "NORMALIZED_DATA" | "DERIVED_METRIC" | "VERIFIED_PUBLIC_ENTITY" | "VERIFIED_RELATIONSHIP" | "VERIFIED_CURATED_RELATIONSHIP" | "UNAVAILABLE" | "SIMULATED" | "AI_INTERPRETATION";
+export type EvidenceStatus = "OBSERVED_PUBLIC_DATA" | "NORMALIZED_DATA" | "DERIVED_METRIC" | "VERIFIED_PUBLIC_ENTITY" | "VERIFIED_RELATIONSHIP" | "VERIFIED_CURATED_RELATIONSHIP" | "NOT_CONFIGURED" | "UNAVAILABLE" | "SIMULATED" | "AI_INTERPRETATION";
 export type CoverageLevel = "STRONG" | "PARTIAL" | "LIMITED" | "UNAVAILABLE";
 
 export const californiaAIResearchQuestion: CaseText = {
@@ -41,17 +41,24 @@ export const californiaAIAnnual = snapshot.annual.map((row) => ({ ...row, eviden
 const y2022 = snapshot.annual.find((row) => row.year === 2022)?.workCount ?? null;
 const y2025 = snapshot.annual.find((row) => row.year === 2025)?.workCount ?? null;
 export const californiaAIThreeYearGrowth = y2022 && y2025 ? Math.round(((y2025 - y2022) / y2022) * 1000) / 10 : null;
+const y2015 = snapshot.annual.find((row) => row.year === 2015)?.workCount ?? null;
+export const californiaAICompletePeriodCagr = y2015 && y2025 ? Math.round((Math.pow(y2025 / y2015, 1 / 10) - 1) * 1000) / 10 : null;
+export const californiaAIThreeYearRolling = californiaAIAnnual.filter((row) => row.year <= 2025).map((row, index, rows) => ({
+  year: row.year,
+  average: index < 2 ? null : Math.round(rows.slice(index - 2, index + 1).reduce((sum, item) => sum + item.workCount, 0) / 3),
+  status: index < 2 ? "UNAVAILABLE" as const : "DERIVED_METRIC" as const,
+}));
 
 export const californiaAIRegistry = {
   id: "california-ai",
-  version: "ca-ai-case-v1.0",
+  version: "ca-ai-case-v2.0",
   status: "PRIVATE_RESEARCH_READY",
   snapshotDate: snapshot.snapshotDate,
-  taxonomyVersion: "ca-ai-taxonomy-v1.0",
+  taxonomyVersion: "ca-ai-taxonomy-v2.0",
   timeRange: { from: 2015, to: 2026, completeThrough: 2025 },
   title: { en: "California AI Innovation Ecosystem", zh: "加州人工智能创新生态系统" },
-  subtitle: { en: "A real-data NEXORA flagship case.", zh: "NEXORA 真实公共数据旗舰案例。" },
-  support: { en: "Evidence-based mapping of research, organizations, policy, and innovation networks across California.", zh: "以公共证据描绘加州的科研、组织、政策与创新网络。" },
+  subtitle: { en: "A multi-layer empirical NEXORA flagship case.", zh: "NEXORA 多层实证旗舰案例。" },
+  support: { en: "Research, verified networks, AI-adjacent workforce, NSF awards, policy, and explicit evidence gaps across California.", zh: "以公共证据连接加州科研、核验网络、AI 邻近劳动力、NSF 奖项、政策与明确证据缺口。" },
   researchQuestion: californiaAIResearchQuestion,
   snapshot,
 } as const;

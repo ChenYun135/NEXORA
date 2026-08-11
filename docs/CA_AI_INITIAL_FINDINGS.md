@@ -9,3 +9,4 @@
 
 Every product finding maps to support IDs in `data/cases/california-ai/findings.ts`.
 
+v2 classes each finding as `STRONG`, `MODERATE`, `EXPLORATORY`, or `DATA_GAP`. Research growth is strong within-frame; network density, BLS occupational concentration and bounded NSF awards are moderate; cross-layer association remains exploratory and correlation is not estimated. / v2 将发现分为强、中等、探索性与数据缺口；不估计跨层相关性。

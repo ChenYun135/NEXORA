@@ -22,5 +22,4 @@ Organization identity and public location use official organization pages. A des
 
 ## Coverage and limitations
 
-Patent, capital, startup-formation, market, and comparable AI-talent evidence are unavailable. Public funding is limited to official program/authorization context with no inferred award totals. Simulator inputs preserve OBSERVED, DERIVED, ASSUMPTION, and UNAVAILABLE classifications.
-
+Patent evidence is `NOT_CONFIGURED`; capital and market are `UNAVAILABLE`; AI startup formation is `LIMITED`. BLS OEWS provides a partial AI-adjacent occupational cross-section and NSF provides a bounded 2025 title-qualified award layer. Simulator inputs preserve `OBSERVED`, `EMPIRICALLY_DERIVED`, `PROXY_CALIBRATED`, `ASSUMPTION`, and `UNAVAILABLE` classifications.
