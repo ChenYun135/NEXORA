@@ -10,14 +10,15 @@ export function safeQueryValue(value: string | null) {
 
 export function parseAtlasQuery(query: string) {
   const params = new URLSearchParams(query);
-  const region = safeQueryValue(params.get("region"));
+  const rawRegion = safeQueryValue(params.get("region"));
+  const region = rawRegion === "sf-bay-area" || rawRegion === "california" ? "sf" : rawRegion === "los-angeles" ? "la" : rawRegion;
   const technology = safeQueryValue(params.get("technology"));
   const industry = safeQueryValue(params.get("industry"));
   const hotspot = region
     ? atlasHotspots.find((item) => item.id === region || item.name.en.toLowerCase() === region.toLowerCase())
     : undefined;
   const technologyMatch = technology ? radarTechnologies.find((item) => item.id === technology) : undefined;
-  const inferredIndustry = industry ?? technologyMatch?.industryId;
+  const inferredIndustry = (industry === "artificial-intelligence" ? "ai" : industry) ?? technologyMatch?.industryId;
   const layer = inferredIndustry && atlasIndustries.some((item) => item.id === inferredIndustry) ? inferredIndustry as IndustryId : undefined;
   return { regionId: hotspot?.id, technologyId: technology, industryId: layer };
 }
@@ -25,7 +26,8 @@ export function parseAtlasQuery(query: string) {
 export function parseRadarQuery(query: string) {
   const params = new URLSearchParams(query);
   const technology = safeQueryValue(params.get("technology"));
-  const region = safeQueryValue(params.get("region"));
+  const rawRegion = safeQueryValue(params.get("region"));
+  const region = rawRegion === "california" || rawRegion === "sf-bay-area" ? "sf" : rawRegion === "los-angeles" ? "la" : rawRegion;
   return {
     technologyId: technology && radarTechnologies.some((item) => item.id === technology) ? technology : undefined,
     region: region && radarTechnologies.some((item) => item.regions.includes(region)) ? region : undefined,

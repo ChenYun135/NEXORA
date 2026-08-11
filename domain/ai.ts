@@ -11,7 +11,7 @@ export type ClaimType="OBSERVED"|"DERIVED"|"SYNTHESIS"|"INTERPRETATION";
 export type GroundingStatus="VALID"|"FALLBACK"|"REJECTED";
 
 export interface AIEntityReference {type:"TECHNOLOGY"|"REGION"|"ORGANIZATION"|"POLICY"|"INDUSTRY";id:string;name:{en:string;zh:string};confidence:ResolutionConfidence;matchedAlias:string;}
-export interface AIQueryContext {technologyIds:string[];regionIds:string[];organizationIds:string[];policyIds:string[];industryIds:string[];timeWindow:"1Y"|"3Y"|"5Y"|"ALL";dataMode:DataMode;allowDemoEvidence:boolean;}
+export interface AIQueryContext {caseIds:string[];technologyIds:string[];regionIds:string[];organizationIds:string[];policyIds:string[];industryIds:string[];timeWindow:"1Y"|"3Y"|"5Y"|"ALL";dataMode:DataMode;allowDemoEvidence:boolean;}
 export interface AIQuery {id:string;text:string;normalizedText:string;language:AILanguage;intent:AIQueryIntent;answerType:AIAnswerType;context:AIQueryContext;resolvedEntities:AIEntityReference[];ambiguity:string|null;safetyFlags:string[];createdAt:string;}
 export interface AIPlanOperation {id:string;type:AIPlanOperationType;entityIds:string[];metricKeys:string[];timeWindow:AIQueryContext["timeWindow"];required:boolean;limit:number;}
 export interface AIQueryPlan {id:string;queryId:string;intent:AIQueryIntent;operations:AIPlanOperation[];retrievalVersion:string;maxEvidenceItems:number;}
