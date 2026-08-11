@@ -1,6 +1,7 @@
 import type { Patent, Policy, ResearchPaper, Source } from "@/domain/models";
 import type { PolicyRecord, PolicySignal, PolicySource, PolicyTimelineEvent } from "@/domain/policy";
 import type { OrganizationProfile, OrganizationRelationship, OrganizationSignal, OrganizationSource, OrganizationType } from "@/domain/organizations";
+import type { CanonicalObservation, OrganizationIdentityCandidate, ProviderHealth, ProviderId, ProviderPage } from "@/domain/public-data";
 export interface ResearchDataProvider { search(query:string):Promise<ResearchPaper[]>; }
 export interface PatentDataProvider { search(query:string):Promise<Patent[]>; }
 export interface LegacyPolicyDataProvider { search(query:string):Promise<Policy[]>; }
@@ -31,3 +32,9 @@ export interface OrganizationDataProvider {
  getOrganizationSignals(organizationId?:string):Promise<OrganizationSignal[]>;
  getOrganizationSources(organizationId?:string):Promise<OrganizationSource[]>;
 }
+
+/** Additive Sprint 7 contracts; legacy demo providers above remain unchanged. */
+export interface PublicDataProvider { readonly provider:ProviderId; health():Promise<ProviderHealth>; }
+export interface CanonicalResearchDataProvider extends PublicDataProvider { getTopicActivity(topicId:string,fromYear:number,toYear:number):Promise<ProviderPage<CanonicalObservation>>; }
+export interface CanonicalEconomicDataProvider extends PublicDataProvider { getIndicator(indicator:string,countryCodes:string[],fromYear:number,toYear:number):Promise<ProviderPage<CanonicalObservation>>; }
+export interface CanonicalOrganizationIdentityProvider extends PublicDataProvider { getIdentities():Promise<ProviderPage<OrganizationIdentityCandidate>>; }
