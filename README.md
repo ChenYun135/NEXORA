@@ -163,16 +163,6 @@ Public Data · Transparent Methods · Reproducible Analysis · Responsible AI
 
 公开 GitHub 仓库提供平台代码和公开研究基础设施。
 
-尚未发表的论文、受限研究材料、私有数据以及未公开的研究分析与公共平台严格分离。
-
-未来，在相关论文完成学术审查和正式发布后，可进一步提供：
-Publications
-Reproducibility Packages
-Recommended Citations
-Archived Research Outputs
-DOI / Zenodo Records
-⚠️ Responsible Use
-
 NEXORA 用于科研、教学和探索性分析。
 
 平台不提供：
