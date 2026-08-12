@@ -56,7 +56,6 @@ yarn-error.log*
 /temp/
 /.public-release/
 /research/private/
-/research/paper-01/
 /deployment-archives/
 *.zip
 *.tar
