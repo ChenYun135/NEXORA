@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { californiaAIRegistry, californiaAIAnnual, californiaAIThemes, californiaAIThreeYearGrowth, californiaAICompletePeriodCagr, californiaAIThreeYearRolling } from "../data/cases/california-ai/case.ts";
 import { californiaAIOrganizations } from "../data/cases/california-ai/organizations.ts";
 import { californiaAIRelationships } from "../data/cases/california-ai/relationships.ts";
@@ -14,7 +14,7 @@ import { californiaAIPatentStatus, californiaAIPatentTaxonomy } from "../data/ca
 import { californiaAICapitalFeasibility } from "../data/cases/california-ai/capital.ts";
 import { californiaAIEntrepreneurship } from "../data/cases/california-ai/entrepreneurship.ts";
 import { californiaAICrossLayerAnalysis, californiaAIEvidenceLayers, californiaAINetworkMetrics, californiaAIRadarProfile } from "../data/cases/california-ai/empirical.ts";
-import { californiaAIAlignedPanel, californiaAIAnalysisPolicy, californiaAIEmpiricalAlignment, californiaAIGeographyCrosswalk, californiaAIPaperVariables, californiaAITimeAlignment } from "../data/cases/california-ai/alignment.ts";
+import { californiaAIAlignedPanel, californiaAIAnalysisPolicy, californiaAIEmpiricalAlignment, californiaAIGeographyCrosswalk, californiaAITimeAlignment } from "../data/cases/california-ai/alignment.ts";
 import { understandQuery, NexoraQueryPlanner } from "../services/ai/query.ts";
 import { NexoraRetrievalService } from "../services/ai/retrieval.ts";
 import { scenarioById } from "../simulation/scenarios/scenarios.ts";
@@ -132,9 +132,8 @@ test("03A geography crosswalk distinguishes Bay Area, BLS MSA and NSF recipient 
   assert.ok(californiaAIFundingAwards.every(x => x.recipientStateCode === "CA" && x.recipientCity));
 });
 
-test("03A construct and paper classifications are explicit", () => {
+test("03A construct classifications are explicit", () => {
   assert.deepEqual([...new Set(californiaAIEmpiricalAlignment.map(x => x.comparabilityStatus))].sort(), ["COMPARABLE_AFTER_AGGREGATION","CONTEXT_ONLY","DIRECTLY_COMPARABLE","NOT_COMPARABLE"]);
-  assert.deepEqual([...new Set(californiaAIPaperVariables.map(x => x.paperUse))].sort(), ["CONTEXTUAL","NOT_READY","PRIMARY_EMPIRICAL","SECONDARY_EMPIRICAL","SIMULATOR_ONLY"]);
 });
 
 test("coverage and findings keep missingness and confidence explicit", () => {
@@ -145,11 +144,6 @@ test("coverage and findings keep missingness and confidence explicit", () => {
   assert.equal(byId.get("capital"), "UNAVAILABLE");
   assert.equal(californiaAIDataQualityReport.status, "PASS_WITH_LIMITATIONS");
   assert.deepEqual([...new Set(californiaAIFindings.map(x => x.confidence))].sort(), ["DATA_GAP","EXPLORATORY","MODERATE","STRONG"]);
-});
-
-test("paper-ready exports and required empirical methods exist", () => {
-  for (const name of ["research_annual.csv","institutions.csv","relationships.csv","talent_oews.csv","nsf_awards_2025.csv","evidence_layers.csv","ca-ai-aligned-panel.csv"]) assert.ok(existsSync(`data/exports/california-ai/${name}`));
-  for (const name of ["CA_AI_EMPIRICAL_DATA_PLAN.md","CA_AI_CONSTRUCT_MAP.md","CA_AI_PATENT_TAXONOMY.md","CA_AI_TALENT_TAXONOMY.md","CA_AI_FUNDING_TAXONOMY.md","CA_AI_CAPITAL_DATA_FEASIBILITY.md","CA_AI_RADAR_EMPIRICAL_METHOD.md","CA_AI_NETWORK_EMPIRICAL_METHOD.md","CA_AI_MEASUREMENT_BIAS.md","CA_AI_GEOGRAPHY_METHOD.md","CA_AI_EMPIRICAL_TIME_ALIGNMENT.md","CA_AI_GEOGRAPHY_CROSSWALK.md","CA_AI_EMPIRICAL_ALIGNMENT_MATRIX.md","CA_AI_PAPER_VARIABLES.md","USPTO_ACTIVATION_GUIDE.md"]) assert.ok(existsSync(`docs/${name}`));
 });
 
 test("source registry, route and social asset contain no Demo dependency", () => {

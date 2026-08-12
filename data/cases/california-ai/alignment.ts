@@ -6,19 +6,12 @@ export type CaliforniaAIComparabilityStatus =
   | "CONTEXT_ONLY"
   | "NOT_COMPARABLE";
 
-export type CaliforniaAIPaperUse =
-  | "PRIMARY_EMPIRICAL"
-  | "SECONDARY_EMPIRICAL"
-  | "CONTEXTUAL"
-  | "SIMULATOR_ONLY"
-  | "NOT_READY";
-
 export const californiaAIAnalysisPolicy = {
   version: "ca-ai-alignment-v1.0",
   commonCompleteYearWindow: { firstYear: 2015, lastYear: 2025 },
   commonCrossLayerReferenceYear: 2025,
   commonCrossLayerLongitudinalPanelAvailable: false,
-  partialYearPolicy: "OpenAlex 2026 is PARTIAL_YEAR and is excluded from complete-year growth, CAGR, the aligned panel, and paper trend comparisons.",
+  partialYearPolicy: "OpenAlex 2026 is PARTIAL_YEAR and is excluded from complete-year growth, CAGR, and aligned-panel comparisons.",
   crossLayerPolicy: "OpenAlex, NSF and BLS may be described together only as context. Their geography, unit and time coverage do not support a direct combined index, correlation or lag analysis.",
 } as const;
 
@@ -47,20 +40,6 @@ export const californiaAIEmpiricalAlignment = [
   { construct: "AI-adjacent workforce / talent proxy", metric: "Employment, location quotient and mean wage by SOC", provider: "BLS OEWS", measurementType: "PROXY", geographyLevel: "San Jose-Sunnyvale-Santa Clara MSA", timeCoverage: "May 2025", unit: "jobs / LQ / nominal USD", aggregationMethod: "Source-published occupation estimates", comparabilityStatus: "CONTEXT_ONLY", researchUse: "Selected workforce context", simulatorUse: "Regional contextual proxy only", limitations: "Not AI-worker counts, not Bay Area aggregate and not statewide talent." },
   { construct: "Public research funding / public R&D support", metric: "Award count and nominal funds obligated", provider: "NSF Award Search API", measurementType: "OBSERVED", geographyLevel: "California recipient state", timeCoverage: "2025 award dates", unit: "awards / nominal USD", aggregationMethod: "Deduplicated title taxonomy; sum of obligations", comparabilityStatus: "CONTEXT_ONLY", researchUse: "Secondary public-funding evidence", simulatorUse: "Public-funding input context", limitations: "One agency/year; recipient location is not award-impact geography or innovation effectiveness." },
   { construct: "Patent activity", metric: "CPC-qualified application records", provider: "USPTO ODP Patent File Wrapper", measurementType: "OBSERVED", geographyLevel: "Source-record assignee/applicant address rule", timeCoverage: "Unavailable until activation", unit: "applications / grants", aggregationMethod: "Credential-ready adapter; no production promotion", comparabilityStatus: "NOT_COMPARABLE", researchUse: "Not ready", simulatorUse: "Unavailable", limitations: "Production access is not configured; no production patent data." },
-] as const;
-
-export const californiaAIPaperVariables = [
-  { variable: "research_work_count", construct: "Research activity", paperUse: "PRIMARY_EMPIRICAL" as CaliforniaAIPaperUse, definition: "Annual unique AI-subfield works in the fixed 16-institution frame", source: "OpenAlex", geography: "california-selected-institution-frame", time: "2015-2025", unit: "works", transformation: "None", measurementType: "OBSERVED", coverage: "11 complete years", limitation: "Activity proxy; not quality or statewide census." },
-  { variable: "research_growth_2022_2025", construct: "Research dynamics", paperUse: "PRIMARY_EMPIRICAL" as CaliforniaAIPaperUse, definition: "Complete-year percentage change in research work count", source: "OpenAlex", geography: "california-selected-institution-frame", time: "2022-2025", unit: "percent", transformation: "(2025-2022)/2022*100", measurementType: "DERIVED", coverage: "Compatible complete-year endpoints", limitation: "Sensitive to the selected frame and taxonomy." },
-  { variable: "institution_participation", construct: "Institution participation", paperUse: "SECONDARY_EMPIRICAL" as CaliforniaAIPaperUse, definition: "Institution-associated complete-period work count", source: "OpenAlex", geography: "institution", time: "2015-2025", unit: "works", transformation: "Provider group-by", measurementType: "OBSERVED", coverage: "16 institutions", limitation: "Overlapping affiliations; not additive." },
-  { variable: "network_degree", construct: "Research network structure", paperUse: "SECONDARY_EMPIRICAL" as CaliforniaAIPaperUse, definition: "Positive co-authorship degree within the selected frame", source: "OpenAlex", geography: "institution frame", time: "2015-2025 recommended", unit: "connected institutions", transformation: "Within-frame graph derivation", measurementType: "DERIVED", coverage: "16 institutions", limitation: "Frame-dependent." },
-  { variable: "nsf_award_count_2025", construct: "Public R&D support", paperUse: "SECONDARY_EMPIRICAL" as CaliforniaAIPaperUse, definition: "Deduplicated title-qualified NSF awards", source: "NSF Award Search API", geography: "California recipient state", time: "2025", unit: "awards", transformation: "Deduplicate award ID", measurementType: "OBSERVED", coverage: "One agency and award year", limitation: "Not total California AI funding." },
-  { variable: "nsf_obligations_2025", construct: "Public R&D support", paperUse: "SECONDARY_EMPIRICAL" as CaliforniaAIPaperUse, definition: "Nominal funds obligated for title-qualified awards", source: "NSF Award Search API", geography: "California recipient state", time: "2025", unit: "nominal USD", transformation: "Sum accepted records", measurementType: "OBSERVED", coverage: "One agency and award year", limitation: "Not effectiveness or impact." },
-  { variable: "bls_ai_adjacent_employment", construct: "AI-adjacent workforce", paperUse: "CONTEXTUAL" as CaliforniaAIPaperUse, definition: "OEWS employment for selected SOC occupations", source: "BLS OEWS", geography: "San Jose-Sunnyvale-Santa Clara MSA", time: "May 2025", unit: "jobs", transformation: "None", measurementType: "PROXY", coverage: "Five occupations; one MSA cross-section", limitation: "Not AI workers or statewide talent." },
-  { variable: "scenario_parameter_values", construct: "Scenario assumptions", paperUse: "SIMULATOR_ONLY" as CaliforniaAIPaperUse, definition: "Reviewed scenario-model parameter values", source: "NEXORA", geography: "Conceptual California case", time: "Scenario horizon", unit: "model-specific", transformation: "Model equations", measurementType: "ASSUMPTION", coverage: "Scenario model", limitation: "Not empirical paper outcomes." },
-  { variable: "uspto_ai_patent_count", construct: "Patent activity", paperUse: "NOT_READY" as CaliforniaAIPaperUse, definition: "CPC-qualified California application or grant count", source: "USPTO ODP", geography: "Not finalized until production review", time: "Unavailable", unit: "records", transformation: "Not activated", measurementType: "UNAVAILABLE", coverage: "NOT_CONFIGURED", limitation: "No server-side key or promoted production snapshot." },
-  { variable: "ai_startup_formation", construct: "Entrepreneurship", paperUse: "NOT_READY" as CaliforniaAIPaperUse, definition: "California AI startup formation", source: "None", geography: "California", time: "Unavailable", unit: "firms", transformation: "None", measurementType: "UNAVAILABLE", coverage: "Unavailable", limitation: "Census BFS cannot identify AI startups." },
-  { variable: "venture_capital", construct: "Capital availability", paperUse: "NOT_READY" as CaliforniaAIPaperUse, definition: "California AI transaction-level venture capital", source: "None", geography: "California", time: "Unavailable", unit: "nominal USD", transformation: "None", measurementType: "UNAVAILABLE", coverage: "Unavailable", limitation: "No source passed the feasibility gate." },
 ] as const;
 
 export const californiaAIAlignedPanel = californiaAIAnnual

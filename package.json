@@ -19,7 +19,6 @@
     "test:ai": "node --experimental-strip-types --test tests/ai-copilot.test.ts",
     "test:simulator": "node --experimental-strip-types --test tests/simulator.test.ts",
     "test:case:california-ai": "node --experimental-strip-types --test tests/california-ai-case.test.ts",
-    "test:research:paper-01": "node --experimental-strip-types --test tests/research-paper-01.test.ts",
     "data:refresh": "node --experimental-strip-types scripts/data-pipeline.ts refresh",
     "data:validate": "node --experimental-strip-types scripts/data-pipeline.ts validate",
     "data:quality": "node --experimental-strip-types scripts/data-pipeline.ts quality",
