@@ -3,6 +3,7 @@ import { FormEvent,useCallback,useEffect,useRef,useState } from "react";
 import Link from "@/components/safe-link";
 import type { AIAnswer,AILanguage,AIQueryContext,EvidenceItem,EvidencePack } from "@/domain/ai";
 import styles from "./nexora-ai-workspace.module.css";
+import { ModuleLanding } from "./module-landing";
 import { useNexoraLanguage } from "@/hooks/use-nexora-language";
 
 type Result={answer:AIAnswer;evidencePack:EvidencePack;provider:{id:string;modelIdentifier:string|null;liveModelConfigured:boolean;generationMode:string}};
@@ -35,6 +36,8 @@ export function NexoraAIWorkspace(){const [lang,setLang]=useNexoraLanguage(),[qu
  const submit=(e:FormEvent)=>{e.preventDefault();void run(question,context,lang)},selectStarter=(q:string)=>{setQuestion(q);void run(q,context,lang)},clear=()=>{setQuestion("");setResult(null);setError("");setContext(emptyContext)};
  const activeContext=[...context.caseIds,...context.technologyIds,...context.regionIds,...context.organizationIds,...context.policyIds,...context.industryIds],answer=result?.answer,evidence=result?.evidencePack.items.filter(x=>!["DATA_STATUS"].includes(x.kind))??[],coverage=result?.evidencePack.coverage,starters=context.caseIds.includes("california-ai")?caseStarter:starter;
  return <main className={styles.page}>
+  <ModuleLanding image="/ai-og.png" eyebrow="NEXORA / FUTURE INDUSTRY INTELLIGENCE" title={lang==="en"?"NEXORA AI":"NEXORA AI"} subtitle={lang==="en"?"Evidence-based intelligence for emerging industries":"面向未来产业的循证智能"} description={lang==="en"?"Ask cross-domain questions and inspect the evidence, sources and gaps behind every answer.":"提出跨领域问题，并查看每项回答背后的证据、来源与缺口。"} enterLabel={lang==="en"?"Enter data workspace":"进入数据工作台"} insightLabel={lang==="en"?"Methods & evidence":"方法与证据"} lang={lang}/>
+  <div id="workspace"/>
   <header className={styles.header}><div><Link prefetch={false} href="/" className={styles.brand}><span>N</span>NEXORA</Link><Link prefetch={false} href="/" className={styles.back}>← {t.back}</Link></div><nav aria-label="Language"><button className={lang==="en"?styles.on:""} onClick={()=>setLang("en")}>EN</button><button className={lang==="zh"?styles.on:""} onClick={()=>setLang("zh")}>中文</button></nav></header>
   <section className={styles.hero}><p>{t.eyebrow}</p><h1>{t.title}</h1><h2>{t.tagline}</h2><h3>{t.support}</h3><div className={styles.readiness}><span><i/>{t.model}<b>{t.notConfigured}</b></span><span>RESEARCH<b>PUBLIC DATA</b></span><span>PATENTS<b>NOT CONFIGURED</b></span><span>POLICY · ORGS<b>VERIFIED PILOT</b></span></div></section>
   <div className={styles.workspace}>

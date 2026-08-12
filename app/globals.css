@@ -95,6 +95,9 @@ h1 .accent { background:linear-gradient(90deg,#cdeeff,#6ebcff 45%,#b68aff);backg
 [class*="_back_"],[class*="_status_"],[class*="_live_"],[class*="_eyebrow_"],[class*="_mini_"],[class*="_tag_"],[class*="_label_"],[class*="_hint_"],[class*="_footer_"]{font-size:11px!important;line-height:1.55}
 [class*="_panel_"] small,[class*="_card_"] small,[class*="_section_"] small,[class*="_hero_"] small{font-size:11px!important;line-height:1.55}
 [class*="_panel_"] button,[class*="_filter_"] button,[class*="_filter_"] select,[class*="_tabs_"] button{font-size:12px!important;line-height:1.4}
+/* Shared readability floor for dense intelligence workspaces. */
+[class*="_page_"] p,[class*="_atlas_"] p,[class*="_radar_"] p,[class*="_ecosystems_"] p,[class*="_policy_"] p{font-size:max(12px,1em);line-height:1.65}
+[class*="_page_"] small,[class*="_atlas_"] small,[class*="_radar_"] small,[class*="_ecosystems_"] small,[class*="_policy_"] small{font-size:11px;line-height:1.55}
 @keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{50%{box-shadow:0 0 0 13px transparent,0 0 18px #fff}}
 @media(max-width:1200px){.kpis{grid-template-columns:repeat(3,1fr)}.hotspots{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.hero-copy{padding-bottom:10px}.hero-viz{min-height:350px}}
 @media(max-width:800px){.sidebar{transform:translateX(-100%);transition:.25s;overflow-y:auto}.sidebar.open{transform:none}.main{margin-left:0}.menu-btn{display:block}.content{padding:18px}.topbar{padding:0 18px}.hero-copy{padding:40px 24px 5px}.hero-viz{min-height:320px}.grid-2{grid-template-columns:1fr}.journey-grid{grid-template-columns:repeat(2,1fr)}.kpis{grid-template-columns:repeat(2,1fr)}.hotspots{grid-template-columns:1fr}.live{display:none}.panel{min-height:auto}.demo-note{flex-direction:column}}

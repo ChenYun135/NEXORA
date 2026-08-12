@@ -5,6 +5,7 @@ import { atlasHotspots, atlasIndustries, metricOrder, type AtlasHotspot, type In
 import { useNexoraLanguage } from "@/hooks/use-nexora-language";
 import { parseAtlasQuery } from "@/lib/product-query";
 import styles from "./atlas.module.css";
+import { ModuleLanding } from "./module-landing";
 
 type Lang="en"|"zh"; type Layer=IndustryId|"all"; type PanelTab="overview"|"ecosystem"|"evidence";
 const ui={
@@ -24,6 +25,8 @@ export function Atlas(){
  const ranked=useMemo(()=>[...atlasHotspots].sort((a,b)=>(b.industries[focusIndustry.id]??0)-(a.industries[focusIndustry.id]??0)).slice(0,6),[focusIndustry.id]);
  const select=(id:string)=>{setSelectedId(id);setPanel(true);setTab("overview")};
  return <main className={styles.atlas}>
+  <ModuleLanding image="/atlas-og.png" eyebrow="NEXORA / FUTURE INDUSTRY INTELLIGENCE" title={lang==="en"?"NEXORA ATLAS":"NEXORA 全球产业图谱"} subtitle={lang==="en"?"Map the geography of emerging industries":"解析未来产业的全球创新版图"} description={lang==="en"?"Explore regions, industries and innovation capabilities through interactive geographic evidence.":"通过交互式地理证据探索区域、产业与创新能力。"} enterLabel={lang==="en"?"Enter data workspace":"进入数据工作台"} insightLabel={lang==="en"?"Methods & evidence":"方法与证据"} lang={lang}/>
+  <div id="workspace"/>
   <header className={styles.header}><div className={styles.brandLine}><Link href="/" className={styles.brand}><span>N</span>NEXORA</Link><span className={styles.divider}/><Link href="/" className={styles.back}>← {t.back}</Link></div><div className={styles.headerActions}><span className={styles.live}><i/>{t.live}</span><div className={styles.lang}><button className={lang==="en"?styles.active:""} onClick={()=>setLang("en")}>EN</button><button className={lang==="zh"?styles.active:""} onClick={()=>setLang("zh")}>中文</button></div></div></header>
   <section className={styles.intro}><div><p>GLOBAL INDUSTRY GEOGRAPHY / 02</p><h1>{t.atlas}</h1><h2>{t.tagline}</h2></div><div className={styles.coordinates}>WORLD VIEW<br/>LAYER 09 / REGION 18<br/>UTC 23:24:08</div></section>
   <section className={styles.mapSection} aria-label={t.mapLabel}>
