@@ -1,0 +1,63 @@
+{
+  "name": "nexora-future-industry-intelligence",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "vinext dev",
+    "build": "vinext build",
+    "start": "vinext start",
+    "typecheck": "tsc --noEmit --incremental false",
+    "test": "npm run build && node --experimental-strip-types --test tests/radar-score.test.ts tests/ecosystem-graph.test.ts tests/policy-intelligence.test.ts tests/organization-intelligence.test.ts tests/public-data-pipeline.test.ts tests/ai-copilot.test.ts tests/simulator.test.ts tests/product-integration.test.ts tests/california-ai-case.test.ts tests/rendered-html.test.mjs",
+    "test:radar": "node --experimental-strip-types --test tests/radar-score.test.ts tests/rendered-html.test.mjs",
+    "test:ecosystems": "node --experimental-strip-types --test tests/ecosystem-graph.test.ts tests/rendered-html.test.mjs",
+    "test:policy": "node --experimental-strip-types --test tests/policy-intelligence.test.ts tests/rendered-html.test.mjs",
+    "test:organizations": "node --experimental-strip-types --test tests/organization-intelligence.test.ts tests/rendered-html.test.mjs",
+    "test:public-data": "node --experimental-strip-types --test tests/public-data-pipeline.test.ts",
+    "test:ai": "node --experimental-strip-types --test tests/ai-copilot.test.ts",
+    "test:simulator": "node --experimental-strip-types --test tests/simulator.test.ts",
+    "test:case:california-ai": "node --experimental-strip-types --test tests/california-ai-case.test.ts",
+    "test:research:paper-01": "node --experimental-strip-types --test tests/research-paper-01.test.ts",
+    "data:refresh": "node --experimental-strip-types scripts/data-pipeline.ts refresh",
+    "data:validate": "node --experimental-strip-types scripts/data-pipeline.ts validate",
+    "data:quality": "node --experimental-strip-types scripts/data-pipeline.ts quality",
+    "data:case:california-ai": "node --experimental-strip-types scripts/california-ai-refresh.ts --write",
+    "data:case:california-ai:dry-run": "node --experimental-strip-types scripts/california-ai-refresh.ts",
+    "data:case:california-ai:export": "node --experimental-strip-types scripts/california-ai-exports.ts",
+    "data:case:california-ai:uspto:dry-run": "node --experimental-strip-types scripts/california-ai-uspto.ts",
+    "data:case:california-ai:uspto:live-dry-run": "node --experimental-strip-types scripts/california-ai-uspto.ts --live-dry-run",
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern research --ignore-pattern .public-release"
+  },
+  "dependencies": {
+    "drizzle-orm": "0.45.2",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.51.3",
+    "@cloudflare/workers-types": "5.20260812.1",
+    "@eslint/js": "9.39.4",
+    "@next/eslint-plugin-next": "16.2.6",
+    "@tailwindcss/postcss": "4.2.1",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.2",
+    "@vitejs/plugin-rsc": "0.5.26",
+    "eslint": "9.39.4",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "16.4.0",
+    "react-server-dom-webpack": "19.2.8",
+    "tailwindcss": "4.2.1",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.59.3",
+    "vinext": "1.0.0-beta.5",
+    "vite": "8.2.1",
+    "wrangler": "4.121.0"
+  },
+  "type": "module"
+}

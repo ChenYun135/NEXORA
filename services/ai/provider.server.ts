@@ -1,0 +1,12 @@
+import type { AIProviderRequest, AIProviderResponse, AILanguage, AIQueryContext } from "../../domain/ai.ts";
+import type { GroundedAIProvider } from "../providers.ts";
+import { generateEvidenceFirstAnswer } from "./answer.ts";
+import { aiConfig } from "./config.ts";
+import { NexoraQueryPlanner,understandQuery } from "./query.ts";
+import { NexoraRetrievalService } from "./retrieval.ts";
+
+export class EvidenceFirstAIProvider implements GroundedAIProvider {readonly id="nexora-evidence-first";readonly modelIdentifier=null;isAvailable(){return true}async generateGroundedAnswer(request:AIProviderRequest):Promise<AIProviderResponse>{const started=Date.now();return {answer:generateEvidenceFirstAnswer(request.evidencePack),rawProviderMetadata:{provider:this.id,modelIdentifier:null,latencyMs:Date.now()-started}}}}
+export class MockAIProvider implements GroundedAIProvider {readonly id="mock-ai-provider";readonly modelIdentifier="deterministic-test-v1";isAvailable(){return true}async generateGroundedAnswer(request:AIProviderRequest):Promise<AIProviderResponse>{return {answer:generateEvidenceFirstAnswer(request.evidencePack),rawProviderMetadata:{provider:this.id,modelIdentifier:this.modelIdentifier,latencyMs:1}}}}
+export interface NexoraAIRequest {text:string;language?:AILanguage;context?:Partial<AIQueryContext>;}
+function withTimeout<T>(promise:Promise<T>,timeoutMs:number):Promise<T>{return new Promise<T>((resolve,reject)=>{const timer=setTimeout(()=>reject(new Error("AI_PROVIDER_TIMEOUT")),timeoutMs);promise.then(value=>{clearTimeout(timer);resolve(value)},error=>{clearTimeout(timer);reject(error)})})}
+export class NexoraAIService {private planner=new NexoraQueryPlanner();private retrieval=new NexoraRetrievalService();private provider:GroundedAIProvider;constructor(provider:GroundedAIProvider=new EvidenceFirstAIProvider()){this.provider=provider}async answer(input:NexoraAIRequest){const query=understandQuery(input.text,input.context,input.language),plan=this.planner.plan(query),evidencePack=this.retrieval.retrieve(query,plan);const request:AIProviderRequest={query,plan,evidencePack,promptVersion:"nexora-ai-1.0.0",maxAnswerLength:aiConfig.maxAnswerLength};const providerResponse=await withTimeout(this.provider.generateGroundedAnswer(request),aiConfig.timeoutMs);return {query,plan,evidencePack,answer:providerResponse.answer,provider:{id:this.provider.id,modelIdentifier:this.provider.modelIdentifier,liveModelConfigured:false,generationMode:providerResponse.answer.metadata.generationMode}}}}

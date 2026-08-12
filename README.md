@@ -1,10 +1,11 @@
 # NEXORA
 
-**Evidence-based future-industry intelligence / 鍩轰簬璇佹嵁鐨勬湭鏉ヤ骇涓氭儏鎶?*
+**Evidence-based future-industry intelligence / 基于证据的未来产业情报**
 
-NEXORA connects public data, geography, emerging signals, innovation networks, policy, organizations, evidence-grounded AI synthesis, and transparent scenarios. It is a research and exploration product鈥攏ot an investment, legal, regulatory, or forecasting service.
+NEXORA connects public data, geography, emerging signals, innovation networks, policy, organizations, evidence-grounded AI synthesis, and transparent scenarios. It is a research and exploration product—not an investment, legal, regulatory, or forecasting service.
 
-NEXORA 杩炴帴鍏叡鏁版嵁銆佷骇涓氬湴鐞嗐€佹柊鍏翠俊鍙枫€佸垱鏂扮綉缁溿€佹斂绛栥€佺粍缁囥€佸惊璇?AI 缁煎悎涓庨€忔槑鎯呮櫙妯″瀷銆傛湰椤圭洰鐢ㄤ簬鐮旂┒涓庢帰绱紝涓嶆瀯鎴愭姇璧勩€佹硶寰嬨€佺洃绠℃垨棰勬祴鏈嶅姟銆?
+NEXORA 连接公共数据、产业地理、新兴信号、创新网络、政策、组织、循证 AI 综合与透明情景模型。本项目用于研究与探索，不构成投资、法律、监管或预测服务。
+
 ![NEXORA public release candidate dashboard](public/readme/nexora-home.png)
 
 | Evidence trust center | California AI flagship case |
@@ -13,15 +14,15 @@ NEXORA 杩炴帴鍏叡鏁版嵁銆佷骇涓氬湴鐞嗐€佹柊鍏翠俊鍙�
 
 ## Public release candidate 1.0
 
-- `/data-status` 鈥?provider coverage, provenance, freshness, quality, and license status
-- `/atlas` 鈥?geographic context with explicit evidence modes
-- `/radar` 鈥?emerging-signal exploration; composite scores are labeled Demo or Derived
-- `/ecosystems` 鈥?organization-level network views; no people graph or private contacts
-- `/policy` 鈥?official-policy context; no legal advice or causal impact claims
-- `/companies` 鈥?public organization intelligence; no personal profiling
-- `/ai` 鈥?deterministic, evidence-first synthesis with citations and refusal boundaries
-- `/simulator` 鈥?scenario outputs under explicit assumptions; simulation is not prediction
-- `/cases/california-ai` 鈥?a selected California AI evidence panel, not a statewide census
+- `/data-status` — provider coverage, provenance, freshness, quality, and license status
+- `/atlas` — geographic context with explicit evidence modes
+- `/radar` — emerging-signal exploration; composite scores are labeled Demo or Derived
+- `/ecosystems` — organization-level network views; no people graph or private contacts
+- `/policy` — official-policy context; no legal advice or causal impact claims
+- `/companies` — public organization intelligence; no personal profiling
+- `/ai` — deterministic, evidence-first synthesis with citations and refusal boundaries
+- `/simulator` — scenario outputs under explicit assumptions; simulation is not prediction
+- `/cases/california-ai` — a selected California AI evidence panel, not a statewide census
 
 ## Trust model
 
@@ -65,5 +66,4 @@ Version: `1.0.0` public release candidate. No DOI or public repository URL is cl
 
 ## Roadmap
 
-The next authorized action is publication of this audited candidate鈥攏ot a new Sprint or major feature. Later work may add validated providers, production performance monitoring, and a DOI-backed archival release, but only with the same provenance, licensing, privacy, and missing-data gates. Live demo URL: **pending explicit public-access authorization**.
-
+The next authorized action is publication of this audited candidate—not a new Sprint or major feature. Later work may add validated providers, production performance monitoring, and a DOI-backed archival release, but only with the same provenance, licensing, privacy, and missing-data gates. Live demo URL: **pending explicit public-access authorization**.

@@ -1,0 +1,64 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+/test-results/
+/playwright-report/
+
+# next.js
+/.next/
+/.vinext/
+/out/
+
+# misc
+.DS_Store
+/.dev-server*.log
+/.qa-server*.log
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.sqlite*
+*.db
+*.log
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+!.env.example
+
+# vercel
+.vercel
+
+/dist/
+/.wrangler/
+/outputs/
+/work/
+/cache/
+/checkpoints/
+/tmp/
+/temp/
+/.public-release/
+/research/private/
+/research/paper-01/
+/deployment-archives/
+*.zip
+*.tar
+*.tgz
+*.tsbuildinfo

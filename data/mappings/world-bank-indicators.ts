@@ -1,0 +1,5 @@
+export interface WorldBankIndicatorConfig {indicatorId:string;nexoraMetricKey:string;title:{en:string;zh:string};description:{en:string;zh:string};unit:string;geographyLevel:"COUNTRY";updateFrequency:"ANNUAL";source:string;rationale:{en:string;zh:string};enabled:boolean;}
+export const worldBankIndicators:WorldBankIndicatorConfig[]=[
+ {indicatorId:"GB.XPD.RSDV.GD.ZS",nexoraMetricKey:"rd_expenditure_gdp_share",title:{en:"R&D expenditure",zh:"研发支出"},description:{en:"Research and development expenditure as a share of GDP.",zh:"研发支出占国内生产总值比重。"},unit:"% of GDP",geographyLevel:"COUNTRY",updateFrequency:"ANNUAL",source:"World Development Indicators",rationale:{en:"Country context only; never treated as metro precision.",zh:"仅作为国家层面背景，不代表都市圈精度。"},enabled:true},
+ {indicatorId:"TX.VAL.TECH.MF.ZS",nexoraMetricKey:"high_technology_exports_share",title:{en:"High-technology exports",zh:"高技术出口"},description:{en:"Share of manufactured exports.",zh:"占制成品出口的比重。"},unit:"% of manufactured exports",geographyLevel:"COUNTRY",updateFrequency:"ANNUAL",source:"World Development Indicators",rationale:{en:"Optional manufacturing context.",zh:"可选制造业背景指标。"},enabled:false}
+];

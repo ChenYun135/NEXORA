@@ -1,0 +1,7 @@
+"layer_id","status","provider","records","period"
+"research","OBSERVED_PUBLIC_DATA","OpenAlex","37499","2015-2026 (2026 partial)"
+"network","DERIVED_METRIC","OpenAlex","112","2015-2025 complete; 2026 partial"
+"talent","OBSERVED_PUBLIC_DATA","BLS OEWS","5","May 2025 cross-section"
+"public-funding","OBSERVED_PUBLIC_DATA","NSF Award Search API","63","2025 award dates"
+"patents","NOT_CONFIGURED","USPTO ODP","",""
+"capital","UNAVAILABLE","","",""

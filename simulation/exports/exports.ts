@@ -1,0 +1,4 @@
+import type { Scenario,SimulationRun } from "../../domain/simulation.ts";
+
+export function simulationToCsv(run:SimulationRun){const series=run.outputs.series,years=series[0]?.points.map(x=>x.year)??[];const rows=[`year,${series.map(x=>x.id).join(",")}`,...years.map((year,i)=>`${year},${series.map(x=>x.points[i].value).join(",")}`)];return rows.join("\n")}
+export function scenarioToJson(scenario:Scenario,run:SimulationRun){return JSON.stringify({schemaVersion:"nexora-scenario-export-v1",scenario,run:{id:run.id,modelVersion:run.modelVersion,inputSnapshotIds:run.inputSnapshotIds,timeHorizon:run.timeHorizon,timeStep:run.timeStep,parameters:run.parameters,assumptions:run.assumptions,warnings:run.warnings,quality:run.quality,reproducibilityHash:run.reproducibilityHash,outputs:run.outputs}},null,2)}

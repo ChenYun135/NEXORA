@@ -1,0 +1,1470 @@
+{
+  "caseId": "california-ai",
+  "caseVersion": "ca-ai-case-v2.0",
+  "snapshotDate": "2026-08-11",
+  "provider": "OpenAlex",
+  "providerUrl": "https://developers.openalex.org/",
+  "license": {
+    "name": "CC0",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  "apiBehavior": {
+    "verifiedAt": "2026-08-11",
+    "endpoint": "/works",
+    "aiSubfieldId": "1702",
+    "publicationYears": "2015-2026",
+    "completeYears": "2015-2025",
+    "aggregationOnly": true
+  },
+  "scope": {
+    "institutionSelection": "Top 200 U.S. institutions by 2015-2025 OpenAlex AI-subfield work count, filtered to OpenAlex geo.region = California; tiers describe coverage volume, not quality.",
+    "candidateFrameSize": 200,
+    "californiaInstitutionCount": 16,
+    "thresholdNote": "The top-200 candidate-frame boundary is an activity-coverage cutoff; it is not a statewide census or importance ranking.",
+    "institutions": [
+      {
+        "id": "I1291425158",
+        "name": "Google (United States)",
+        "type": "company",
+        "city": "Mountain View",
+        "regionId": "sf-bay-area",
+        "homepageUrl": "https://www.google.com/",
+        "ror": "https://ror.org/00njsd438",
+        "completePeriodWorkCount": 6409,
+        "coverageTier": "A"
+      },
+      {
+        "id": "I97018004",
+        "name": "Stanford University",
+        "type": "education",
+        "city": "Stanford",
+        "regionId": "sf-bay-area",
+        "homepageUrl": "https://www.stanford.edu",
+        "ror": "https://ror.org/00f54p054",
+        "completePeriodWorkCount": 6088,
+        "coverageTier": "A"
+      },
+      {
+        "id": "I95457486",
+        "name": "University of California, Berkeley",
+        "type": "education",
+        "city": "Berkeley",
+        "regionId": "sf-bay-area",
+        "homepageUrl": "https://www.berkeley.edu",
+        "ror": "https://ror.org/01an7q238",
+        "completePeriodWorkCount": 5165,
+        "coverageTier": "A"
+      },
+      {
+        "id": "I1174212",
+        "name": "University of Southern California",
+        "type": "education",
+        "city": "Los Angeles",
+        "regionId": "los-angeles",
+        "homepageUrl": "https://usc.edu",
+        "ror": "https://ror.org/03taz7m60",
+        "completePeriodWorkCount": 3934,
+        "coverageTier": "A"
+      },
+      {
+        "id": "I161318765",
+        "name": "University of California, Los Angeles",
+        "type": "education",
+        "city": "Los Angeles",
+        "regionId": "los-angeles",
+        "homepageUrl": "https://www.ucla.edu",
+        "ror": "https://ror.org/046rm7j60",
+        "completePeriodWorkCount": 2990,
+        "coverageTier": "A"
+      },
+      {
+        "id": "I36258959",
+        "name": "University of California San Diego",
+        "type": "education",
+        "city": "San Diego",
+        "regionId": "san-diego",
+        "homepageUrl": "https://ucsd.edu",
+        "ror": "https://ror.org/0168r3w48",
+        "completePeriodWorkCount": 2829,
+        "coverageTier": "A"
+      },
+      {
+        "id": "I204250578",
+        "name": "University of California, Irvine",
+        "type": "education",
+        "city": "Irvine",
+        "regionId": "orange-county",
+        "homepageUrl": "http://uci.edu/",
+        "ror": "https://ror.org/04gyf1771",
+        "completePeriodWorkCount": 1706,
+        "coverageTier": "B"
+      },
+      {
+        "id": "I122411786",
+        "name": "California Institute of Technology",
+        "type": "education",
+        "city": "Pasadena",
+        "regionId": "los-angeles",
+        "homepageUrl": "https://www.caltech.edu",
+        "ror": "https://ror.org/05dxps055",
+        "completePeriodWorkCount": 1607,
+        "coverageTier": "B"
+      },
+      {
+        "id": "I154570441",
+        "name": "University of California, Santa Barbara",
+        "type": "education",
+        "city": "Santa Barbara",
+        "regionId": "california",
+        "homepageUrl": "https://www.ucsb.edu",
+        "ror": "https://ror.org/02t274463",
+        "completePeriodWorkCount": 1584,
+        "coverageTier": "B"
+      },
+      {
+        "id": "I84218800",
+        "name": "University of California, Davis",
+        "type": "education",
+        "city": "Davis",
+        "regionId": "california",
+        "homepageUrl": "https://www.ucdavis.edu",
+        "ror": "https://ror.org/05rrcem69",
+        "completePeriodWorkCount": 1565,
+        "coverageTier": "B"
+      },
+      {
+        "id": "I185103710",
+        "name": "University of California, Santa Cruz",
+        "type": "education",
+        "city": "Santa Cruz",
+        "regionId": "sf-bay-area",
+        "homepageUrl": "https://www.ucsc.edu",
+        "ror": "https://ror.org/03s65by71",
+        "completePeriodWorkCount": 1015,
+        "coverageTier": "B"
+      },
+      {
+        "id": "I4210095624",
+        "name": "Alibaba Group (United States)",
+        "type": "company",
+        "city": "San Mateo",
+        "regionId": "sf-bay-area",
+        "homepageUrl": "http://alibabagroup.com/en/global/home",
+        "ror": "https://ror.org/00rn0m335",
+        "completePeriodWorkCount": 939,
+        "coverageTier": "C"
+      },
+      {
+        "id": "I103635307",
+        "name": "University of California, Riverside",
+        "type": "education",
+        "city": "Riverside",
+        "regionId": "california",
+        "homepageUrl": "https://www.ucr.edu",
+        "ror": "https://ror.org/03nawhv43",
+        "completePeriodWorkCount": 933,
+        "coverageTier": "C"
+      },
+      {
+        "id": "I1306409833",
+        "name": "Adobe Systems (United States)",
+        "type": "company",
+        "city": "San Jose",
+        "regionId": "sf-bay-area",
+        "homepageUrl": "https://www.adobe.com/",
+        "ror": "https://ror.org/059tvcg64",
+        "completePeriodWorkCount": 709,
+        "coverageTier": "C"
+      },
+      {
+        "id": "I1282311441",
+        "name": "Lawrence Livermore National Laboratory",
+        "type": "facility",
+        "city": "Livermore",
+        "regionId": "sf-bay-area",
+        "homepageUrl": "https://www.llnl.gov",
+        "ror": "https://ror.org/041nk4h53",
+        "completePeriodWorkCount": 537,
+        "coverageTier": "C"
+      },
+      {
+        "id": "I4210114444",
+        "name": "Meta (United States)",
+        "type": "company",
+        "city": "Menlo Park",
+        "regionId": "sf-bay-area",
+        "homepageUrl": "https://www.meta.com/",
+        "ror": "https://ror.org/01zbnvs85",
+        "completePeriodWorkCount": 497,
+        "coverageTier": "C"
+      }
+    ]
+  },
+  "totals": {
+    "uniqueWorks": 37499,
+    "annualObservationCount": 12,
+    "institutionCount": 16,
+    "topicCount": 77,
+    "relationshipCount": 112
+  },
+  "annual": [
+    {
+      "year": 2015,
+      "workCount": 1748
+    },
+    {
+      "year": 2016,
+      "workCount": 1760
+    },
+    {
+      "year": 2017,
+      "workCount": 2107
+    },
+    {
+      "year": 2018,
+      "workCount": 2867
+    },
+    {
+      "year": 2019,
+      "workCount": 4035
+    },
+    {
+      "year": 2020,
+      "workCount": 4863
+    },
+    {
+      "year": 2021,
+      "workCount": 4865
+    },
+    {
+      "year": 2022,
+      "workCount": 3063
+    },
+    {
+      "year": 2023,
+      "workCount": 3546
+    },
+    {
+      "year": 2024,
+      "workCount": 3084
+    },
+    {
+      "year": 2025,
+      "workCount": 3510
+    },
+    {
+      "year": 2026,
+      "workCount": 2051
+    }
+  ],
+  "institutions": [
+    {
+      "institutionId": "I1291425158",
+      "name": "Google (United States)",
+      "workCount": 6622
+    },
+    {
+      "institutionId": "I97018004",
+      "name": "Stanford University",
+      "workCount": 6488
+    },
+    {
+      "institutionId": "I95457486",
+      "name": "University of California, Berkeley",
+      "workCount": 5471
+    },
+    {
+      "institutionId": "I1174212",
+      "name": "University of Southern California",
+      "workCount": 4203
+    },
+    {
+      "institutionId": "I161318765",
+      "name": "University of California, Los Angeles",
+      "workCount": 3135
+    },
+    {
+      "institutionId": "I36258959",
+      "name": "University of California San Diego",
+      "workCount": 3025
+    },
+    {
+      "institutionId": "I204250578",
+      "name": "University of California, Irvine",
+      "workCount": 1843
+    },
+    {
+      "institutionId": "I122411786",
+      "name": "California Institute of Technology",
+      "workCount": 1711
+    },
+    {
+      "institutionId": "I84218800",
+      "name": "University of California, Davis",
+      "workCount": 1657
+    },
+    {
+      "institutionId": "I154570441",
+      "name": "University of California, Santa Barbara",
+      "workCount": 1652
+    },
+    {
+      "institutionId": "I185103710",
+      "name": "University of California, Santa Cruz",
+      "workCount": 1065
+    },
+    {
+      "institutionId": "I4210095624",
+      "name": "Alibaba Group (United States)",
+      "workCount": 1001
+    },
+    {
+      "institutionId": "I103635307",
+      "name": "University of California, Riverside",
+      "workCount": 980
+    },
+    {
+      "institutionId": "I1306409833",
+      "name": "Adobe Systems (United States)",
+      "workCount": 763
+    },
+    {
+      "institutionId": "I1282311441",
+      "name": "Lawrence Livermore National Laboratory",
+      "workCount": 559
+    },
+    {
+      "institutionId": "I4210114444",
+      "name": "Meta (United States)",
+      "workCount": 524
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "T10028",
+      "name": "Topic Modeling",
+      "workCount": 3969
+    },
+    {
+      "topicId": "T10682",
+      "name": "Quantum Computing Algorithms and Architecture",
+      "workCount": 2016
+    },
+    {
+      "topicId": "T10181",
+      "name": "Natural Language Processing Techniques",
+      "workCount": 1781
+    },
+    {
+      "topicId": "T10462",
+      "name": "Reinforcement Learning in Robotics",
+      "workCount": 1721
+    },
+    {
+      "topicId": "T11689",
+      "name": "Adversarial Robustness in Machine Learning",
+      "workCount": 1693
+    },
+    {
+      "topicId": "T10764",
+      "name": "Privacy-Preserving Technologies in Data",
+      "workCount": 1457
+    },
+    {
+      "topicId": "T11307",
+      "name": "Domain Adaptation and Few-Shot Learning",
+      "workCount": 1319
+    },
+    {
+      "topicId": "T10237",
+      "name": "Cryptography and Data Security",
+      "workCount": 1293
+    },
+    {
+      "topicId": "T10320",
+      "name": "Neural Networks and Applications",
+      "workCount": 1254
+    },
+    {
+      "topicId": "T10020",
+      "name": "Quantum Information and Cryptography",
+      "workCount": 1086
+    },
+    {
+      "topicId": "T11273",
+      "name": "Advanced Graph Neural Networks",
+      "workCount": 1002
+    },
+    {
+      "topicId": "T11612",
+      "name": "Stochastic Gradient Optimization Techniques",
+      "workCount": 943
+    },
+    {
+      "topicId": "T12072",
+      "name": "Machine Learning and Algorithms",
+      "workCount": 884
+    },
+    {
+      "topicId": "T10201",
+      "name": "Speech Recognition and Synthesis",
+      "workCount": 870
+    },
+    {
+      "topicId": "T13702",
+      "name": "Machine Learning in Healthcare",
+      "workCount": 755
+    },
+    {
+      "topicId": "T10862",
+      "name": "AI in cancer detection",
+      "workCount": 743
+    },
+    {
+      "topicId": "T11303",
+      "name": "Bayesian Modeling and Causal Inference",
+      "workCount": 740
+    },
+    {
+      "topicId": "T11512",
+      "name": "Anomaly Detection Techniques and Applications",
+      "workCount": 702
+    },
+    {
+      "topicId": "T13018",
+      "name": "Seismology and Earthquake Studies",
+      "workCount": 687
+    },
+    {
+      "topicId": "T12026",
+      "name": "Explainable Artificial Intelligence (XAI)",
+      "workCount": 683
+    },
+    {
+      "topicId": "T12535",
+      "name": "Machine Learning and Data Classification",
+      "workCount": 648
+    },
+    {
+      "topicId": "T11424",
+      "name": "Security and Verification in Computing",
+      "workCount": 634
+    },
+    {
+      "topicId": "T13650",
+      "name": "Computational Physics and Python Applications",
+      "workCount": 627
+    },
+    {
+      "topicId": "T12611",
+      "name": "Neural Networks and Reservoir Computing",
+      "workCount": 602
+    },
+    {
+      "topicId": "T10215",
+      "name": "Semantic Web and Ontologies",
+      "workCount": 532
+    },
+    {
+      "topicId": "T11269",
+      "name": "Algorithms and Data Compression",
+      "workCount": 510
+    },
+    {
+      "topicId": "T11901",
+      "name": "Bayesian Methods and Mixture Models",
+      "workCount": 495
+    },
+    {
+      "topicId": "T12814",
+      "name": "Gaussian Processes and Bayesian Inference",
+      "workCount": 486
+    },
+    {
+      "topicId": "T12262",
+      "name": "Hate Speech and Cyberbullying Detection",
+      "workCount": 467
+    },
+    {
+      "topicId": "T12157",
+      "name": "Geochemistry and Geologic Mapping",
+      "workCount": 408
+    },
+    {
+      "topicId": "T12031",
+      "name": "Speech and dialogue systems",
+      "workCount": 377
+    },
+    {
+      "topicId": "T11574",
+      "name": "Artificial Intelligence in Games",
+      "workCount": 367
+    },
+    {
+      "topicId": "T13398",
+      "name": "Data Analysis with R",
+      "workCount": 340
+    },
+    {
+      "topicId": "T10664",
+      "name": "Sentiment Analysis and Opinion Mining",
+      "workCount": 330
+    },
+    {
+      "topicId": "T11902",
+      "name": "Intelligent Tutoring Systems and Adaptive Learning",
+      "workCount": 326
+    },
+    {
+      "topicId": "T11598",
+      "name": "Internet Traffic Analysis and Secure E-voting",
+      "workCount": 310
+    },
+    {
+      "topicId": "T11010",
+      "name": "Logic, Reasoning, and Knowledge",
+      "workCount": 307
+    },
+    {
+      "topicId": "T12128",
+      "name": "AI in Service Interactions",
+      "workCount": 290
+    },
+    {
+      "topicId": "T10126",
+      "name": "Logic, programming, and type systems",
+      "workCount": 272
+    },
+    {
+      "topicId": "T11130",
+      "name": "Coding theory and cryptography",
+      "workCount": 268
+    },
+    {
+      "topicId": "T12761",
+      "name": "Data Stream Mining Techniques",
+      "workCount": 234
+    },
+    {
+      "topicId": "T10711",
+      "name": "Target Tracking and Data Fusion in Sensor Networks",
+      "workCount": 216
+    },
+    {
+      "topicId": "T11276",
+      "name": "Solar Radiation and Photovoltaics",
+      "workCount": 203
+    },
+    {
+      "topicId": "T13083",
+      "name": "Advanced Text Analysis Techniques",
+      "workCount": 186
+    },
+    {
+      "topicId": "T10951",
+      "name": "Cryptographic Implementations and Security",
+      "workCount": 181
+    },
+    {
+      "topicId": "T11975",
+      "name": "Evolutionary Algorithms and Applications",
+      "workCount": 175
+    },
+    {
+      "topicId": "T11550",
+      "name": "Text and Document Classification Technologies",
+      "workCount": 163
+    },
+    {
+      "topicId": "T11652",
+      "name": "Imbalanced Data Classification Techniques",
+      "workCount": 162
+    },
+    {
+      "topicId": "T10637",
+      "name": "Advanced Clustering Algorithms Research",
+      "workCount": 156
+    },
+    {
+      "topicId": "T10456",
+      "name": "Multi-Agent Systems and Negotiation",
+      "workCount": 155
+    },
+    {
+      "topicId": "T12805",
+      "name": "Cognitive Science and Mapping",
+      "workCount": 152
+    },
+    {
+      "topicId": "T13851",
+      "name": "Law, AI, and Intellectual Property",
+      "workCount": 152
+    },
+    {
+      "topicId": "T10906",
+      "name": "AI-based Problem Solving and Planning",
+      "workCount": 140
+    },
+    {
+      "topicId": "T12131",
+      "name": "Wireless Signal Modulation Classification",
+      "workCount": 122
+    },
+    {
+      "topicId": "T10100",
+      "name": "Metaheuristic Optimization Algorithms Research",
+      "workCount": 105
+    },
+    {
+      "topicId": "T12676",
+      "name": "Machine Learning and ELM",
+      "workCount": 98
+    },
+    {
+      "topicId": "T10820",
+      "name": "Fuzzy Logic and Control Systems",
+      "workCount": 96
+    },
+    {
+      "topicId": "T10639",
+      "name": "Advanced Software Engineering Methodologies",
+      "workCount": 88
+    },
+    {
+      "topicId": "T13629",
+      "name": "Text Readability and Simplification",
+      "workCount": 84
+    },
+    {
+      "topicId": "T13734",
+      "name": "Advanced Computational Techniques and Applications",
+      "workCount": 75
+    },
+    {
+      "topicId": "T12380",
+      "name": "Authorship Attribution and Profiling",
+      "workCount": 70
+    },
+    {
+      "topicId": "T13062",
+      "name": "Cognitive Computing and Networks",
+      "workCount": 57
+    },
+    {
+      "topicId": "T14335",
+      "name": "Educational Robotics and Engineering",
+      "workCount": 50
+    },
+    {
+      "topicId": "T14351",
+      "name": "Statistical and Computational Modeling",
+      "workCount": 41
+    },
+    {
+      "topicId": "T13904",
+      "name": "Artificial Intelligence Applications",
+      "workCount": 28
+    },
+    {
+      "topicId": "T13623",
+      "name": "Linguistic Studies and Language Acquisition",
+      "workCount": 25
+    },
+    {
+      "topicId": "T14413",
+      "name": "Advanced Technologies in Various Fields",
+      "workCount": 18
+    },
+    {
+      "topicId": "T13559",
+      "name": "Edcuational Technology Systems",
+      "workCount": 16
+    },
+    {
+      "topicId": "T14064",
+      "name": "Organizational and Employee Performance",
+      "workCount": 14
+    },
+    {
+      "topicId": "T12260",
+      "name": "Educational Technology and Pedagogy",
+      "workCount": 11
+    },
+    {
+      "topicId": "T14381",
+      "name": "Psychiatry, Mental Health, Neuroscience",
+      "workCount": 10
+    },
+    {
+      "topicId": "T13674",
+      "name": "Computer Science and Engineering",
+      "workCount": 8
+    },
+    {
+      "topicId": "T13898",
+      "name": "Diverse Interdisciplinary Research Studies",
+      "workCount": 5
+    },
+    {
+      "topicId": "T13514",
+      "name": "Experience-Based Knowledge Management",
+      "workCount": 3
+    },
+    {
+      "topicId": "T13567",
+      "name": "AI and Multimedia in Education",
+      "workCount": 3
+    },
+    {
+      "topicId": "T13935",
+      "name": "Mathematical Control Systems and Analysis",
+      "workCount": 2
+    },
+    {
+      "topicId": "T14175",
+      "name": "Intuitionistic Fuzzy Systems Applications",
+      "workCount": 1
+    }
+  ],
+  "regions": [
+    {
+      "regionId": "sf-bay-area",
+      "workCount": 21348,
+      "institutionIds": [
+        "I1291425158",
+        "I97018004",
+        "I95457486",
+        "I185103710",
+        "I4210095624",
+        "I1306409833",
+        "I1282311441",
+        "I4210114444"
+      ],
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%7CI97018004%7CI95457486%7CI185103710%7CI4210095624%7CI1306409833%7CI1282311441%7CI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "regionId": "los-angeles",
+      "workCount": 8857,
+      "institutionIds": [
+        "I1174212",
+        "I161318765",
+        "I122411786"
+      ],
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1174212%7CI161318765%7CI122411786%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "regionId": "san-diego",
+      "workCount": 3025,
+      "institutionIds": [
+        "I36258959"
+      ],
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI36258959%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "regionId": "orange-county",
+      "workCount": 1843,
+      "institutionIds": [
+        "I204250578"
+      ],
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI204250578%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "regionId": "california",
+      "workCount": 4239,
+      "institutionIds": [
+        "I154570441",
+        "I84218800",
+        "I103635307"
+      ],
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI154570441%7CI84218800%7CI103635307%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    }
+  ],
+  "relationships": [
+    {
+      "fromInstitutionId": "I1291425158",
+      "toInstitutionId": "I95457486",
+      "workCount": 333,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%2Cauthorships.institutions.id%3AI95457486%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1291425158",
+      "toInstitutionId": "I97018004",
+      "workCount": 297,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%2Cauthorships.institutions.id%3AI97018004%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I97018004",
+      "toInstitutionId": "I95457486",
+      "workCount": 295,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI97018004%2Cauthorships.institutions.id%3AI95457486%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1174212",
+      "toInstitutionId": "I161318765",
+      "workCount": 131,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1174212%2Cauthorships.institutions.id%3AI161318765%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1291425158",
+      "toInstitutionId": "I1174212",
+      "workCount": 110,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%2Cauthorships.institutions.id%3AI1174212%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I97018004",
+      "toInstitutionId": "I36258959",
+      "workCount": 101,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI97018004%2Cauthorships.institutions.id%3AI36258959%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I95457486",
+      "toInstitutionId": "I122411786",
+      "workCount": 97,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI95457486%2Cauthorships.institutions.id%3AI122411786%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I95457486",
+      "toInstitutionId": "I36258959",
+      "workCount": 91,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI95457486%2Cauthorships.institutions.id%3AI36258959%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1291425158",
+      "toInstitutionId": "I154570441",
+      "workCount": 79,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%2Cauthorships.institutions.id%3AI154570441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1291425158",
+      "toInstitutionId": "I122411786",
+      "workCount": 76,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%2Cauthorships.institutions.id%3AI122411786%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1291425158",
+      "toInstitutionId": "I36258959",
+      "workCount": 74,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%2Cauthorships.institutions.id%3AI36258959%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I97018004",
+      "toInstitutionId": "I1174212",
+      "workCount": 74,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI97018004%2Cauthorships.institutions.id%3AI1174212%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I97018004",
+      "toInstitutionId": "I122411786",
+      "workCount": 71,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI97018004%2Cauthorships.institutions.id%3AI122411786%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1291425158",
+      "toInstitutionId": "I84218800",
+      "workCount": 69,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%2Cauthorships.institutions.id%3AI84218800%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I95457486",
+      "toInstitutionId": "I1174212",
+      "workCount": 68,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI95457486%2Cauthorships.institutions.id%3AI1174212%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I95457486",
+      "toInstitutionId": "I161318765",
+      "workCount": 67,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI95457486%2Cauthorships.institutions.id%3AI161318765%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1174212",
+      "toInstitutionId": "I84218800",
+      "workCount": 67,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1174212%2Cauthorships.institutions.id%3AI84218800%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I161318765",
+      "toInstitutionId": "I84218800",
+      "workCount": 66,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI161318765%2Cauthorships.institutions.id%3AI84218800%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1291425158",
+      "toInstitutionId": "I161318765",
+      "workCount": 59,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%2Cauthorships.institutions.id%3AI161318765%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I97018004",
+      "toInstitutionId": "I161318765",
+      "workCount": 57,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI97018004%2Cauthorships.institutions.id%3AI161318765%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I95457486",
+      "toInstitutionId": "I84218800",
+      "workCount": 52,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI95457486%2Cauthorships.institutions.id%3AI84218800%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1174212",
+      "toInstitutionId": "I36258959",
+      "workCount": 49,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1174212%2Cauthorships.institutions.id%3AI36258959%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1291425158",
+      "toInstitutionId": "I103635307",
+      "workCount": 47,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%2Cauthorships.institutions.id%3AI103635307%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I97018004",
+      "toInstitutionId": "I84218800",
+      "workCount": 47,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI97018004%2Cauthorships.institutions.id%3AI84218800%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I161318765",
+      "toInstitutionId": "I36258959",
+      "workCount": 47,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI161318765%2Cauthorships.institutions.id%3AI36258959%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I95457486",
+      "toInstitutionId": "I204250578",
+      "workCount": 45,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI95457486%2Cauthorships.institutions.id%3AI204250578%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I161318765",
+      "toInstitutionId": "I204250578",
+      "workCount": 39,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI161318765%2Cauthorships.institutions.id%3AI204250578%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1291425158",
+      "toInstitutionId": "I185103710",
+      "workCount": 36,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%2Cauthorships.institutions.id%3AI185103710%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1291425158",
+      "toInstitutionId": "I4210114444",
+      "workCount": 34,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%2Cauthorships.institutions.id%3AI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I154570441",
+      "toInstitutionId": "I103635307",
+      "workCount": 33,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI154570441%2Cauthorships.institutions.id%3AI103635307%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1174212",
+      "toInstitutionId": "I122411786",
+      "workCount": 32,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1174212%2Cauthorships.institutions.id%3AI122411786%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I161318765",
+      "toInstitutionId": "I122411786",
+      "workCount": 32,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI161318765%2Cauthorships.institutions.id%3AI122411786%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I97018004",
+      "toInstitutionId": "I185103710",
+      "workCount": 31,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI97018004%2Cauthorships.institutions.id%3AI185103710%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I95457486",
+      "toInstitutionId": "I154570441",
+      "workCount": 31,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI95457486%2Cauthorships.institutions.id%3AI154570441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I95457486",
+      "toInstitutionId": "I185103710",
+      "workCount": 31,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI95457486%2Cauthorships.institutions.id%3AI185103710%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I36258959",
+      "toInstitutionId": "I84218800",
+      "workCount": 31,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI36258959%2Cauthorships.institutions.id%3AI84218800%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I97018004",
+      "toInstitutionId": "I204250578",
+      "workCount": 30,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI97018004%2Cauthorships.institutions.id%3AI204250578%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1174212",
+      "toInstitutionId": "I204250578",
+      "workCount": 30,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1174212%2Cauthorships.institutions.id%3AI204250578%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1291425158",
+      "toInstitutionId": "I204250578",
+      "workCount": 28,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%2Cauthorships.institutions.id%3AI204250578%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1291425158",
+      "toInstitutionId": "I1306409833",
+      "workCount": 28,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%2Cauthorships.institutions.id%3AI1306409833%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I36258959",
+      "toInstitutionId": "I154570441",
+      "workCount": 28,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI36258959%2Cauthorships.institutions.id%3AI154570441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I97018004",
+      "toInstitutionId": "I154570441",
+      "workCount": 27,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI97018004%2Cauthorships.institutions.id%3AI154570441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I95457486",
+      "toInstitutionId": "I103635307",
+      "workCount": 27,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI95457486%2Cauthorships.institutions.id%3AI103635307%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I95457486",
+      "toInstitutionId": "I1282311441",
+      "workCount": 27,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI95457486%2Cauthorships.institutions.id%3AI1282311441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I122411786",
+      "toInstitutionId": "I154570441",
+      "workCount": 25,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI122411786%2Cauthorships.institutions.id%3AI154570441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I36258959",
+      "toInstitutionId": "I204250578",
+      "workCount": 24,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI36258959%2Cauthorships.institutions.id%3AI204250578%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I204250578",
+      "toInstitutionId": "I84218800",
+      "workCount": 24,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI204250578%2Cauthorships.institutions.id%3AI84218800%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1174212",
+      "toInstitutionId": "I103635307",
+      "workCount": 23,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1174212%2Cauthorships.institutions.id%3AI103635307%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I204250578",
+      "toInstitutionId": "I122411786",
+      "workCount": 23,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI204250578%2Cauthorships.institutions.id%3AI122411786%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I36258959",
+      "toInstitutionId": "I103635307",
+      "workCount": 22,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI36258959%2Cauthorships.institutions.id%3AI103635307%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I97018004",
+      "toInstitutionId": "I1306409833",
+      "workCount": 21,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI97018004%2Cauthorships.institutions.id%3AI1306409833%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I161318765",
+      "toInstitutionId": "I154570441",
+      "workCount": 19,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI161318765%2Cauthorships.institutions.id%3AI154570441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I36258959",
+      "toInstitutionId": "I122411786",
+      "workCount": 19,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI36258959%2Cauthorships.institutions.id%3AI122411786%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I36258959",
+      "toInstitutionId": "I1306409833",
+      "workCount": 18,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI36258959%2Cauthorships.institutions.id%3AI1306409833%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I122411786",
+      "toInstitutionId": "I103635307",
+      "workCount": 18,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI122411786%2Cauthorships.institutions.id%3AI103635307%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1174212",
+      "toInstitutionId": "I154570441",
+      "workCount": 16,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1174212%2Cauthorships.institutions.id%3AI154570441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1174212",
+      "toInstitutionId": "I185103710",
+      "workCount": 16,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1174212%2Cauthorships.institutions.id%3AI185103710%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1174212",
+      "toInstitutionId": "I1306409833",
+      "workCount": 15,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1174212%2Cauthorships.institutions.id%3AI1306409833%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I154570441",
+      "toInstitutionId": "I185103710",
+      "workCount": 15,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI154570441%2Cauthorships.institutions.id%3AI185103710%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I36258959",
+      "toInstitutionId": "I185103710",
+      "workCount": 14,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI36258959%2Cauthorships.institutions.id%3AI185103710%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I154570441",
+      "toInstitutionId": "I84218800",
+      "workCount": 13,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI154570441%2Cauthorships.institutions.id%3AI84218800%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I95457486",
+      "toInstitutionId": "I4210114444",
+      "workCount": 12,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI95457486%2Cauthorships.institutions.id%3AI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I161318765",
+      "toInstitutionId": "I103635307",
+      "workCount": 12,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI161318765%2Cauthorships.institutions.id%3AI103635307%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I122411786",
+      "toInstitutionId": "I84218800",
+      "workCount": 12,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI122411786%2Cauthorships.institutions.id%3AI84218800%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I84218800",
+      "toInstitutionId": "I185103710",
+      "workCount": 12,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI84218800%2Cauthorships.institutions.id%3AI185103710%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I95457486",
+      "toInstitutionId": "I1306409833",
+      "workCount": 11,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI95457486%2Cauthorships.institutions.id%3AI1306409833%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I84218800",
+      "toInstitutionId": "I1282311441",
+      "workCount": 11,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI84218800%2Cauthorships.institutions.id%3AI1282311441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I97018004",
+      "toInstitutionId": "I4210114444",
+      "workCount": 10,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI97018004%2Cauthorships.institutions.id%3AI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1174212",
+      "toInstitutionId": "I4210114444",
+      "workCount": 10,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1174212%2Cauthorships.institutions.id%3AI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I122411786",
+      "toInstitutionId": "I185103710",
+      "workCount": 10,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI122411786%2Cauthorships.institutions.id%3AI185103710%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I84218800",
+      "toInstitutionId": "I103635307",
+      "workCount": 10,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI84218800%2Cauthorships.institutions.id%3AI103635307%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I97018004",
+      "toInstitutionId": "I103635307",
+      "workCount": 9,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI97018004%2Cauthorships.institutions.id%3AI103635307%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I161318765",
+      "toInstitutionId": "I185103710",
+      "workCount": 9,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI161318765%2Cauthorships.institutions.id%3AI185103710%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I97018004",
+      "toInstitutionId": "I1282311441",
+      "workCount": 8,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI97018004%2Cauthorships.institutions.id%3AI1282311441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I161318765",
+      "toInstitutionId": "I4210095624",
+      "workCount": 8,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI161318765%2Cauthorships.institutions.id%3AI4210095624%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1174212",
+      "toInstitutionId": "I4210095624",
+      "workCount": 7,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1174212%2Cauthorships.institutions.id%3AI4210095624%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I204250578",
+      "toInstitutionId": "I103635307",
+      "workCount": 7,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI204250578%2Cauthorships.institutions.id%3AI103635307%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I161318765",
+      "toInstitutionId": "I1306409833",
+      "workCount": 6,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI161318765%2Cauthorships.institutions.id%3AI1306409833%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I161318765",
+      "toInstitutionId": "I1282311441",
+      "workCount": 6,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI161318765%2Cauthorships.institutions.id%3AI1282311441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I36258959",
+      "toInstitutionId": "I4210114444",
+      "workCount": 6,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI36258959%2Cauthorships.institutions.id%3AI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I204250578",
+      "toInstitutionId": "I185103710",
+      "workCount": 6,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI204250578%2Cauthorships.institutions.id%3AI185103710%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I154570441",
+      "toInstitutionId": "I1282311441",
+      "workCount": 6,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI154570441%2Cauthorships.institutions.id%3AI1282311441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I103635307",
+      "toInstitutionId": "I1282311441",
+      "workCount": 6,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI103635307%2Cauthorships.institutions.id%3AI1282311441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1291425158",
+      "toInstitutionId": "I1282311441",
+      "workCount": 5,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%2Cauthorships.institutions.id%3AI1282311441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I95457486",
+      "toInstitutionId": "I4210095624",
+      "workCount": 5,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI95457486%2Cauthorships.institutions.id%3AI4210095624%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1174212",
+      "toInstitutionId": "I1282311441",
+      "workCount": 5,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1174212%2Cauthorships.institutions.id%3AI1282311441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I36258959",
+      "toInstitutionId": "I1282311441",
+      "workCount": 5,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI36258959%2Cauthorships.institutions.id%3AI1282311441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I204250578",
+      "toInstitutionId": "I154570441",
+      "workCount": 5,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI204250578%2Cauthorships.institutions.id%3AI154570441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I204250578",
+      "toInstitutionId": "I1306409833",
+      "workCount": 5,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI204250578%2Cauthorships.institutions.id%3AI1306409833%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I185103710",
+      "toInstitutionId": "I1282311441",
+      "workCount": 5,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI185103710%2Cauthorships.institutions.id%3AI1282311441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1291425158",
+      "toInstitutionId": "I4210095624",
+      "workCount": 4,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%2Cauthorships.institutions.id%3AI4210095624%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I97018004",
+      "toInstitutionId": "I4210095624",
+      "workCount": 4,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI97018004%2Cauthorships.institutions.id%3AI4210095624%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I161318765",
+      "toInstitutionId": "I4210114444",
+      "workCount": 4,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI161318765%2Cauthorships.institutions.id%3AI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I122411786",
+      "toInstitutionId": "I1282311441",
+      "workCount": 4,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI122411786%2Cauthorships.institutions.id%3AI1282311441%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I154570441",
+      "toInstitutionId": "I4210095624",
+      "workCount": 4,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI154570441%2Cauthorships.institutions.id%3AI4210095624%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I84218800",
+      "toInstitutionId": "I1306409833",
+      "workCount": 4,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI84218800%2Cauthorships.institutions.id%3AI1306409833%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I36258959",
+      "toInstitutionId": "I4210095624",
+      "workCount": 3,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI36258959%2Cauthorships.institutions.id%3AI4210095624%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I154570441",
+      "toInstitutionId": "I1306409833",
+      "workCount": 3,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI154570441%2Cauthorships.institutions.id%3AI1306409833%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I185103710",
+      "toInstitutionId": "I1306409833",
+      "workCount": 3,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI185103710%2Cauthorships.institutions.id%3AI1306409833%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I204250578",
+      "toInstitutionId": "I4210095624",
+      "workCount": 2,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI204250578%2Cauthorships.institutions.id%3AI4210095624%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I204250578",
+      "toInstitutionId": "I4210114444",
+      "workCount": 2,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI204250578%2Cauthorships.institutions.id%3AI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I122411786",
+      "toInstitutionId": "I1306409833",
+      "workCount": 2,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI122411786%2Cauthorships.institutions.id%3AI1306409833%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I154570441",
+      "toInstitutionId": "I4210114444",
+      "workCount": 2,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI154570441%2Cauthorships.institutions.id%3AI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I84218800",
+      "toInstitutionId": "I4210114444",
+      "workCount": 2,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI84218800%2Cauthorships.institutions.id%3AI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I185103710",
+      "toInstitutionId": "I103635307",
+      "workCount": 2,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI185103710%2Cauthorships.institutions.id%3AI103635307%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I185103710",
+      "toInstitutionId": "I4210114444",
+      "workCount": 2,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI185103710%2Cauthorships.institutions.id%3AI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I1306409833",
+      "toInstitutionId": "I4210114444",
+      "workCount": 2,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1306409833%2Cauthorships.institutions.id%3AI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I122411786",
+      "toInstitutionId": "I4210095624",
+      "workCount": 1,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI122411786%2Cauthorships.institutions.id%3AI4210095624%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I122411786",
+      "toInstitutionId": "I4210114444",
+      "workCount": 1,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI122411786%2Cauthorships.institutions.id%3AI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I84218800",
+      "toInstitutionId": "I4210095624",
+      "workCount": 1,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI84218800%2Cauthorships.institutions.id%3AI4210095624%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I4210095624",
+      "toInstitutionId": "I1306409833",
+      "workCount": 1,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI4210095624%2Cauthorships.institutions.id%3AI1306409833%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    },
+    {
+      "fromInstitutionId": "I103635307",
+      "toInstitutionId": "I1306409833",
+      "workCount": 1,
+      "sourceUrl": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI103635307%2Cauthorships.institutions.id%3AI1306409833%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=1"
+    }
+  ],
+  "sourceQueries": {
+    "candidateFrame": "https://api.openalex.org/works?filter=authorships.institutions.country_code%3AUS%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2025&per_page=200&group_by=authorships.institutions.id",
+    "annual": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%7CI97018004%7CI95457486%7CI1174212%7CI161318765%7CI36258959%7CI204250578%7CI122411786%7CI154570441%7CI84218800%7CI185103710%7CI4210095624%7CI103635307%7CI1306409833%7CI1282311441%7CI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=50&group_by=publication_year",
+    "institutions": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%7CI97018004%7CI95457486%7CI1174212%7CI161318765%7CI36258959%7CI204250578%7CI122411786%7CI154570441%7CI84218800%7CI185103710%7CI4210095624%7CI103635307%7CI1306409833%7CI1282311441%7CI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=100&group_by=authorships.institutions.id",
+    "topics": "https://api.openalex.org/works?filter=authorships.institutions.id%3AI1291425158%7CI97018004%7CI95457486%7CI1174212%7CI161318765%7CI36258959%7CI204250578%7CI122411786%7CI154570441%7CI84218800%7CI185103710%7CI4210095624%7CI103635307%7CI1306409833%7CI1282311441%7CI4210114444%2Cprimary_topic.subfield.id%3A1702%2Cpublication_year%3A2015-2026&per_page=200&group_by=primary_topic.id"
+  },
+  "limitations": [
+    "The institution frame is bounded to the top 200 U.S. AI-subfield institutions before California filtering and is not a statewide census.",
+    "A work is in scope when its primary OpenAlex topic is in AI subfield 1702 and at least one selected institution appears in authorship affiliations.",
+    "2026 is incomplete and excluded from complete-year growth and calibration trends.",
+    "Institution and regional counts overlap across co-authored works; the annual total is deduplicated by work.",
+    "OpenAlex topic assignment is algorithmic and is interpreted as a classification proxy, not research quality.",
+    "Coverage tiers A/B/C encode observed activity volume only and must not be interpreted as quality or rank."
+  ]
+}

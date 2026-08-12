@@ -1,0 +1,11 @@
+import { aiConfig } from "@/services/ai/config";
+import { NexoraAIService } from "@/services/ai/provider.server";
+
+export const dynamic="force-dynamic";
+const service=new NexoraAIService();
+let windowStarted=0,requestCount=0;
+function allowed(){const now=Date.now();if(now-windowStarted>60_000){windowStarted=now;requestCount=0}requestCount++;return requestCount<=aiConfig.maxRequestsPerMinute}
+const json=(body:unknown,status=200)=>Response.json(body,{status,headers:{"Cache-Control":"no-store","X-Content-Type-Options":"nosniff"}});
+
+export async function GET(){return json({product:"NEXORA AI",status:"EVIDENCE_FIRST",liveModelConfigured:false,provider:"nexora-evidence-first",publicAccessCompatible:true,promptPersistence:"NONE",analytics:false,maxQueryLength:aiConfig.maxQueryLength})}
+export async function POST(request:Request){if(!allowed())return json({error:"RATE_LIMITED",message:"Please wait before submitting another research question."},429);const length=Number(request.headers.get("content-length")??0);if(length>20_000)return json({error:"REQUEST_TOO_LARGE"},413);try{const body=await request.json() as {text?:unknown;language?:unknown;context?:unknown};if(typeof body.text!=="string"||!body.text.trim()||body.text.length>aiConfig.maxQueryLength)return json({error:"INVALID_QUERY",message:`Question must be between 1 and ${aiConfig.maxQueryLength} characters.`},400);if(body.language!==undefined&&!['en','zh'].includes(String(body.language)))return json({error:"INVALID_LANGUAGE"},400);const context=body.context&&typeof body.context==="object"?body.context as Record<string,unknown>:{};for(const key of ["technologyIds","regionIds","organizationIds","policyIds","industryIds"]){const value=context[key];if(value!==undefined&&(!Array.isArray(value)||value.length>4||value.some(x=>typeof x!=="string"||!/^[a-z0-9-]{1,80}$/.test(x))))return json({error:"INVALID_CONTEXT"},400)}const result=await service.answer({text:body.text,language:body.language as "en"|"zh"|undefined,context:context as never});return json(result)}catch(error){const code=error instanceof Error&&error.message==="AI_PROVIDER_TIMEOUT"?"PROVIDER_TIMEOUT":"SAFE_FAILURE";return json({error:code,message:"NEXORA could not complete this request safely. Evidence Explorer remains available."},code==="PROVIDER_TIMEOUT"?504:500)}}
