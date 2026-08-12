@@ -150,10 +150,13 @@ University-Endorsed Institutional Rankings
 
 🚀 Project Status
 NEXORA v1.0.0 — Public Release
+
 🌐 Website:
 NEXORA Public Website
+
 💻 GitHub:
 NEXORA GitHub Repository
+
 📚 Citation
 If you use NEXORA in academic research, teaching, or analytical work, please cite the project or its associated publication when formal citation information becomes available.
 A recommended citation and DOI will be added in a future release.
