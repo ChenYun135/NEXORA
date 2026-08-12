@@ -8,7 +8,7 @@ import { innovationEcosystemModelV1 } from "@/simulation/model/model-v1";
 import { CaliforniaAIFlagshipSnapshot } from "@/data/cases/california-ai/snapshot";
 import { californiaAICoverage } from "@/data/cases/california-ai/coverage";
 import styles from "./data-status.module.css";
-import { ModuleLanding } from "./module-landing";
+import { ResearchModuleShell } from "./editorial/ResearchModuleShell";
 import pilotStyles from "./data-status-pilot.module.css";
 
 const T={
@@ -21,7 +21,7 @@ export function DataStatus(){
  const [lang,setLang]=useNexoraLanguage(),t=lang==="zh"?{...T.zh,tagline:"清晰区分公开观测、衍生、演示、过期与不可用数据"}:T.en,runs=runPilotIngestion(true);
  const totals={research:openAlexResearchObservations.length,macro:worldBankObservations.length,organizations:verifiedOrganizations.length,policies:verifiedPolicies.length,catalog:dataGovCatalogRecords.length,relationships:verifiedRelationships.length};
  return <main className={styles.page}>
-  <ModuleLanding image="/data-status-og.png" eyebrow="NEXORA / FUTURE INDUSTRY INTELLIGENCE" title={lang==="en"?"NEXORA DATA STATUS":"NEXORA 数据状态"} subtitle={lang==="en"?"Public data. Provenance. Quality. Freshness.":"公共数据、来源、质量与时效"} description={lang==="en"?"Inspect provider coverage, provenance, freshness, limitations and system health.":"审视数据覆盖、来源、时效、局限与系统状态。"} enterLabel={lang==="en"?"Enter data workspace":"进入数据工作台"} insightLabel={lang==="en"?"Methods & evidence":"方法与证据"} lang={lang}/>
+  <ResearchModuleShell image="/data-status-og.png" eyebrow="NEXORA / FUTURE INDUSTRY INTELLIGENCE" title={lang==="en"?"NEXORA DATA STATUS":"NEXORA 数据状态"} subtitle={lang==="en"?"Public data. Provenance. Quality. Freshness.":"公共数据、来源、质量与时效"} description={lang==="en"?"Inspect provider coverage, provenance, freshness, limitations and system health.":"审视数据覆盖、来源、时效、局限与系统状态。"} enterLabel={lang==="en"?"Enter data workspace":"进入数据工作台"} insightLabel={lang==="en"?"Methods & evidence":"方法与证据"} lang={lang}/>
   <div id="workspace"/>
   <header><div><Link prefetch={false} href="/">N <b>NEXORA</b></Link><Link prefetch={false} href="/">← {t.back}</Link></div><div><span><i/>PUBLIC DATA PIPELINE / 07</span><nav aria-label="Language"><button className={lang==="en"?styles.on:""} onClick={()=>setLang("en")}>EN</button><button className={lang==="zh"?styles.on:""} onClick={()=>setLang("zh")}>中文</button></nav></div></header>
   <section className={styles.hero}><p>PROVENANCE · QUALITY · FRESHNESS · RELIABILITY</p><h1>{t.title}</h1><h2>{t.tagline}</h2><h3>{t.support}</h3><div className={styles.mode}><span>{t.mode}</span><b>{productionSnapshotDate}</b><small>PRODUCTION → CACHE → LAST KNOWN GOOD → DEMO → UNAVAILABLE</small></div></section>
