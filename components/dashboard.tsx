@@ -15,8 +15,8 @@ const professionalChineseHomeCopy = {
   home: "首页",
   overview: "情报总览",
   eyebrow: "全球未来产业情报平台",
-  h1a: "识别新兴产业",
-  h1b: "解析关键驱动力",
+  h1a: "洞察新兴产业",
+  h1b: "解读发展动能",
   h1c: "研判未来趋势",
   intro: "NEXORA 是面向新兴产业、前沿技术、创新生态与公共政策的全球情报平台。",
   intelligence: "全球产业情报信号",
@@ -33,7 +33,7 @@ const professionalChineseHomeCopy = {
 
 export function Dashboard(){
  const [lang,setLang]=useNexoraLanguage(); const [menu,setMenu]=useState(false); const [aiQuestion,setAiQuestion]=useState(""); const base=lang==="zh"?{...copy.zh,...professionalChineseHomeCopy}:copy.en; const t={...base,nav:productJourney.slice(1).map(item=>[item.name[lang],item.description[lang]])}; const journey=[...productJourney,flagshipJourney];
- return <div className="app">
+ return <div className={`app ${lang==="zh"?"lang-zh":"lang-en"}`}>
   <aside id="primary-navigation" className={`sidebar ${menu?"open":""}`}><button className="nav-close" onClick={()=>setMenu(false)} aria-label={lang==="en"?"Close navigation":"关闭导航"}>×</button><div className="brand"><span className="brand-mark">N</span>NEXORA</div><nav className="nav" aria-label="Primary navigation"><Link className="nav-link active" href="/" onClick={()=>setMenu(false)}><span className="nav-icon">01</span><span><span className="nav-title">{t.home}</span><span className="nav-sub">{t.overview}</span></span></Link>{journey.map((item,i)=><Link className="nav-link" href={item.href} key={item.id} onClick={()=>setMenu(false)}><span className="nav-icon">{String(i+2).padStart(2,"0")}</span><span><span className="nav-title">{item.name[lang]}</span><span className="nav-sub">{item.description[lang]}</span></span></Link>)}</nav><div className="side-foot">{integrationRelease.label}<br/>EVIDENCE-BASED INTELLIGENCE</div></aside>
   <main className="main"><header className="topbar"><div className="top-actions"><button className="menu-btn" onClick={()=>setMenu(!menu)} aria-label="Toggle navigation" aria-expanded={menu} aria-controls="primary-navigation">☰</button><span className="crumb">NEXORA / {t.overview}</span></div><div className="top-actions"><span className="live">{t.live}</span><div className="lang" aria-label="Language"><button className={lang==="en"?"on":""} onClick={()=>setLang("en")}>EN</button><button className={lang==="zh"?"on":""} onClick={()=>setLang("zh")}>中文</button></div></div></header>
   <div className="content"><section className="hero"><div className="hero-copy"><div className="eyebrow">{t.eyebrow}</div><h1><span>{t.h1a}</span><br/><span>{t.h1b}</span><br/><span className="accent">{t.h1c}</span></h1><p className="hero-p">{lang==="en"?"NEXORA is an evidence-based future-industry intelligence platform connecting public data, geography, emerging signals, ecosystems, policy, organizations, research and scenario exploration.":"NEXORA 是一个基于证据的未来产业情报平台，连接公共数据、产业地理、新兴信号、创新生态、政策、组织、研究与情景探索。"}</p><div className="btns"><Link className="btn primary" href="/data-status">{lang==="en"?"Start with evidence status":"先查看证据状态"} →</Link><Link className="btn" href="/atlas">{t.atlas} →</Link><a className="btn" href="#journey">{lang==="en"?"See the product journey":"查看产品旅程"}</a></div><p className="hero-trust" role="note">{lang==="en"?"Observed public data, derived metrics, AI interpretation and scenario output are labeled separately.":"观测公共数据、衍生指标、AI 解读与情景输出均分开标注。"}</p></div><div className="hero-viz" aria-label="Stylized global innovation visualization"><div className="orbit o1"/><div className="orbit o2"/><div className="orbit o3"/><div className="globe"><i className="land a"/><i className="land b"/><i className="land c"/><i className="pulse p1"/><i className="pulse p2"/><i className="pulse p3"/></div><div className="viz-label">GLOBAL SIGNAL FIELD<br/>DEMO VISUAL<br/>NO LIVE GEOLOCATION</div></div></section>

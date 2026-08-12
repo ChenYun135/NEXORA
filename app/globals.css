@@ -81,7 +81,17 @@ h1 .accent { background:linear-gradient(90deg,#cdeeff,#6ebcff 45%,#b68aff);backg
 .menu-btn{display:none;border:1px solid var(--border);background:#0b1524;border-radius:8px;padding:7px 10px;cursor:pointer}.nav-close{display:none;position:absolute;right:14px;top:14px;border:1px solid var(--border);background:#081322;color:var(--secondary);width:34px;height:34px;border-radius:8px;font-size:22px;cursor:pointer;z-index:2}.hero-trust{max-width:670px;margin:18px 0 0;color:var(--muted);font:12px/1.7 var(--font-mono);letter-spacing:.03em}
 
 /* Improve compact-copy readability across the public product modules. */
-:lang(zh-CN) body{font-family:"Noto Sans SC","Microsoft YaHei",var(--font-geist),sans-serif;letter-spacing:normal}
+:lang(zh-CN) body,.lang-zh{font-family:"PingFang SC","Microsoft YaHei UI","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",sans-serif;letter-spacing:normal;font-synthesis:none}
+.lang-zh h1,.lang-zh h2,.lang-zh h3,.lang-zh .nav-title,.lang-zh .btn{font-family:"PingFang SC","Microsoft YaHei UI","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",sans-serif}
+.lang-zh .hero-copy{padding-left:clamp(32px,4.4vw,60px);padding-right:clamp(24px,3vw,44px)}
+.lang-zh .hero h1{font-size:clamp(42px,4vw,64px);line-height:1.14;letter-spacing:-.025em;font-weight:600;max-width:690px;text-wrap:balance}
+.lang-zh .hero h1 span{display:inline-block}
+.lang-zh .eyebrow{font-family:"Microsoft YaHei UI","Noto Sans CJK SC",sans-serif;font-size:12px;line-height:1.5;letter-spacing:.12em;font-weight:500}
+.lang-zh .hero-p{font-size:15px;line-height:1.9;letter-spacing:.015em;max-width:610px}
+.lang-zh .hero-trust{font-family:"Microsoft YaHei UI","Noto Sans CJK SC",sans-serif;font-size:12px;line-height:1.75;letter-spacing:.02em}
+.lang-zh .nav-title{font-size:14px;font-weight:600;letter-spacing:.01em}.lang-zh .nav-sub{font-size:12px;line-height:1.55;letter-spacing:.015em}
+.lang-zh .section-head h2,.lang-zh .panel-title h3{letter-spacing:-.015em;line-height:1.35}.lang-zh .section-head p{font-size:12px;line-height:1.65}
+.lang-zh .btn{font-size:13px;letter-spacing:.01em}
 [class*="_back_"],[class*="_status_"],[class*="_live_"],[class*="_eyebrow_"],[class*="_mini_"],[class*="_tag_"],[class*="_label_"],[class*="_hint_"],[class*="_footer_"]{font-size:11px!important;line-height:1.55}
 [class*="_panel_"] small,[class*="_card_"] small,[class*="_section_"] small,[class*="_hero_"] small{font-size:11px!important;line-height:1.55}
 [class*="_panel_"] button,[class*="_filter_"] button,[class*="_filter_"] select,[class*="_tabs_"] button{font-size:12px!important;line-height:1.4}
