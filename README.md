@@ -52,7 +52,7 @@ Copy `.env.example` to `.env.local` only if optional server-side providers are n
 
 ## Repository boundary
 
-This source tree may coexist with private research work locally, but a public repository must be created only from the sanitized `.public-release/` candidate. Paper manuscripts, peer-review material, unpublished analysis, checkpoints, credentials, local databases, deployment metadata, and caches are excluded by design. See [PAPER01_PUBLIC_PRIVATE_BOUNDARY.md](docs/public-release/PAPER01_PUBLIC_PRIVATE_BOUNDARY.md).
+This source tree may coexist with private research work locally, but a public repository must be created only from the sanitized `.public-release/` candidate. Paper manuscripts, peer-review material, unpublished analysis, checkpoints, credentials, local databases, deployment metadata, and caches are excluded by design.
 
 ## Reuse, security, and citation
 
