@@ -17,7 +17,7 @@ const T={
 const labels={HEALTHY:{en:"Healthy",zh:"健康"},DEGRADED:{en:"Degraded",zh:"降级"},STALE:{en:"Stale",zh:"可能过期"},UNAVAILABLE:{en:"Unavailable",zh:"不可用"},NOT_CONFIGURED:{en:"Not configured",zh:"未配置"}} as const;
 
 export function DataStatus(){
- const [lang,setLang]=useNexoraLanguage(),t=T[lang],runs=runPilotIngestion(true);
+ const [lang,setLang]=useNexoraLanguage(),t=lang==="zh"?{...T.zh,tagline:"清晰区分公开观测、衍生、演示、过期与不可用数据"}:T.en,runs=runPilotIngestion(true);
  const totals={research:openAlexResearchObservations.length,macro:worldBankObservations.length,organizations:verifiedOrganizations.length,policies:verifiedPolicies.length,catalog:dataGovCatalogRecords.length,relationships:verifiedRelationships.length};
  return <main className={styles.page}>
   <header><div><Link prefetch={false} href="/">N <b>NEXORA</b></Link><Link prefetch={false} href="/">← {t.back}</Link></div><div><span><i/>PUBLIC DATA PIPELINE / 07</span><nav aria-label="Language"><button className={lang==="en"?styles.on:""} onClick={()=>setLang("en")}>EN</button><button className={lang==="zh"?styles.on:""} onClick={()=>setLang("zh")}>中文</button></nav></div></header>

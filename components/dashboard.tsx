@@ -11,8 +11,28 @@ const copy = {
   zh:{ home:"首页", overview:"情报总览", nav:[["产业图谱","全球产业地图"],["趋势雷达","新兴机会信号"],["公司","创新企业探索"],["创新生态","创新网络"],["政策","政策情报"],["模拟器","生态系统模拟"],["Nexora AI","研究智能助手"]], eyebrow:"全球未来产业情报平台", h1a:"洞察正在崛起的产业。",h1b:"理解背后的驱动力。",h1c:"预见未来的方向。", intro:"NEXORA 是用于探索新兴产业、前沿技术、创新生态系统与公共政策的全球情报平台。", atlas:"探索产业图谱",signals:"查看新兴信号",live:"原型数据已启用", kpi:["创新企业","融资规模","专利","研究论文","追踪政策","专业人才"], intelligence:"全球情报信号", demo:"结构化原型数据集", opportunity:"新兴机会雷达",opSub:"跨科研、资本、政策与人才的综合信号",ranking:"机会潜力排名",network:"创新生态网络",netSub:"洞察塑造产业前沿的机构连接",hotspots:"全球创新热点",hotSub:"区域创新能力与发展动能指标",policy:"政策情报",policySub:"权威公共政策信号预览",ai:"Nexora AI 研究助手", aiSub:"基于未来产业知识图谱进行跨领域提问", questions:["哪些产业正在加速发展？","比较不同地区的 AI 创新生态。","哪些公共政策支持生物技术初创企业？"], placeholder:"向 NEXORA 提出研究问题…", send:"提问",source:"官方来源",note:"当前全部数值均为产品原型所用的结构化演示数据，并非生产环境事实。",provenance:"来源事实 · 衍生指标 · AI 解读在架构中严格区分。"}
 } as const;
 
+const professionalChineseHomeCopy = {
+  home: "首页",
+  overview: "情报总览",
+  eyebrow: "全球未来产业情报平台",
+  h1a: "识别新兴产业",
+  h1b: "解析关键驱动力",
+  h1c: "研判未来趋势",
+  intro: "NEXORA 是面向新兴产业、前沿技术、创新生态与公共政策的全球情报平台。",
+  intelligence: "全球产业情报信号",
+  opportunity: "新兴产业机会雷达",
+  opSub: "融合科研、资本、政策与人才的综合信号",
+  ranking: "机会潜力排序",
+  network: "创新生态网络",
+  netSub: "解析塑造产业前沿的机构连接",
+  policy: "政策智能",
+  policySub: "权威公共政策信号概览",
+  ai: "NEXORA AI 研究助理",
+  aiSub: "基于未来产业知识图谱开展跨领域研究",
+} as const;
+
 export function Dashboard(){
- const [lang,setLang]=useNexoraLanguage(); const [menu,setMenu]=useState(false); const [aiQuestion,setAiQuestion]=useState(""); const base=copy[lang]; const t={...base,nav:productJourney.slice(1).map(item=>[item.name[lang],item.description[lang]])}; const journey=[...productJourney,flagshipJourney];
+ const [lang,setLang]=useNexoraLanguage(); const [menu,setMenu]=useState(false); const [aiQuestion,setAiQuestion]=useState(""); const base=lang==="zh"?{...copy.zh,...professionalChineseHomeCopy}:copy.en; const t={...base,nav:productJourney.slice(1).map(item=>[item.name[lang],item.description[lang]])}; const journey=[...productJourney,flagshipJourney];
  return <div className="app">
   <aside id="primary-navigation" className={`sidebar ${menu?"open":""}`}><button className="nav-close" onClick={()=>setMenu(false)} aria-label={lang==="en"?"Close navigation":"关闭导航"}>×</button><div className="brand"><span className="brand-mark">N</span>NEXORA</div><nav className="nav" aria-label="Primary navigation"><Link className="nav-link active" href="/" onClick={()=>setMenu(false)}><span className="nav-icon">01</span><span><span className="nav-title">{t.home}</span><span className="nav-sub">{t.overview}</span></span></Link>{journey.map((item,i)=><Link className="nav-link" href={item.href} key={item.id} onClick={()=>setMenu(false)}><span className="nav-icon">{String(i+2).padStart(2,"0")}</span><span><span className="nav-title">{item.name[lang]}</span><span className="nav-sub">{item.description[lang]}</span></span></Link>)}</nav><div className="side-foot">{integrationRelease.label}<br/>EVIDENCE-BASED INTELLIGENCE</div></aside>
   <main className="main"><header className="topbar"><div className="top-actions"><button className="menu-btn" onClick={()=>setMenu(!menu)} aria-label="Toggle navigation" aria-expanded={menu} aria-controls="primary-navigation">☰</button><span className="crumb">NEXORA / {t.overview}</span></div><div className="top-actions"><span className="live">{t.live}</span><div className="lang" aria-label="Language"><button className={lang==="en"?"on":""} onClick={()=>setLang("en")}>EN</button><button className={lang==="zh"?"on":""} onClick={()=>setLang("zh")}>中文</button></div></div></header>

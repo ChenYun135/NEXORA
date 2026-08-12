@@ -19,7 +19,7 @@ const policyJurisdiction=(region:AtlasHotspot)=>region.id==="sf"||region.id==="l
 export function Atlas(){
  const [lang,setLang]=useNexoraLanguage(),[layer,setLayer]=useState<Layer>("all"),[selectedId,setSelectedId]=useState("sf"),[zoom,setZoom]=useState(1),[tab,setTab]=useState<PanelTab>("overview"),[panel,setPanel]=useState(true),[left,setLeft]=useState("sf"),[right,setRight]=useState("shenzhen");
  useEffect(()=>{const timer=window.setTimeout(()=>{const query=parseAtlasQuery(window.location.search);if(query.regionId){setSelectedId(query.regionId);setPanel(true)}if(query.industryId)setLayer(query.industryId)},0);return()=>window.clearTimeout(timer)},[]);
- const t=ui[lang], selected=atlasHotspots.find(h=>h.id===selectedId)??atlasHotspots[0], leftRegion=atlasHotspots.find(h=>h.id===left)!,rightRegion=atlasHotspots.find(h=>h.id===right)!;
+ const t=lang==="zh"?{...ui.zh,tagline:"解析未来产业的全球创新版图"}:ui.en, selected=atlasHotspots.find(h=>h.id===selectedId)??atlasHotspots[0], leftRegion=atlasHotspots.find(h=>h.id===left)!,rightRegion=atlasHotspots.find(h=>h.id===right)!;
  const focusIndustry=layer==="all"?atlasIndustries[0]:atlasIndustries.find(i=>i.id===layer)!;
  const ranked=useMemo(()=>[...atlasHotspots].sort((a,b)=>(b.industries[focusIndustry.id]??0)-(a.industries[focusIndustry.id]??0)).slice(0,6),[focusIndustry.id]);
  const select=(id:string)=>{setSelectedId(id);setPanel(true);setTab("overview")};
