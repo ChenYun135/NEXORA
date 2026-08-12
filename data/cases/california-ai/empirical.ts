@@ -15,7 +15,7 @@ const talentScore = clamp(dataScientistLq / 5 * 100);
 
 export const californiaAIEvidenceLayers = [
   { id: "research", status: "OBSERVED_PUBLIC_DATA", provider: "OpenAlex", records: openAlexSnapshot.totals.uniqueWorks, period: "2015-2026 (2026 partial)" },
-  { id: "network", status: "DERIVED_METRIC", provider: "OpenAlex", records: openAlexSnapshot.relationships.length, period: "2015-2026" },
+  { id: "network", status: "DERIVED_METRIC", provider: "OpenAlex", records: openAlexSnapshot.relationships.length, period: "2015-2025 complete; 2026 partial" },
   { id: "talent", status: "OBSERVED_PUBLIC_DATA", provider: "BLS OEWS", records: californiaAITalentIndicators.length, period: "May 2025 cross-section" },
   { id: "public-funding", status: "OBSERVED_PUBLIC_DATA", provider: "NSF Award Search API", records: fundingSnapshot.totals.awardCount, period: "2025 award dates" },
   { id: "patents", status: "NOT_CONFIGURED", provider: "USPTO ODP", records: null, period: null },
@@ -23,20 +23,19 @@ export const californiaAIEvidenceLayers = [
 ] as const;
 
 export const californiaAIRadarProfile = {
-  version: "ca-ai-radar-v2.0",
-  status: "DERIVED_METRIC" as const,
+  version: "ca-ai-radar-v2.1-alignment",
+  status: "CONTEXT_ONLY" as const,
+  comparabilityStatus: "NOT_COMPARABLE" as const,
   signals: [
-    { id: "research-momentum", score: Math.round(researchScore), weight: .35, basis: "2022-2025 complete-year work-count change; -10%→0 and +30%→100 linear bound" },
-    { id: "verified-network-density", score: Math.round(networkScore), weight: .25, basis: "positive verified edges / possible edges within current 16-institution frame" },
-    { id: "nsf-funding-observation", score: Math.round(fundingScore), weight: .20, basis: "log10 of nominal 2025 title-qualified NSF obligations / 8, capped at 100" },
-    { id: "talent-concentration", score: Math.round(talentScore), weight: .20, basis: "San Jose data-scientist location quotient / 5, capped at 100" },
+    { id: "research-momentum", score: Math.round(researchScore), basis: "2022-2025 complete-year work-count change within the fixed 16-institution frame" },
+    { id: "verified-network-density", score: Math.round(networkScore), basis: "positive verified edges / possible edges within the same 16-institution frame" },
+    { id: "nsf-funding-observation", score: Math.round(fundingScore), basis: "diagnostic transform of nominal 2025 California recipient-state obligations; context only" },
+    { id: "talent-concentration", score: Math.round(talentScore), basis: "May 2025 San Jose-Sunnyvale-Santa Clara MSA data-scientist location quotient; context only" },
   ],
-  composite: 0,
-  sensitivity: { method: "Each weight varied ±10% and all weights renormalized", range: [0, 0] },
-  warning: "Comparability is limited by different geographies and reference periods; this is an evidence-index summary, not a forecast or ranking.",
-};
-californiaAIRadarProfile.composite = Math.round(californiaAIRadarProfile.signals.reduce((sum, signal) => sum + signal.score * signal.weight, 0));
-californiaAIRadarProfile.sensitivity.range = [californiaAIRadarProfile.composite - 2, californiaAIRadarProfile.composite + 2];
+  composite: null,
+  sensitivity: null,
+  warning: "The signals use incompatible geographies, constructs and time coverage. They are shown side by side as context only; NEXORA does not calculate a combined score, ranking, correlation or causal effect.",
+} as const;
 
 const degree = new Map<string, number>();
 const weighted = new Map<string, number>();
@@ -55,4 +54,6 @@ export const californiaAICrossLayerAnalysis = {
   status: "INSUFFICIENT_FOR_CORRELATION" as const,
   note: { en: "Research is longitudinal, while talent is one MSA cross-section and funding is one award-year slice. NEXORA reports co-presence only and does not calculate correlation, lags or causal effects.", zh: "科研为纵向序列，人才仅是单一都会区横截面，资助仅覆盖一个奖项年度。NEXORA 只报告共现，不计算相关、滞后或因果效应。" },
   availableCompleteResearchYears: californiaAIAnnual.filter((row) => !row.incomplete).length,
+  commonCrossLayerLongitudinalPanelAvailable: false,
+  directlyComparableLayers: ["OpenAlex annual research activity within the fixed 16-institution frame"],
 };

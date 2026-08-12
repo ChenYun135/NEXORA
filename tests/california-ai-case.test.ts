@@ -14,6 +14,7 @@ import { californiaAIPatentStatus, californiaAIPatentTaxonomy } from "../data/ca
 import { californiaAICapitalFeasibility } from "../data/cases/california-ai/capital.ts";
 import { californiaAIEntrepreneurship } from "../data/cases/california-ai/entrepreneurship.ts";
 import { californiaAICrossLayerAnalysis, californiaAIEvidenceLayers, californiaAINetworkMetrics, californiaAIRadarProfile } from "../data/cases/california-ai/empirical.ts";
+import { californiaAIAlignedPanel, californiaAIAnalysisPolicy, californiaAIEmpiricalAlignment, californiaAIGeographyCrosswalk, californiaAIPaperVariables, californiaAITimeAlignment } from "../data/cases/california-ai/alignment.ts";
 import { understandQuery, NexoraQueryPlanner } from "../services/ai/query.ts";
 import { NexoraRetrievalService } from "../services/ai/retrieval.ts";
 import { scenarioById } from "../simulation/scenarios/scenarios.ts";
@@ -64,6 +65,8 @@ test("NSF funding layer is deduplicated, title-qualified and nominal", () => {
 test("BLS talent layer is AI-adjacent and geography-explicit", () => {
   assert.equal(californiaAITalentIndicators.length, 5);
   assert.equal(californiaAITalentSource.geography.crosswalkStatus, "PARTIAL_OVERLAP");
+  assert.equal(californiaAITalentSource.geography.nexoraRegionId, "san-jose-sunnyvale-santa-clara-msa");
+  assert.ok(californiaAITalentIndicators.every(x => x.geographyId === "san-jose-sunnyvale-santa-clara-msa"));
   assert.ok(californiaAITalentIndicators.every(x => x.construct === "AI_ADJACENT_TECHNICAL_WORKFORCE" && x.period === "2025-05"));
   assert.ok(californiaAITalentIndicators.every(x => x.employment > 0 && x.locationQuotient > 0 && x.annualMeanWageUSD > 0));
 });
@@ -100,11 +103,38 @@ test("promoted relationships retain valid endpoints and reproducible AND filters
 });
 
 test("Radar, network and cross-layer methods expose their boundaries", () => {
-  assert.equal(californiaAIRadarProfile.signals.reduce((sum, x) => sum + x.weight, 0), 1);
-  assert.ok(californiaAIRadarProfile.composite >= 0 && californiaAIRadarProfile.composite <= 100);
+  assert.equal(californiaAIRadarProfile.status, "CONTEXT_ONLY");
+  assert.equal(californiaAIRadarProfile.comparabilityStatus, "NOT_COMPARABLE");
+  assert.equal(californiaAIRadarProfile.composite, null);
+  assert.equal(californiaAIRadarProfile.sensitivity, null);
   assert.equal(californiaAINetworkMetrics.length, 16);
   assert.ok(californiaAINetworkMetrics.every(x => x.scopeLabel === "within current verified dataset"));
   assert.equal(californiaAICrossLayerAnalysis.status, "INSUFFICIENT_FOR_CORRELATION");
+  assert.equal(californiaAICrossLayerAnalysis.commonCrossLayerLongitudinalPanelAvailable, false);
+});
+
+test("03A time alignment excludes partial 2026 and does not invent a common cross-layer panel", () => {
+  assert.deepEqual(californiaAIAnalysisPolicy.commonCompleteYearWindow, {firstYear: 2015, lastYear: 2025});
+  assert.equal(californiaAIAnalysisPolicy.commonCrossLayerLongitudinalPanelAvailable, false);
+  assert.deepEqual(californiaAIAlignedPanel.map(x => x.year), [2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025]);
+  assert.ok(californiaAIAlignedPanel.every(x => x.geographyId === "california-selected-institution-frame" && x.comparabilityStatus === "DIRECTLY_COMPARABLE"));
+  assert.ok(californiaAITimeAlignment.find(x => x.provider === "OpenAlex")?.partialYears.includes(2026));
+});
+
+test("03A geography crosswalk distinguishes Bay Area, BLS MSA and NSF recipient state", () => {
+  const bay = californiaAIGeographyCrosswalk.find(x => x.id === "sf-bay-area")!;
+  const msa = californiaAIGeographyCrosswalk.find(x => x.id === "san-jose-sunnyvale-santa-clara-msa")!;
+  const nsf = californiaAIGeographyCrosswalk.find(x => x.id === "california-nsf-recipient-state")!;
+  assert.equal(bay.counties.length, 9);
+  assert.deepEqual(msa.counties, ["Santa Clara", "San Benito"]);
+  assert.notEqual(bay.id, msa.id);
+  assert.equal(nsf.comparability, "CONTEXT_ONLY");
+  assert.ok(californiaAIFundingAwards.every(x => x.recipientStateCode === "CA" && x.recipientCity));
+});
+
+test("03A construct and paper classifications are explicit", () => {
+  assert.deepEqual([...new Set(californiaAIEmpiricalAlignment.map(x => x.comparabilityStatus))].sort(), ["COMPARABLE_AFTER_AGGREGATION","CONTEXT_ONLY","DIRECTLY_COMPARABLE","NOT_COMPARABLE"]);
+  assert.deepEqual([...new Set(californiaAIPaperVariables.map(x => x.paperUse))].sort(), ["CONTEXTUAL","NOT_READY","PRIMARY_EMPIRICAL","SECONDARY_EMPIRICAL","SIMULATOR_ONLY"]);
 });
 
 test("coverage and findings keep missingness and confidence explicit", () => {
@@ -118,8 +148,8 @@ test("coverage and findings keep missingness and confidence explicit", () => {
 });
 
 test("paper-ready exports and required empirical methods exist", () => {
-  for (const name of ["research_annual.csv","institutions.csv","relationships.csv","talent_oews.csv","nsf_awards_2025.csv","evidence_layers.csv"]) assert.ok(existsSync(`data/exports/california-ai/${name}`));
-  for (const name of ["CA_AI_EMPIRICAL_DATA_PLAN.md","CA_AI_CONSTRUCT_MAP.md","CA_AI_PATENT_TAXONOMY.md","CA_AI_TALENT_TAXONOMY.md","CA_AI_FUNDING_TAXONOMY.md","CA_AI_CAPITAL_DATA_FEASIBILITY.md","CA_AI_RADAR_EMPIRICAL_METHOD.md","CA_AI_NETWORK_EMPIRICAL_METHOD.md","CA_AI_MEASUREMENT_BIAS.md","CA_AI_GEOGRAPHY_METHOD.md"]) assert.ok(existsSync(`docs/${name}`));
+  for (const name of ["research_annual.csv","institutions.csv","relationships.csv","talent_oews.csv","nsf_awards_2025.csv","evidence_layers.csv","ca-ai-aligned-panel.csv"]) assert.ok(existsSync(`data/exports/california-ai/${name}`));
+  for (const name of ["CA_AI_EMPIRICAL_DATA_PLAN.md","CA_AI_CONSTRUCT_MAP.md","CA_AI_PATENT_TAXONOMY.md","CA_AI_TALENT_TAXONOMY.md","CA_AI_FUNDING_TAXONOMY.md","CA_AI_CAPITAL_DATA_FEASIBILITY.md","CA_AI_RADAR_EMPIRICAL_METHOD.md","CA_AI_NETWORK_EMPIRICAL_METHOD.md","CA_AI_MEASUREMENT_BIAS.md","CA_AI_GEOGRAPHY_METHOD.md","CA_AI_EMPIRICAL_TIME_ALIGNMENT.md","CA_AI_GEOGRAPHY_CROSSWALK.md","CA_AI_EMPIRICAL_ALIGNMENT_MATRIX.md","CA_AI_PAPER_VARIABLES.md","USPTO_ACTIVATION_GUIDE.md"]) assert.ok(existsSync(`docs/${name}`));
 });
 
 test("source registry, route and social asset contain no Demo dependency", () => {

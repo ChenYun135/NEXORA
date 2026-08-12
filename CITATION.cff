@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use NEXORA, please cite the software using this metadata."
+title: "NEXORA: Evidence-Based Future-Industry Intelligence"
+type: software
+version: 1.0.0
+date-released: 2026-08-11
+authors:
+  - family-names: Chen
+    given-names: Yun
+    orcid: "https://orcid.org/0000-0002-8707-797X"
+license: MIT
+abstract: "A bilingual, evidence-based platform for exploring public data, emerging-industry signals, innovation networks, policy, organizations, grounded synthesis, and transparent scenarios."
+keywords:
+  - future industries
+  - innovation ecosystems
+  - scientometrics
+  - public policy
+  - evidence-based intelligence
+notes: "No repository URL or DOI is claimed until an authorized public release exists."

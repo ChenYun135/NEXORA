@@ -22,5 +22,5 @@ export function CaliforniaAIContextBanner({module}:{module:Module}){
  const visible=useSyncExternalStore(()=>()=>{},()=>{const p=new URLSearchParams(window.location.search);return p.get("case")==="california-ai"||p.get("industry")==="artificial-intelligence"||p.get("jurisdiction")==="california"||["california","sf-bay-area"].includes(p.get("region")??"")},()=>false);
  if(!visible)return null;
  const patents=californiaAICoverage.find(x=>x.id==="patents")!;
- return <aside className={styles.banner} aria-label="California AI flagship case context"><div><span>FLAGSHIP CASE · {californiaAIRegistry.snapshotDate}</span><h2>{californiaAIRegistry.title[lang]}</h2><p>{details[module][lang]}</p></div><dl><div><dt>CASE STATUS</dt><dd>PRIVATE RESEARCH READY</dd></div><div><dt>PATENTS</dt><dd>{patents.level}</dd></div></dl><Link href="/cases/california-ai">{lang==="en"?"Open guided case":"打开引导式案例"} →</Link></aside>
+ return <aside className={styles.banner} aria-label="California AI flagship case context"><div><span>FLAGSHIP CASE · {californiaAIRegistry.snapshotDate}</span><h2>{californiaAIRegistry.title[lang]}</h2><p>{details[module][lang]}</p></div><dl><div><dt>CASE STATUS</dt><dd>PUBLIC EVIDENCE CASE</dd></div><div><dt>PATENTS</dt><dd>{patents.level}</dd></div></dl><Link href="/cases/california-ai">{lang==="en"?"Open guided case":"打开引导式案例"} →</Link></aside>
 }

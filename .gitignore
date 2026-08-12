@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+/test-results/
+/playwright-report/
 
 # next.js
 /.next/
@@ -23,6 +25,13 @@
 /.dev-server*.log
 /.qa-server*.log
 *.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.sqlite*
+*.db
+*.log
 
 # debug
 npm-debug.log*
@@ -41,4 +50,15 @@ yarn-error.log*
 /.wrangler/
 /outputs/
 /work/
+/cache/
+/checkpoints/
+/tmp/
+/temp/
+/.public-release/
+/research/private/
+/research/paper-01/
+/deployment-archives/
+*.zip
+*.tar
+*.tgz
 *.tsbuildinfo

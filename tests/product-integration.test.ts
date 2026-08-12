@@ -7,11 +7,11 @@ import { parseAtlasQuery, parseRadarQuery, safeQueryValue } from "../lib/product
 test("defines the canonical eight-step product journey", () => {
   assert.deepEqual(productJourney.map((item) => item.id), ["data-status", "atlas", "radar", "ecosystems", "policy", "companies", "ai", "simulator"]);
   assert.ok(productJourney.every((item) => item.name.en && item.name.zh && item.description.en && item.description.zh));
-  assert.equal(integrationRelease.version, "Post-Sprint Integration v1");
+  assert.equal(integrationRelease.version, "Public RC 1.0");
 });
 
 test("keeps the canonical trust vocabulary complete", () => {
-  assert.deepEqual(canonicalDataStates, ["Public Data", "Normalized Data", "Derived Metric", "Composite Score", "Demo Data", "Stale Data", "Unavailable", "Simulated", "AI Interpretation"]);
+  assert.deepEqual(canonicalDataStates, ["Public Data", "Normalized Data", "Derived Metric", "Composite Score", "Demo Data", "Stale Data", "Unavailable", "Degraded", "Not Configured", "Simulated", "AI Interpretation"]);
 });
 
 test("Atlas accepts stable region IDs, legacy names and technology context", () => {

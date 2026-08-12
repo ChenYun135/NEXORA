@@ -2,9 +2,8 @@ export const californiaAIPatentStatus = {
   provider: "USPTO Open Data Portal",
   status: "NOT_CONFIGURED" as const,
   recordCount: null,
-  secretName: "USPTO_API_KEY",
-  note: { en: "No key is configured. Live ingestion is disabled and no fixture or Demo count is promoted as evidence.", zh: "尚未配置密钥。实时采集已停用，且不会将 fixture 或 Demo 计数晋级为证据。" },
-  officialUrl: "https://data.uspto.gov/apis/bulk-data/search",
+  note: { en: "Production access is not configured. Live ingestion is disabled and no fixture or Demo count is promoted as evidence.", zh: "尚未配置生产访问。实时采集已停用，且不会将 fixture 或 Demo 计数晋级为证据。" },
+  officialUrl: "https://data.uspto.gov/apis/patent-file-wrapper/application-data",
 };
 
 export const californiaAIPatentTaxonomy = {

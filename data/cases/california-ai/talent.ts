@@ -6,7 +6,7 @@ export const californiaAITalentSource = {
   referencePeriod: "2025-05",
   retrievedAt: "2026-08-11",
   url: "https://www.bls.gov/regions/west/news-release/occupationalemploymentandwages_sanjose.htm",
-  geography: { sourceAreaCode: "0041940", sourceName: "San Jose-Sunnyvale-Santa Clara, CA Metropolitan Statistical Area", nexoraRegionId: "sf-bay-area", crosswalkStatus: "PARTIAL_OVERLAP" },
+  geography: { sourceAreaCode: "0041940", sourceName: "San Jose-Sunnyvale-Santa Clara, CA Metropolitan Statistical Area", nexoraRegionId: "san-jose-sunnyvale-santa-clara-msa", crosswalkStatus: "PARTIAL_OVERLAP" },
 } as const;
 
 export const californiaAITalentIndicators = [
@@ -15,7 +15,7 @@ export const californiaAITalentIndicators = [
   { id: "bls-sj-software-developers", soc: "15-1252", label: { en: "Software developers", zh: "软件开发人员" }, employment: 87350, locationQuotient: 7.09, annualMeanWageUSD: 221710 },
   { id: "bls-sj-data-scientists", soc: "15-2051", label: { en: "Data scientists", zh: "数据科学家" }, employment: 6060, locationQuotient: 3.16, annualMeanWageUSD: 212760 },
   { id: "bls-sj-information-security", soc: "15-1212", label: { en: "Information security analysts", zh: "信息安全分析师" }, employment: 2280, locationQuotient: 1.64, annualMeanWageUSD: 196700 },
-].map((indicator) => ({ ...indicator, period: "2025-05", geographyId: "sf-bay-area", status: "OBSERVED_PUBLIC_DATA" as const, construct: "AI_ADJACENT_TECHNICAL_WORKFORCE" as const, sourceId: californiaAITalentSource.id }));
+].map((indicator) => ({ ...indicator, period: "2025-05", geographyId: "san-jose-sunnyvale-santa-clara-msa", status: "OBSERVED_PUBLIC_DATA" as const, construct: "AI_ADJACENT_TECHNICAL_WORKFORCE" as const, sourceId: californiaAITalentSource.id }));
 
 export const californiaAITalentLimitations = {
   en: "OEWS measures wage-and-salary employment by occupation, excludes self-employed workers, and does not identify AI workers. NEXORA treats these as AI-adjacent technical-workforce indicators for one MSA cross-section.",

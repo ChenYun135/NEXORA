@@ -1,5 +1,5 @@
 # California AI Radar Empirical Method / 加州 AI Radar 实证方法
 
-`ca-ai-radar-v2.0` combines four bounded 0–100 signals: research momentum (35%), verified network density (25%), log NSF obligations (20%), and San Jose data-scientist location quotient (20%). Missing values are excluded; they are never zero-filled. Weights are renormalized and varied ±10% for sensitivity.
+`ca-ai-radar-v2.1-alignment` shows four bounded diagnostic signals side by side: research momentum, within-frame network density, a transformed 2025 NSF obligation observation, and a May 2025 San Jose-Sunnyvale-Santa Clara MSA data-scientist location quotient. Because geography, construct and time coverage differ, the profile is `CONTEXT_ONLY` / `NOT_COMPARABLE`: it has no weights, composite or sensitivity range.
 
-The result is an evidence-index summary, not an opportunity rank, forecast or causal score. Different geographies and periods limit comparability. / 结果是证据指数摘要，不是机会排名、预测或因果分数；不同地理与时间限制可比性。
+The panel is not an evidence index, opportunity rank, forecast, correlation or causal score. / 该面板不是综合证据指数、机会排名、预测、相关性或因果评分。

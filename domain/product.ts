@@ -1,9 +1,17 @@
 export type ProductModuleId = "data-status" | "atlas" | "radar" | "ecosystems" | "policy" | "companies" | "ai" | "simulator";
 
 export const integrationRelease = {
-  label: "NEXORA Integration Audit 1",
-  version: "Post-Sprint Integration v1",
-  date: "2026-08-10",
+  label: "NEXORA Public Release Candidate 1.0",
+  version: "Public RC 1.0",
+  date: "2026-08-11",
+} as const;
+
+export const flagshipJourney = {
+  id: "california-ai",
+  href: "/cases/california-ai",
+  action: { en: "EXAMINE", zh: "研究" },
+  name: { en: "California AI", zh: "加州 AI" },
+  description: { en: "Examine the evidence-based flagship case", zh: "查看基于证据的旗舰研究案例" },
 } as const;
 
 export const productJourney = [
@@ -25,6 +33,8 @@ export const canonicalDataStates = [
   "Demo Data",
   "Stale Data",
   "Unavailable",
+  "Degraded",
+  "Not Configured",
   "Simulated",
   "AI Interpretation",
 ] as const;

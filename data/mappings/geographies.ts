@@ -6,7 +6,9 @@ export const countryCodeToGeographyId:Record<string,string>={USA:"country-us",CH
 
 export const californiaAICanonicalGeographies:CanonicalGeography[]=[
  {id:"california",type:"STATE_PROVINCE",name:{en:"California",zh:"加利福尼亚州"},countryCode:"US",parentId:"country-us",latitude:36.7783,longitude:-119.4179,sourceIds:["official-california"]},
- {id:"sf-bay-area",type:"METRO_ECOSYSTEM",name:{en:"San Francisco Bay Area",zh:"旧金山湾区"},countryCode:"US",parentId:"california",latitude:37.7749,longitude:-122.4194,sourceIds:["ca-ai-case-v2.0"]},
+ {id:"california-selected-institution-frame",type:"STATE_PROVINCE",name:{en:"California selected-institution research frame",zh:"加州选定机构科研框架"},countryCode:"US",parentId:"california",latitude:36.7783,longitude:-119.4179,sourceIds:["ca-ai-alignment-v1.0"]},
+ {id:"sf-bay-area",type:"METRO_ECOSYSTEM",name:{en:"San Francisco Bay Area (nine-county NEXORA ecosystem)",zh:"旧金山湾区（NEXORA 九县生态）"},countryCode:"US",parentId:"california",latitude:37.7749,longitude:-122.4194,sourceIds:["ca-ai-alignment-v1.0"]},
+ {id:"san-jose-sunnyvale-santa-clara-msa",type:"METRO_ECOSYSTEM",name:{en:"San Jose-Sunnyvale-Santa Clara, CA MSA",zh:"圣何塞—森尼韦尔—圣克拉拉都会统计区"},countryCode:"US",parentId:"california",latitude:37.3382,longitude:-121.8863,sourceIds:["source-bls-oews-san-jose-2025","ca-ai-alignment-v1.0"]},
  {id:"los-angeles",type:"METRO_ECOSYSTEM",name:{en:"Los Angeles",zh:"洛杉矶"},countryCode:"US",parentId:"california",latitude:34.0522,longitude:-118.2437,sourceIds:["ca-ai-case-v2.0"]},
  {id:"san-diego",type:"METRO_ECOSYSTEM",name:{en:"San Diego",zh:"圣迭戈"},countryCode:"US",parentId:"california",latitude:32.7157,longitude:-117.1611,sourceIds:["ca-ai-case-v2.0"]},
  {id:"orange-county",type:"METRO_ECOSYSTEM",name:{en:"Orange County / Irvine",zh:"橙县／尔湾"},countryCode:"US",parentId:"california",latitude:33.6846,longitude:-117.8265,sourceIds:["ca-ai-case-v2.0"]},

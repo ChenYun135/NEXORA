@@ -1,3 +1,0 @@
-# Data Limitations / 数据局限
-
-Coverage is a pilot, not global completeness. OpenAlex has publication, language, topic-assignment and institution-resolution biases. Patent coverage is unavailable until USPTO credentials and terms review. World Bank values are country-level, revised and often lagged; they do not provide metro precision. Data.gov is catalog metadata rather than uniform data. Policy availability and status vary by jurisdiction. Official identity does not verify organization activity. English-language and source-availability bias remain. Entity resolution errors and taxonomy proxy mappings require review.

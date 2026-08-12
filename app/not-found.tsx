@@ -1,5 +1,7 @@
 import Link from "@/components/safe-link";
 
+export const metadata = { title: "Page Not Found — NEXORA", robots: { index: false, follow: false } };
+
 export default function NotFound() {
   return (
     <main className="module-shell">

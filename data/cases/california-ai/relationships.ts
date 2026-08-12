@@ -9,7 +9,7 @@ export const californiaAIRelationships = snapshot.relationships.slice(0, 40).map
   toOrganizationId: openAlexToOrg.get(edge.toInstitutionId)!,
   type: "RESEARCH_COLLABORATION" as const,
   workCount: edge.workCount,
-  period: "2015-2026",
+  period: "2015-2025 complete; 2026 partial",
   evidenceStatus: "VERIFIED_RELATIONSHIP" as const,
   evidenceMethod: "OpenAlex work count with both selected institutions in authorship affiliations and primary topic in AI subfield 1702.",
   sourceUrl: edge.sourceUrl,
