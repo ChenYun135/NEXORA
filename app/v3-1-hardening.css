@@ -1,0 +1,39 @@
+:root{
+  --zh-font:"PingFang SC","Noto Sans CJK SC","Microsoft YaHei UI","Microsoft YaHei",sans-serif;
+  --zh-display:600 clamp(2.5rem,5vw,4.75rem)/1.14 var(--zh-font);
+  --zh-heading:600 clamp(1.55rem,3vw,2.65rem)/1.28 var(--zh-font);
+  --zh-body:400 17px/1.78 var(--zh-font);
+  --zh-caption:500 13px/1.6 var(--zh-font);
+  --nx-blue:#3c8cff;
+  --nx-cyan:#27d4e8;
+  --nx-teal:#31d8c0;
+  --nx-green:#55d68b;
+  --nx-violet:#875bff;
+  --nx-purple:#b05cff;
+  --nx-amber:#ffb454;
+  --nx-coral:#ff7272;
+}
+
+body{font-size:16px;line-height:1.6}
+main :is(button,input,select,textarea){min-height:36px}
+main :is(table,th,td){font-size:14px;line-height:1.55}
+main th{font-weight:650;letter-spacing:.01em}
+main :is([role="tooltip"],[class*="tooltip"]){font-size:14px!important;line-height:1.55;padding:10px 12px}
+main :is([class*="legend"],[class*="Legend"]){font-size:14px;line-height:1.5}
+main :is([class*="annotation"],[class*="Annotation"]){font-size:14px;line-height:1.55}
+main :is([class*="label"],[class*="Label"]){line-height:1.45}
+main a[href^="http"]:after{content:" ↗";font-family:var(--font-mono);font-size:.82em;color:var(--nx-cyan)}
+
+.lang-zh,:lang(zh-CN){font-family:var(--zh-font)}
+.lang-zh :is(h1,h2,h3),:lang(zh-CN) :is(h1,h2,h3){font-family:var(--zh-font);text-wrap:balance;word-break:keep-all;overflow-wrap:normal}
+.lang-zh :is(p,li,dd),:lang(zh-CN) :is(p,li,dd){line-height:1.78}
+
+@media(max-width:700px){
+  main{overflow-x:clip}
+  main :is(table){font-size:13px}
+  main :is([class*="legend"],[class*="Legend"]){font-size:13px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+}

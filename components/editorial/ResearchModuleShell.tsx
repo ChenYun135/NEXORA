@@ -1,5 +1,7 @@
 ﻿import Link from "@/components/safe-link";
 import styles from "./research-module-shell.module.css";
+import { displayHeading } from "@/lib/display-text";
+import { ChartExplanation, ResearchFinding, type EvidenceState } from "./ResearchFindings";
 
 type Localized = { en: string; zh: string };
 type ResearchModuleShellProps = {
@@ -78,8 +80,8 @@ export function ResearchModuleShell({ image, eyebrow, title, subtitle, descripti
     <section className={`${styles.hero} ${styles[moduleKey]} ${lang === "zh" ? styles.zh : ""}`} aria-labelledby={`${moduleKey}-cover-title`}>
       <div className={styles.copy}>
         <span className={styles.eyebrow}>{eyebrow}</span>
-        <p className={styles.moduleName}>{title}</p>
-        <h1 id={`${moduleKey}-cover-title`}>{displaySubtitle}</h1>
+        <p className={styles.moduleName}>{displayHeading(title)}</p>
+        <h1 id={`${moduleKey}-cover-title`}>{displayHeading(displaySubtitle)}</h1>
         <p className={styles.description}>{description}</p>
         <div className={styles.actions}><a className={styles.primary} href="#workspace">{enterLabel} ↓</a><Link href="/methodology">{insightLabel} →</Link></div>
         <p className={styles.evidence}>{evidence}</p>
@@ -88,7 +90,7 @@ export function ResearchModuleShell({ image, eyebrow, title, subtitle, descripti
     </section>
     <section className={`${styles.question} ${lang === "zh" ? styles.zh : ""}`} aria-labelledby={`${moduleKey}-question`}>
       <span>{lang === "zh" ? "研究问题" : "RESEARCH QUESTION"}</span>
-      <h2 id={`${moduleKey}-question`}>{content.question[lang]}</h2>
+      <h2 id={`${moduleKey}-question`}>{displayHeading(content.question[lang])}</h2>
       <div className={styles.dimensions}>{content.dimensions.map((item, index)=><article key={item.title.en}><span>0{index + 1}</span><h3>{item.title[lang]}</h3><p>{item.body[lang]}</p></article>)}</div>
       <aside className={styles.takeaway} aria-label={lang === "zh" ? "核心结论" : "Key takeaway"}>
         <span>{lang === "zh" ? "核心结论" : "KEY TAKEAWAY"}</span>
@@ -99,7 +101,12 @@ export function ResearchModuleShell({ image, eyebrow, title, subtitle, descripti
     <section className={`${styles.findings} ${lang === "zh" ? styles.zh : ""}`} aria-labelledby={`${moduleKey}-findings`}>
       <div className={styles.metrics}>{editorial.metrics.map(([value,label,state])=><article key={label.en}><strong>{value}</strong><span>{label[lang]}</span><small>{state}</small></article>)}</div>
       <div className={styles.findingsHead}><span>{lang === "zh" ? "数据揭示了什么" : "WHAT THE DATA SUGGESTS"}</span><h2 id={`${moduleKey}-findings`}>{lang === "zh" ? "三条需要审慎解读的研究发现" : "Three findings to interpret with care"}</h2></div>
-      <div className={styles.findingsGrid}>{editorial.findings.map(([title,body,state],index)=><article key={title.en}><span>0{index+1} / {state}</span><h3>{title[lang]}</h3><p>{body[lang]}</p></article>)}</div>
+      <div className={styles.findingsGrid}>{editorial.findings.map(([title,body,state],index)=><ResearchFinding key={title.en} number={`0${index+1}`} headline={displayHeading(title[lang])} body={body[lang]} status={state as EvidenceState}/>)}</div>
+      <ChartExplanation
+        shows={lang === "zh" ? "主要可视化呈现当前公共数据与已声明转换能够支持的结构" : "The primary visualization presents structures supported by current public data and declared transformations."}
+        matters={lang === "zh" ? "它将研究问题、证据状态与可探索的分析对象连接起来" : "It connects the research question, evidence state and analytical objects available for exploration."}
+        boundary={lang === "zh" ? "不可据此推断因果、预测、质量排名或投资建议" : "Do not infer causality, forecasts, quality rankings or investment advice."}
+      />
     </section>
     <section className={styles.deeperIntro} aria-labelledby={`${moduleKey}-deeper`}>
       <span>{lang === "zh" ? "深入探索" : "EXPLORE DEEPER"}</span>

@@ -9,6 +9,7 @@ import { CaliforniaAIFlagshipSnapshot } from "@/data/cases/california-ai/snapsho
 import { californiaAICoverage } from "@/data/cases/california-ai/coverage";
 import styles from "./data-status.module.css";
 import { ResearchModuleShell } from "./editorial/ResearchModuleShell";
+import { BoundaryNote, ChartExplanation } from "./editorial/ResearchFindings";
 import pilotStyles from "./data-status-pilot.module.css";
 
 const T={
@@ -23,6 +24,7 @@ export function DataStatus(){
  return <main className={styles.page}>
   <ResearchModuleShell image="/data-status-og.png" eyebrow="NEXORA / FUTURE INDUSTRY INTELLIGENCE" title={lang==="en"?"NEXORA DATA STATUS":"NEXORA 数据状态"} subtitle={lang==="en"?"Public data. Provenance. Quality. Freshness.":"公共数据、来源与时效"} description={lang==="en"?"Inspect provider coverage, provenance, freshness, limitations and system health.":"审视数据覆盖、来源、时效、局限与系统状态。"} enterLabel={lang==="en"?"Enter data workspace":"进入数据工作台"} insightLabel={lang==="en"?"Methods & evidence":"方法与证据"} lang={lang}/>
   <div id="workspace"/>
+  <DataTrustExperience lang={lang}/>
   <header><div><Link prefetch={false} href="/">N <b>NEXORA</b></Link><Link prefetch={false} href="/">← {t.back}</Link></div><div><span><i/>PUBLIC DATA PIPELINE / 07</span><nav aria-label="Language"><button className={lang==="en"?styles.on:""} onClick={()=>setLang("en")}>EN</button><button className={lang==="zh"?styles.on:""} onClick={()=>setLang("zh")}>中文</button></nav></div></header>
   <section className={styles.hero}><p>PROVENANCE · QUALITY · FRESHNESS · RELIABILITY</p><h1>{t.title}</h1><h2>{t.tagline}</h2><h3>{t.support}</h3><div className={styles.mode}><span>{t.mode}</span><b>{productionSnapshotDate}</b><small>PRODUCTION → CACHE → LAST KNOWN GOOD → DEMO → UNAVAILABLE</small></div></section>
   <section className={styles.coverage}><h2>{t.coverage}</h2><div>{Object.entries(totals).map(([k,v])=><span key={k}><b>{v}</b>{k.toUpperCase()}</span>)}</div><p>{t.demo}</p><small>{lang==="en"?"Trust vocabulary: Public Data · Normalized · Derived · Composite · Demo · Simulated · AI Interpretation · Unavailable · Degraded · Stale · Not Configured":"信任状态：公共数据 · 规范化 · 衍生 · 综合指标 · 演示 · 模拟 · AI 解读 · 不可用 · 降级 · 过期 · 未配置"}</small></section>
@@ -38,5 +40,13 @@ export function DataStatus(){
   <footer><span>NEXORA DATA STATUS / SNAPSHOT {productionSnapshotDate}</span><span>{t.footer}</span></footer>
  </main>;
 }
+function DataTrustExperience({lang}:{lang:"en"|"zh"}){return <section className={styles.trustExperience} aria-labelledby="provenance-pipeline">
+  <div className={styles.trustHead}><span>01 / PROVENANCE PIPELINE</span><h2 id="provenance-pipeline">{lang==="en"?"From public source to bounded analysis":"从公共来源到有边界的分析"}</h2><p>{lang==="en"?"Every record retains its source, transformation state and quality context before it can support analysis.":"每条记录只有在保留来源、转换状态与质量语境后，才可进入分析"}</p></div>
+  <ol className={styles.pipeline}>{[["PUBLIC SOURCE","公共来源","OBSERVED"],["INGESTION","数据接入","OBSERVED"],["NORMALIZATION","规范化","DERIVED"],["QUALITY","质量检查","DERIVED"],["DERIVATION","指标衍生","DERIVED"],["ANALYSIS","分析解读","INTERPRETATION"]].map(([en,zh,state],index)=><li key={en}><span>{String(index+1).padStart(2,"0")}</span><b>{lang==="en"?en:zh}</b><small>{state}</small></li>)}</ol>
+  <ChartExplanation shows={lang==="en"?"The pipeline distinguishes source records, transformations and interpretation.":"流程明确区分来源记录、转换过程与分析解读"} matters={lang==="en"?"Users can trace which layer supports a claim and where uncertainty enters.":"用户可以追踪结论由哪一层证据支持，以及不确定性从何进入"} boundary={lang==="en"?"Pipeline completion does not make incomplete coverage representative or causal.":"流程完整并不意味着有限覆盖具有代表性或因果意义"}/>
+  <div className={styles.taxonomy}>{[["OBSERVED","Direct public evidence","公共来源的直接证据"],["DERIVED","Declared transformation","按声明规则生成"],["PROXY","Imperfect substitute","有限替代指标"],["DEMO","Interface demonstration","界面演示数据"],["SIMULATED","Model-generated result","模型生成结果"],["AI INTERPRETATION","Bounded synthesis","有边界的综合解读"],["UNAVAILABLE","No support configured","尚无可用支持"]].map(([state,en,zh])=><article key={state} data-state={state}><span>{state}</span><p>{lang==="en"?en:zh}</p></article>)}</div>
+  <div className={styles.readinessMatrix}><h3>{lang==="en"?"Research readiness by construct":"按研究构念查看就绪度"}</h3><div>{[["Research","科研","READY"],["Talent","人才","PARTIAL"],["Funding","资助","PARTIAL"],["Policy","政策","PARTIAL"],["Organizations","组织","PARTIAL"],["Networks","网络","PROXY"],["Patents","专利","UNAVAILABLE"],["Entrepreneurship","创业","PROXY"],["Capital","资本","NOT_CONFIGURED"]].map(([en,zh,state])=><span key={en} data-state={state}><b>{lang==="en"?en:zh}</b><small>{state}</small></span>)}</div></div>
+  <BoundaryNote title={lang==="en"?"Inference remains narrower than interface coverage":"可推断范围小于界面覆盖范围"}><p>{lang==="en"?"Users may compare documented public observations within their declared scope. They should not treat demo, proxy or unavailable constructs as measured facts, causal effects or forecasts.":"用户可以在声明范围内比较已记录的公共观测，但不应将演示、代理或不可用构念视为测量事实、因果效应或预测"}</p></BoundaryNote>
+ </section>}
 function Title({n,title,sub}:{n:string;title:string;sub:string}){return <div className={styles.title}><span>{n}</span><div><h2>{title}</h2><p>{sub}</p></div></div>}
 function Fact({k,v}:{k:string;v:string}){return <div><dt>{k}</dt><dd>{v}</dd></div>}
