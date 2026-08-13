@@ -39,5 +39,5 @@ main a[href^="http"]:after{content:" ↗";font-family:var(--font-mono);font-size
 }
 
 /* Final cascade floor for editorial explanation labels and the public brand mark. */
-main [class*="explanation"]>span,
+main [class*="explanation"] span,
 .public-footer-brand>span{font-size:13px!important;line-height:1.55!important}
