@@ -37,3 +37,7 @@ main a[href^="http"]:after{content:" ↗";font-family:var(--font-mono);font-size
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
 }
+
+/* Final cascade floor for editorial explanation labels and the public brand mark. */
+main [class*="explanation"]>span,
+.public-footer-brand>span{font-size:13px!important;line-height:1.55!important}
