@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { PublicFooter } from "@/components/public-footer";
 import "./globals.css";
 import "./editorial-overrides.css";
+import "./visual-refinement-v2-1.css";
 
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
 const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"] });

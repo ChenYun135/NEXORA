@@ -1,0 +1,99 @@
+/* NEXORA V2.1 — a scoped legibility layer for the existing editorial architecture. */
+main:has(> #workspace){--nx-readable:12px;--nx-caption:11px;--nx-body:14px}
+main:has(> #workspace) [class*="sectionTitle"]>span,
+main:has(> #workspace) [class*="title"]>span{font-size:11px!important;line-height:1.5!important}
+main:has(> #workspace) [class*="sectionTitle"] p,
+main:has(> #workspace) [class*="title"] p{font-size:14px!important;line-height:1.7!important;max-width:760px}
+main:has(> #workspace) [class*="panelTitle"] p,
+main:has(> #workspace) [class*="panelBody"],
+main:has(> #workspace) [class*="panelBody"] p{font-size:12px!important;line-height:1.65!important}
+main:has(> #workspace) [class*="panelTitle"] small,
+main:has(> #workspace) [class*="panelLabel"],
+main:has(> #workspace) [class*="label"]{font-size:10px!important;line-height:1.5!important}
+main:has(> #workspace) [class*="tabs"] button,
+main:has(> #workspace) [class*="filter"] button,
+main:has(> #workspace) [class*="filter"] input,
+main:has(> #workspace) [class*="filter"] select{font-size:11px!important;line-height:1.35!important;min-height:36px}
+main:has(> #workspace) [class*="trust"],
+main:has(> #workspace) [class*="disclaimer"],
+main:has(> #workspace) [class*="footer"]{font-size:10px!important;line-height:1.65!important}
+main:has(> #workspace) table th,
+main:has(> #workspace) table td{font-size:10px!important;line-height:1.45!important}
+
+/* Networks and maps: labels remain readable without obscuring the visual field. */
+main:has(> #workspace) [class*="node"]>span{font-size:10px!important;line-height:1.35!important}
+main:has(> #workspace) [class*="node"]>span b,
+main:has(> #workspace) [class*="legend"],
+main:has(> #workspace) [class*="canvasHint"]{font-size:9px!important;line-height:1.4!important}
+main:has(> #workspace) [class*="insights"] h3,
+main:has(> #workspace) [class*="clusters"] h3{font-size:14px!important;line-height:1.45!important}
+main:has(> #workspace) [class*="insights"] p,
+main:has(> #workspace) [class*="clusters"] p{font-size:11px!important;line-height:1.65!important}
+
+/* Policy: annotated chronology and comparison marks replace the visual feel of flat rows. */
+main:has(> #workspace) [class*="timeline"]{position:relative;padding-left:18px}
+main:has(> #workspace) [class*="timeline"]:before{content:"";position:absolute;left:4px;top:10px;bottom:10px;width:1px;background:linear-gradient(#65d7ef,#846cff,transparent)}
+main:has(> #workspace) [class*="timeline"]>*{position:relative}
+main:has(> #workspace) [class*="timeline"]>*:before{content:"";position:absolute;left:-18px;top:14px;width:8px;height:8px;border-radius:50%;background:#6edcf2;box-shadow:0 0 14px #66d9ef88}
+main:has(> #workspace) [class*="timeline"] time{font-size:11px!important}
+main:has(> #workspace) [class*="timeline"] b{font-size:14px!important;line-height:1.45!important}
+main:has(> #workspace) [class*="timeline"] small,
+main:has(> #workspace) [class*="timeline"] em{font-size:10px!important;line-height:1.55!important}
+main:has(> #workspace) [class*="compareRows"]>div{min-height:48px}
+main:has(> #workspace) [class*="compareRows"] b,
+main:has(> #workspace) [class*="compareRows"] span,
+main:has(> #workspace) [class*="compareRows"] em{font-size:11px!important;line-height:1.4!important}
+
+/* Organization, provenance and evidence panels: more breathing room, fewer hard boxes. */
+main:has(> #workspace) [class*="domainGrid"] button,
+main:has(> #workspace) [class*="roleGrid"] button,
+main:has(> #workspace) [class*="relationshipPreview"] button{border-color:transparent!important;border-top:1px solid rgba(123,158,206,.2)!important;background:linear-gradient(130deg,rgba(36,70,112,.2),transparent)!important;min-height:92px}
+main:has(> #workspace) [class*="domainGrid"] span,
+main:has(> #workspace) [class*="roleGrid"] b,
+main:has(> #workspace) [class*="relationshipPreview"] b{font-size:12px!important;line-height:1.45!important}
+main:has(> #workspace) [class*="providers"] article,
+main:has(> #workspace) [class*="sources"] article,
+main:has(> #workspace) [class*="quality"] article{border-color:rgba(91,204,220,.18)!important;background:linear-gradient(145deg,rgba(8,29,43,.94),rgba(5,15,28,.88))!important}
+main:has(> #workspace) [class*="providers"] p,
+main:has(> #workspace) [class*="sources"] p,
+main:has(> #workspace) [class*="quality"] p{font-size:13px!important;line-height:1.7!important}
+
+/* AI answers: concise answer, evidence and boundaries read as separate layers. */
+main:has(> #workspace) [class*="answer"]{line-height:1.72}
+main:has(> #workspace) [class*="summary"]{font-size:17px!important;line-height:1.7!important;border-left:3px solid #58d7df;padding-left:18px!important}
+main:has(> #workspace) [class*="answerMeta"]{font-size:11px!important}
+main:has(> #workspace) [class*="evidenceList"] *,
+main:has(> #workspace) [class*="sourceList"] *,
+main:has(> #workspace) [class*="gapList"] *{font-size:11px!important;line-height:1.55!important}
+main:has(> #workspace) [class*="limitations"],
+main:has(> #workspace) [class*="whyPanel"]{border-left:2px solid #e7aa58!important;background:linear-gradient(110deg,rgba(96,58,22,.18),transparent)!important}
+
+/* Simulator: parameters and outputs are analytical reading, never microcopy. */
+main:has(> #workspace) [class*="scenarioPanel"] p,
+main:has(> #workspace) [class*="scenarioPanel"] small,
+main:has(> #workspace) [class*="scenarioPanel"] button,
+main:has(> #workspace) [class*="parameterGrid"] small,
+main:has(> #workspace) [class*="parameterGrid"] i,
+main:has(> #workspace) [class*="chartPanel"] label,
+main:has(> #workspace) [class*="comparison"] label,
+main:has(> #workspace) [class*="sensitivity"] p,
+main:has(> #workspace) [class*="uncertainty"] p{font-size:11px!important;line-height:1.55!important}
+main:has(> #workspace) [class*="parameterGrid"] b,
+main:has(> #workspace) [class*="scenarioPanel"] h2{font-size:13px!important;line-height:1.45!important}
+main:has(> #workspace) [class*="nodes"] span,
+main:has(> #workspace) [class*="nodes"] small,
+main:has(> #workspace) [class*="links"] span,
+main:has(> #workspace) [class*="links"] small,
+main:has(> #workspace) [class*="loops"] b,
+main:has(> #workspace) [class*="loops"] small{font-size:10px!important;line-height:1.45!important}
+main:has(> #workspace) [class*="resultCards"] span{font-size:11px!important}
+main:has(> #workspace) [class*="resultCards"] small{font-size:10px!important;line-height:1.5!important}
+main:has(> #workspace) [class*="chart"] span,
+main:has(> #workspace) [class*="chart"] b{font-size:9px!important}
+
+@media(max-width:700px){
+  main:has(> #workspace) [class*="sectionTitle"] p,
+  main:has(> #workspace) [class*="title"] p{font-size:13px!important}
+  main:has(> #workspace) [class*="node"]>span{font-size:9px!important}
+  main:has(> #workspace) [class*="summary"]{font-size:15px!important}
+}

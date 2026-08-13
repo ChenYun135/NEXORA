@@ -69,6 +69,7 @@ const questions: Record<string, { question: Localized; dimensions: Array<{ title
 
 export function ResearchModuleShell({ image, eyebrow, title, subtitle, description, enterLabel, insightLabel, lang }: ResearchModuleShellProps) {
   const moduleKey = image.replace("-og.png", "").replace("/", "");
+  const displaySubtitle = moduleKey === "simulator" && lang === "zh" ? "创新生态情景推演" : subtitle;
   const content = questions[moduleKey] ?? questions.atlas;
   const art = `/hero/${moduleKey}-hero-art.webp`;
   const editorial = evidenceSummary[moduleKey] ?? evidenceSummary.atlas;
@@ -78,7 +79,7 @@ export function ResearchModuleShell({ image, eyebrow, title, subtitle, descripti
       <div className={styles.copy}>
         <span className={styles.eyebrow}>{eyebrow}</span>
         <p className={styles.moduleName}>{title}</p>
-        <h1 id={`${moduleKey}-cover-title`}>{subtitle}</h1>
+        <h1 id={`${moduleKey}-cover-title`}>{displaySubtitle}</h1>
         <p className={styles.description}>{description}</p>
         <div className={styles.actions}><a className={styles.primary} href="#workspace">{enterLabel} ↓</a><Link href="/methodology">{insightLabel} →</Link></div>
         <p className={styles.evidence}>{evidence}</p>
@@ -89,6 +90,11 @@ export function ResearchModuleShell({ image, eyebrow, title, subtitle, descripti
       <span>{lang === "zh" ? "研究问题" : "RESEARCH QUESTION"}</span>
       <h2 id={`${moduleKey}-question`}>{content.question[lang]}</h2>
       <div className={styles.dimensions}>{content.dimensions.map((item, index)=><article key={item.title.en}><span>0{index + 1}</span><h3>{item.title[lang]}</h3><p>{item.body[lang]}</p></article>)}</div>
+      <aside className={styles.takeaway} aria-label={lang === "zh" ? "核心结论" : "Key takeaway"}>
+        <span>{lang === "zh" ? "核心结论" : "KEY TAKEAWAY"}</span>
+        <strong>{editorial.findings[0][0][lang]}</strong>
+        <small>{editorial.findings[0][2]}</small>
+      </aside>
     </section>
     <section className={`${styles.findings} ${lang === "zh" ? styles.zh : ""}`} aria-labelledby={`${moduleKey}-findings`}>
       <div className={styles.metrics}>{editorial.metrics.map(([value,label,state])=><article key={label.en}><strong>{value}</strong><span>{label[lang]}</span><small>{state}</small></article>)}</div>
@@ -103,6 +109,9 @@ export function ResearchModuleShell({ image, eyebrow, title, subtitle, descripti
     <details className={styles.methods}>
       <summary>{lang === "zh" ? "方法与来源说明" : "Methods & provenance"}</summary>
       <p>{lang === "zh" ? "NEXORA 将公共观测、衍生指标、演示内容、模拟结果与分析解读分开标注。缺失证据不会被转换为零，也不会以隐藏替代值填补。" : "NEXORA labels public observations, derived indicators, demo material, simulated outputs and interpretation separately. Missing evidence is never converted to zero or filled by hidden substitutes."}</p>
+      <div className={styles.stateLegend} aria-label={lang === "zh" ? "证据状态图例" : "Evidence state legend"}>
+        {["OBSERVED","DERIVED","DEMO","SIMULATED","INTERPRETATION"].map((state)=><span key={state}>{state}</span>)}
+      </div>
       <Link href="/methodology">{lang === "zh" ? "阅读完整方法说明 →" : "Read the full methodology →"}</Link>
     </details>
   </>;
