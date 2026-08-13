@@ -106,6 +106,19 @@ h1 .accent { background:linear-gradient(90deg,#cdeeff,#6ebcff 45%,#b68aff);backg
 [class*="_workspace_"] :where(label,input,select,textarea,button,td,th,dt,dd),
 [class*="_chart_"] :where(text,span),
 [class*="_legend_"] :where(span,button){font-size:13px!important;line-height:1.5}
+
+/* Editorial research labels and the public footer must remain legible at every breakpoint. */
+[class*="_question_"]>span,
+[class*="_dimensions_"] span,
+[class*="_takeaway_"]>span,
+[class*="_findingsHead_"]>span,
+[class*="_finding_"]>div,
+[class*="_finding_"]>div>span,
+[class*="_explanation_"]>span,
+[class*="_deeperIntro_"]>span,
+[class*="_stateLegend_"]>span,
+[class*="_page_"]>footer,
+.public-footer :where(p,a,small){font-size:13px!important;line-height:1.6}
 @keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{50%{box-shadow:0 0 0 13px transparent,0 0 18px #fff}}
 @media(max-width:1200px){.kpis{grid-template-columns:repeat(3,1fr)}.hotspots{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.hero-copy{padding-bottom:10px}.hero-viz{min-height:350px}}
 @media(max-width:800px){.sidebar{transform:translateX(-100%);transition:.25s;overflow-y:auto}.sidebar.open{transform:none}.main{margin-left:0}.menu-btn{display:block}.content{padding:18px}.topbar{padding:0 18px}.hero-copy{padding:40px 24px 5px}.hero-viz{min-height:320px}.grid-2{grid-template-columns:1fr}.journey-grid{grid-template-columns:repeat(2,1fr)}.kpis{grid-template-columns:repeat(2,1fr)}.hotspots{grid-template-columns:1fr}.live{display:none}.panel{min-height:auto}.demo-note{flex-direction:column}}
