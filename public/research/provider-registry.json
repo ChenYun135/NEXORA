@@ -4,10 +4,10 @@
   "summary": {
     "total": 20,
     "tierA": 13,
-    "tierAReady": 9,
+    "tierAReady": 10,
     "byStatus": {
-      "READY": 9,
-      "STAGED": 2,
+      "READY": 10,
+      "STAGED": 1,
       "REVIEW_REQUIRED": 7,
       "NOT_CONFIGURED": 2,
       "UNAVAILABLE": 0,
@@ -55,9 +55,9 @@
       "officialName": "NSF Award Search",
       "officialUrl": "https://www.nsf.gov/awardsearch/",
       "sourceType": "API",
-      "accessMethod": "Official award API/search export",
+      "accessMethod": "Official Award Search API with bounded annual aggregate queries",
       "authentication": "NONE",
-      "licenseReuse": "Official federal award records; abstract reuse remains source-attributed",
+      "licenseReuse": "Official federal award records; R4 redistributes annual metadata counts only",
       "updateFrequency": "Ongoing",
       "earliestYear": "historical coverage varies",
       "latestYear": "current",
@@ -77,12 +77,12 @@
         "RESEARCH",
         "COLLABORATION"
       ],
-      "redistributionRule": "REVIEW_REQUIRED",
+      "redistributionRule": "DERIVED_ONLY",
       "citation": "U.S. National Science Foundation Award Search",
-      "status": "STAGED",
+      "status": "READY",
       "tier": "A",
       "lastVerified": "2026-08-13",
-      "limitation": "Access and schema pass, but full-result pagination returns overlapping records without stable ordering; no research snapshot is promoted."
+      "limitation": "READY applies only to the frozen 2018–2025 California exact-phrase annual-count product; keyword matching is a narrow retrieval proxy, not a complete technology census or impact measure."
     },
     {
       "providerId": "NCSES_HERD",

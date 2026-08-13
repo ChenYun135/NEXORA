@@ -5,6 +5,7 @@ import "./globals.css";
 import "./editorial-overrides.css";
 import "./visual-refinement-v2-1.css";
 import "./v3-1-hardening.css";
+import "./r4-premium.css";
 
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
 const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"] });

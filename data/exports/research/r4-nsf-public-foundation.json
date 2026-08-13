@@ -1,0 +1,133 @@
+{
+  "release": "NEXORA_R4_PUBLIC_DATA_FOUNDATION",
+  "generatedAt": "2026-08-13T00:00:00Z",
+  "provider": "U.S. National Science Foundation Award Search API",
+  "officialDocumentation": "https://resources.research.gov/common/webapi/awardapisearch-v1.htm",
+  "scope": {
+    "geography": "California awardee state",
+    "years": [
+      2018,
+      2025
+    ],
+    "query": "exact phrase artificial intelligence; agency NSF; annual award date; sort awardNumber",
+    "recordLevelDataRetained": false
+  },
+  "status": "READY_WITHIN_DECLARED_PRODUCT_BOUNDARY",
+  "checksum": {
+    "algorithm": "SHA-256",
+    "value": "03632540df80dc5cfd82bb08066014f2a9a29f4332d97d37621c1903a2c597f4",
+    "covers": "observations canonical JSON"
+  },
+  "observations": [
+    {
+      "geography": "California",
+      "geographyCode": "CA",
+      "year": 2018,
+      "metricId": "nsf_awards_exact_phrase_ai_count",
+      "value": 47,
+      "unit": "award records",
+      "status": "OBSERVED",
+      "providerId": "NSF_AWARDS",
+      "sourceUrl": "https://www.research.gov/awardapi-service/v1/awards.json?keyword=%22artificial+intelligence%22&agency=NSF&awardeeStateCode=CA&dateStart=01%2F01%2F2018&dateEnd=12%2F31%2F2018&rpp=1&offset=0&sortKey=awardNumber",
+      "sourceField": "response.metadata.totalCount",
+      "note": "Count of official award records returned by the bounded query; keyword matching is an information-retrieval proxy, not a complete technology taxonomy."
+    },
+    {
+      "geography": "California",
+      "geographyCode": "CA",
+      "year": 2019,
+      "metricId": "nsf_awards_exact_phrase_ai_count",
+      "value": 75,
+      "unit": "award records",
+      "status": "OBSERVED",
+      "providerId": "NSF_AWARDS",
+      "sourceUrl": "https://www.research.gov/awardapi-service/v1/awards.json?keyword=%22artificial+intelligence%22&agency=NSF&awardeeStateCode=CA&dateStart=01%2F01%2F2019&dateEnd=12%2F31%2F2019&rpp=1&offset=0&sortKey=awardNumber",
+      "sourceField": "response.metadata.totalCount",
+      "note": "Count of official award records returned by the bounded query; keyword matching is an information-retrieval proxy, not a complete technology taxonomy."
+    },
+    {
+      "geography": "California",
+      "geographyCode": "CA",
+      "year": 2020,
+      "metricId": "nsf_awards_exact_phrase_ai_count",
+      "value": 115,
+      "unit": "award records",
+      "status": "OBSERVED",
+      "providerId": "NSF_AWARDS",
+      "sourceUrl": "https://www.research.gov/awardapi-service/v1/awards.json?keyword=%22artificial+intelligence%22&agency=NSF&awardeeStateCode=CA&dateStart=01%2F01%2F2020&dateEnd=12%2F31%2F2020&rpp=1&offset=0&sortKey=awardNumber",
+      "sourceField": "response.metadata.totalCount",
+      "note": "Count of official award records returned by the bounded query; keyword matching is an information-retrieval proxy, not a complete technology taxonomy."
+    },
+    {
+      "geography": "California",
+      "geographyCode": "CA",
+      "year": 2021,
+      "metricId": "nsf_awards_exact_phrase_ai_count",
+      "value": 104,
+      "unit": "award records",
+      "status": "OBSERVED",
+      "providerId": "NSF_AWARDS",
+      "sourceUrl": "https://www.research.gov/awardapi-service/v1/awards.json?keyword=%22artificial+intelligence%22&agency=NSF&awardeeStateCode=CA&dateStart=01%2F01%2F2021&dateEnd=12%2F31%2F2021&rpp=1&offset=0&sortKey=awardNumber",
+      "sourceField": "response.metadata.totalCount",
+      "note": "Count of official award records returned by the bounded query; keyword matching is an information-retrieval proxy, not a complete technology taxonomy."
+    },
+    {
+      "geography": "California",
+      "geographyCode": "CA",
+      "year": 2022,
+      "metricId": "nsf_awards_exact_phrase_ai_count",
+      "value": 118,
+      "unit": "award records",
+      "status": "OBSERVED",
+      "providerId": "NSF_AWARDS",
+      "sourceUrl": "https://www.research.gov/awardapi-service/v1/awards.json?keyword=%22artificial+intelligence%22&agency=NSF&awardeeStateCode=CA&dateStart=01%2F01%2F2022&dateEnd=12%2F31%2F2022&rpp=1&offset=0&sortKey=awardNumber",
+      "sourceField": "response.metadata.totalCount",
+      "note": "Count of official award records returned by the bounded query; keyword matching is an information-retrieval proxy, not a complete technology taxonomy."
+    },
+    {
+      "geography": "California",
+      "geographyCode": "CA",
+      "year": 2023,
+      "metricId": "nsf_awards_exact_phrase_ai_count",
+      "value": 125,
+      "unit": "award records",
+      "status": "OBSERVED",
+      "providerId": "NSF_AWARDS",
+      "sourceUrl": "https://www.research.gov/awardapi-service/v1/awards.json?keyword=%22artificial+intelligence%22&agency=NSF&awardeeStateCode=CA&dateStart=01%2F01%2F2023&dateEnd=12%2F31%2F2023&rpp=1&offset=0&sortKey=awardNumber",
+      "sourceField": "response.metadata.totalCount",
+      "note": "Count of official award records returned by the bounded query; keyword matching is an information-retrieval proxy, not a complete technology taxonomy."
+    },
+    {
+      "geography": "California",
+      "geographyCode": "CA",
+      "year": 2024,
+      "metricId": "nsf_awards_exact_phrase_ai_count",
+      "value": 151,
+      "unit": "award records",
+      "status": "OBSERVED",
+      "providerId": "NSF_AWARDS",
+      "sourceUrl": "https://www.research.gov/awardapi-service/v1/awards.json?keyword=%22artificial+intelligence%22&agency=NSF&awardeeStateCode=CA&dateStart=01%2F01%2F2024&dateEnd=12%2F31%2F2024&rpp=1&offset=0&sortKey=awardNumber",
+      "sourceField": "response.metadata.totalCount",
+      "note": "Count of official award records returned by the bounded query; keyword matching is an information-retrieval proxy, not a complete technology taxonomy."
+    },
+    {
+      "geography": "California",
+      "geographyCode": "CA",
+      "year": 2025,
+      "metricId": "nsf_awards_exact_phrase_ai_count",
+      "value": 199,
+      "unit": "award records",
+      "status": "OBSERVED",
+      "providerId": "NSF_AWARDS",
+      "sourceUrl": "https://www.research.gov/awardapi-service/v1/awards.json?keyword=%22artificial+intelligence%22&agency=NSF&awardeeStateCode=CA&dateStart=01%2F01%2F2025&dateEnd=12%2F31%2F2025&rpp=1&offset=0&sortKey=awardNumber",
+      "sourceField": "response.metadata.totalCount",
+      "note": "Count of official award records returned by the bounded query; keyword matching is an information-retrieval proxy, not a complete technology taxonomy."
+    }
+  ],
+  "limitations": [
+    "Metadata counts describe records returned by the official search service, not research quality, impact, commercialization, causality, or future performance.",
+    "Awardee state is not necessarily the location of every research activity or collaborator.",
+    "Exact-phrase keyword retrieval is intentionally narrow and does not form a complete artificial-intelligence award census.",
+    "No principal-investigator contact details, abstracts, unpublished analyses, or record-level award data are redistributed."
+  ]
+}

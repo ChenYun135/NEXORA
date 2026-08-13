@@ -74,7 +74,12 @@ export function ResearchModuleShell({ image, eyebrow, title, subtitle, descripti
   const displaySubtitle = moduleKey === "simulator" && lang === "zh" ? "创新生态情景推演" : subtitle;
   const content = questions[moduleKey] ?? questions.atlas;
   const art = `/hero/${moduleKey}-hero-art.webp`;
-  const editorial = evidenceSummary[moduleKey] ?? evidenceSummary.atlas;
+  const baseEditorial = evidenceSummary[moduleKey] ?? evidenceSummary.atlas;
+  const editorial = moduleKey === "data-status" ? {
+    ...baseEditorial,
+    metrics: [["20",{en:"provider families",zh:"个数据源家族"},"OBSERVED"],["13",{en:"Tier A definitions",zh:"个 Tier A 定义"},"OBSERVED"],["10",{en:"Tier A ready",zh:"个 Tier A 已就绪"},"OBSERVED"]] as Array<[string,Localized,string]>,
+    findings: [[{en:"Operational coverage expanded without lowering the gate",zh:"运营覆盖在不降低门槛的前提下扩展"},{en:"R4 adds a frozen California annual aggregate from a bounded NSF Award Search query while retaining source and method boundaries.",zh:"R4 新增基于 NSF Award Search 限定查询的加州年度冻结聚合数据，并保留来源与方法边界"},"OBSERVED"],...baseEditorial.findings.slice(1)] as Array<[Localized,Localized,string]>,
+  } : baseEditorial;
   const evidence = lang === "zh" ? "公共数据 · 衍生指标 · 透明方法" : "Public data · Derived indicators · Transparent methodology";
   return <>
     <section className={`${styles.hero} ${styles[moduleKey]} ${lang === "zh" ? styles.zh : ""}`} aria-labelledby={`${moduleKey}-cover-title`}>
@@ -112,6 +117,23 @@ export function ResearchModuleShell({ image, eyebrow, title, subtitle, descripti
       <span>{lang === "zh" ? "深入探索" : "EXPLORE DEEPER"}</span>
       <h2 id={`${moduleKey}-deeper`}>{lang === "zh" ? "按需展开比较、实体与详细证据" : "Comparisons, entities and detailed evidence — when you need them"}</h2>
       <p>{lang === "zh" ? "以下研究工作区保留完整的分析能力，并将次要视图置于主要可视化与研究结论之后。" : "The research workspace below retains the full analytical toolkit while keeping secondary views behind the primary visualization and findings."}</p>
+      <div className={styles.guide} aria-label={lang === "zh" ? "分析使用指南" : "Analytics guide"}>
+        {[
+          {en:["Start with one question","Use the dominant view to locate the pattern before changing filters."],zh:["先明确一个问题","先用主视图定位结构，再调整筛选条件"]},
+          {en:["Read the visual grammar","Color separates domains; size or position indicates the declared analytical measure."],zh:["读懂视觉语法","颜色区分领域，大小或位置对应已声明的分析指标"]},
+          {en:["Compare selectively","Open entity or comparison views only after identifying a meaningful contrast."],zh:["有选择地比较","识别有意义的差异后，再展开实体或比较视图"]},
+          {en:["Check the boundary","Confirm evidence state, time window and limitations before interpreting a result."],zh:["核对证据边界","形成判断前，确认证据状态、时间范围与局限"]},
+        ].map((item,index)=><article key={item.en[0]}><span>0{index+1}</span><strong>{item[lang][0]}</strong><p>{item[lang][1]}</p></article>)}
+      </div>
+      {moduleKey === "simulator" && <section className={styles.advisory} aria-label={lang === "zh" ? "情景研判框架" : "Scenario advisory framework"}>
+        {[
+          {en:["Summary","Read the configured path, horizon and model status together."],zh:["情景摘要","结合配置路径、模拟周期与模型状态进行阅读"]},
+          {en:["Drivers","Use sensitivity to identify modeled leverage, not causal proof."],zh:["主要驱动","用敏感性识别模型影响幅度，而非因果证明"]},
+          {en:["Trade-offs","Compare outputs across scenarios instead of optimizing one score."],zh:["权衡关系","跨情景比较多项结果，不追求单一最优分数"]},
+          {en:["Risks","Inspect bottlenecks, assumptions and unavailable evidence."],zh:["风险因素","检查模型瓶颈、假设与不可用证据"]},
+          {en:["Guidance","Stress-test the result before using it in research discussion."],zh:["使用建议","将结果用于研究讨论前，先进行压力测试"]},
+        ].map((item)=><article key={item.en[0]}><span>{item[lang][0]}</span><strong>{item[lang][1]}</strong></article>)}
+      </section>}
     </section>
     <details className={styles.methods}>
       <summary>{lang === "zh" ? "方法与来源说明" : "Methods & provenance"}</summary>
