@@ -9,4 +9,4 @@ NEXORA answers four different questions with four explicitly separated methods:
 
 Cross-provider values are not automatically comparable. Geography, topic taxonomy, document type, time window, institutional coverage, and source revisions can differ. Network edges indicate recorded relationships within the selected frame, not importance or the complete ecosystem. Policy presence does not prove implementation or effect. Organization attributes do not imply endorsement, quality, creditworthiness, or investment value.
 
-For the California AI case, 2015–2025 are complete research years; 2026 partial-year records are disclosed separately and excluded from complete-year growth. Patent, entrepreneurship, or capital layers remain unavailable/not supported where real evidence is insufficient.
+Patent, entrepreneurship, or capital layers remain unavailable or unsupported where public evidence is insufficient.

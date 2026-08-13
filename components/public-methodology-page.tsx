@@ -14,10 +14,9 @@ const content = {
       ["Derived and composite metrics", "Deterministic transformations disclose inputs and scope. Demo composites are product constructs—not official statistics, universal rankings, or causal estimates."],
       ["AI interpretation", "The evidence-first workspace reports sufficiency, cites configured support, and qualifies or refuses when evidence is inadequate. It does not imply a configured live general-purpose model."],
       ["Scenarios", "Simulation explores trajectories under explicit assumptions, sensitivity, and uncertainty. It is not prediction, a forecast, or proof of policy impact."],
-      ["California AI case", "The flagship is a selected evidence panel, not a statewide census. Complete research-year analysis uses 2015–2025; 2026 partial-year records are excluded from complete-year growth."],
       ["Missing evidence", "Unavailable, degraded, stale, and not configured remain visible states. Unsupported indicators are never filled with Demo, fabricated, or zero values."],
       ["Four-layer research architecture", "Observed public evidence flows through transparent derivation and bounded analytical interpretation into optional simulation. Each layer retains provenance, version, evidence class and limitations."],
-      ["Model governance", "Model v1 is a partially calibrated conceptual simulator. Model v2 is a public research-design specification. Neither is a forecast or causal policy evaluation, and promotion requires explicit validation gates."],
+      ["Model governance", "The public simulator is a partially calibrated conceptual model. It is not a forecast or causal policy evaluation, and any status change requires explicit validation gates."],
     ],
   },
   zh: {
@@ -29,10 +28,9 @@ const content = {
       ["衍生与复合指标", "确定性转换披露输入与范围。演示复合指标是产品构念，不是官方统计、普适排名或因果估计。"],
       ["AI 解读", "循证工作区报告证据充分性、引用已配置支持，并在证据不足时限定或拒答；它不暗示已配置通用实时模型。"],
       ["情景模拟", "模拟在明确假设、敏感性与不确定性下探索轨迹；它不是预测、预报或政策效果证明。"],
-      ["加州 AI 案例", "旗舰案例是精选证据面板，而非全州普查。完整研究年度分析使用 2015–2025；2026 部分年度排除在完整年度增长之外。"],
       ["缺失证据", "不可用、降级、陈旧与未配置均保留为可见状态；不受支持指标绝不以演示、虚构或零值填补。"],
       ["四层研究架构", "公共观测证据依次进入透明衍生、边界明确的分析解读与可选情景模拟；每一层均保留来源、版本、证据类别与局限。"],
-      ["模型治理", "模型 v1 是部分校准的概念模拟器，模型 v2 是公开研究设计规格。两者均不是预测或政策因果评估；状态升级必须通过明确验证门槛。"],
+      ["模型治理", "公开模拟器是部分校准的概念模型，并非预测或政策因果评估；任何状态变更都必须通过明确的验证门槛。"],
     ],
   },
 } as const;

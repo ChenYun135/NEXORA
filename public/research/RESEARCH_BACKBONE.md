@@ -13,4 +13,4 @@ Every research-facing output should expose its evidence class, status (`AVAILABL
 
 `public source -> immutable snapshot -> validation/quarantine -> normalized record -> derived indicator -> analytical view -> optional model input -> versioned output`
 
-The public platform contains methods and aggregate public-safe artifacts only. It contains no unpublished paper manuscript, private reviewer material, credentials, restricted microdata or local paths.
+The public platform contains generic methods and aggregate public-safe artifacts only. Unpublished research, private review material, credentials, restricted microdata and local paths are excluded.

@@ -44,12 +44,10 @@ test("all parameters have valid defaults, review ranges, bilingual names, and ch
   }
 });
 
-test("catalog provides baseline, nine prototype scenarios, and the California AI case preset", () => {
-  assert.equal(scenarios.length, 11);
+test("catalog provides baseline and nine prototype scenarios", () => {
+  assert.equal(scenarios.length, 10);
   assert.equal(scenarios[0].id, "baseline");
   assert.ok(scenarios.slice(0,10).every(x => x.isDemo && x.name.en && x.name.zh && x.modelVersion === innovationEcosystemModelV1.version));
-  assert.equal(scenarioById("california-ai-baseline").isDemo, false);
-  assert.doesNotThrow(() => runSimulation(scenarioById("california-ai-baseline")));
   assert.match(scenarios[0].description.en, /not the most likely/i);
 });
 

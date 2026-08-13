@@ -15,4 +15,4 @@ Public source snapshots -> typed data/domain layer -> route components
 - `public/`: public-safe visual assets and method pages.
 - `tests/`: public product behavior, safety, and integration tests.
 
-No public route depends on private manuscripts, review files, personal directories, or a local secret. Optional server credentials remain server-side. The public candidate omits the private Sites project identifier and uses a null hosting template.
+No public route depends on unpublished research, review files, personal directories, or a local secret. Optional server credentials remain server-side. The public candidate omits the private Sites project identifier and uses a null hosting template.

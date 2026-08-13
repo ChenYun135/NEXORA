@@ -12,4 +12,4 @@ NEXORA separates provider facts from transformations and interpretation.
 | Simulated | Output under explicit assumptions | Never called prediction |
 | Unavailable / Degraded / Stale / Not Configured | Evidence or service limitation | Preserved as state; never replaced with zero |
 
-Provider refresh work is staged, validated, and promoted atomically. Public bundles contain selected snapshots needed by the UI, not raw caches, API responses, checkpoints, databases, unpublished research datasets, or credentials. The California AI case is a selected evidence panel with construct-specific geography and periods—not a statewide census.
+Provider refresh work is staged, validated, and promoted atomically. Public bundles contain selected snapshots needed by the UI, not raw caches, API responses, checkpoints, databases, unpublished research datasets, or credentials.

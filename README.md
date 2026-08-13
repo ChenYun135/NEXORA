@@ -8,9 +8,7 @@ NEXORA 连接公共数据、产业地理、新兴信号、创新网络、政策�
 
 ![NEXORA public dashboard](public/readme/nexora-home.png)
 
-| Evidence trust center | California AI flagship case |
-|---|---|
-| ![NEXORA Data Status](public/readme/nexora-data-status.png) | ![NEXORA California AI case](public/readme/nexora-california-ai.png) |
+![NEXORA Data Status](public/readme/nexora-data-status.png)
 
 ## Public product
 
@@ -22,7 +20,6 @@ NEXORA 连接公共数据、产业地理、新兴信号、创新网络、政策�
 - `/companies` — public organization intelligence without personal profiling
 - `/ai` — deterministic, evidence-first synthesis with citations and refusal boundaries
 - `/simulator` — transparent scenarios under explicit assumptions, not predictions
-- `/cases/california-ai` — a selected public evidence panel, not a statewide census
 
 ## Trust model
 

@@ -6,14 +6,6 @@ export const integrationRelease = {
   date: "2026-08-11",
 } as const;
 
-export const flagshipJourney = {
-  id: "california-ai",
-  href: "/cases/california-ai",
-  action: { en: "EXAMINE", zh: "研究" },
-  name: { en: "California AI", zh: "加州 AI" },
-  description: { en: "Examine the evidence-based flagship case", zh: "查看基于证据的旗舰研究案例" },
-} as const;
-
 export const productJourney = [
   { id: "data-status", href: "/data-status", action: { en: "SOURCE", zh: "溯源" }, name: { en: "Public Data", zh: "公共数据" }, description: { en: "Verified sources, freshness and provenance", zh: "核验来源、新鲜度与可追溯性" } },
   { id: "atlas", href: "/atlas", action: { en: "MAP", zh: "绘制" }, name: { en: "Atlas", zh: "产业图谱" }, description: { en: "Map emerging-industry geography", zh: "绘制新兴产业地理" } },

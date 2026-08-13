@@ -3,7 +3,7 @@
 Thank you for helping improve NEXORA. Keep changes evidence-first, bilingual where user-facing, and explicit about data state and limitations.
 
 1. Open an issue describing the problem, affected route, evidence source, and proposed scope.
-2. Do not submit credentials, private datasets, personal data, unpublished manuscripts, or generated claims presented as facts.
+2. Do not submit credentials, private datasets, personal data, unpublished research, or generated claims presented as facts.
 3. Use a focused branch and include tests for behavior changes.
 4. Run `npm run typecheck`, `npm run lint`, and `npm test`.
 5. In the pull request, document source licensing, provenance, accessibility impact, and any remaining limitation.

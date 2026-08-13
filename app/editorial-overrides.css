@@ -54,7 +54,6 @@
 .app .journey-step:nth-child(6){background-image:url('/organizations-og.png')}
 .app .journey-step:nth-child(7){background-image:url('/ai-og.png')}
 .app .journey-step:nth-child(8){background-image:url('/simulator-og.png')}
-.app .journey-step:nth-child(9){background-image:url('/california-ai-og.png')}
 
 /* Home — make the research case read like a feature article, not a metric panel. */
 .app .featured-case{margin-top:clamp(58px,7vw,96px);padding:clamp(34px,5vw,68px);border-radius:24px;border:1px solid rgba(113,173,229,.16);background:linear-gradient(135deg,rgba(10,26,46,.86),rgba(7,15,30,.66));box-shadow:0 24px 70px rgba(0,0,0,.14)}
