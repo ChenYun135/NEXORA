@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { publicProviderRegistry, providerSummary } from "../data/providers/registry.ts";
 
-const payload={schemaVersion:"1.0.0",generatedAt:"2026-08-13",summary:providerSummary(),providers:publicProviderRegistry};
+const payload={schemaVersion:"2.0.0",generatedAt:"2026-08-13",summary:providerSummary(),providers:publicProviderRegistry};
 await mkdir("public/research",{recursive:true});
 await mkdir("data/exports/research",{recursive:true});
 const json=`${JSON.stringify(payload,null,2)}\n`;

@@ -1,15 +1,15 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "2.0.0",
   "generatedAt": "2026-08-13",
   "summary": {
     "total": 20,
     "tierA": 13,
-    "tierAReady": 2,
+    "tierAReady": 4,
     "byStatus": {
-      "READY": 2,
-      "STAGED": 8,
+      "READY": 4,
+      "STAGED": 4,
       "REVIEW_REQUIRED": 7,
-      "NOT_CONFIGURED": 3,
+      "NOT_CONFIGURED": 5,
       "UNAVAILABLE": 0,
       "DEGRADED": 0
     }
@@ -82,7 +82,7 @@
       "status": "STAGED",
       "tier": "A",
       "lastVerified": "2026-08-13",
-      "limitation": "Topic classification and metro crosswalk require validation before promotion."
+      "limitation": "Access and schema pass, but full-result pagination returns overlapping records without stable ordering; no research snapshot is promoted."
     },
     {
       "providerId": "NCSES_HERD",
@@ -182,10 +182,10 @@
       ],
       "redistributionRule": "DERIVED_ONLY",
       "citation": "U.S. Bureau of Labor Statistics",
-      "status": "STAGED",
+      "status": "READY",
       "tier": "A",
       "lastVerified": "2026-08-13",
-      "limitation": "OEWS and QCEW definitions, vintages, and MSA availability must remain distinct."
+      "limitation": "QCEW California annual totals for 2015–2023 passed retrieval, schema, duplicate and snapshot QA; OEWS remains outside this activation."
     },
     {
       "providerId": "CENSUS_BFS",
@@ -193,7 +193,7 @@
       "officialUrl": "https://www.census.gov/econ/bfs/",
       "sourceType": "API",
       "accessMethod": "Census API and official time-series downloads",
-      "authentication": "OPTIONAL_KEY",
+      "authentication": "REQUIRED_KEY",
       "licenseReuse": "Official aggregate statistics; retain variable definitions and revision vintage",
       "updateFrequency": "Monthly",
       "earliestYear": "2004",
@@ -212,10 +212,10 @@
       ],
       "redistributionRule": "DERIVED_ONLY",
       "citation": "U.S. Census Bureau Business Formation Statistics",
-      "status": "STAGED",
+      "status": "NOT_CONFIGURED",
       "tier": "A",
       "lastVerified": "2026-08-13",
-      "limitation": "Applications and projected formations are not realized startups."
+      "limitation": "Current Census API access requires a key, which is not configured; applications and projected formations are not realized startups."
     },
     {
       "providerId": "CENSUS_BDS",
@@ -258,7 +258,7 @@
       "officialUrl": "https://www.census.gov/programs-surveys/acs/data/data-via-api.html",
       "sourceType": "API",
       "accessMethod": "Census Data API aggregate tables",
-      "authentication": "OPTIONAL_KEY",
+      "authentication": "REQUIRED_KEY",
       "licenseReuse": "Official aggregate tables; margins of error and table universe must be retained",
       "updateFrequency": "Annual",
       "earliestYear": "2005",
@@ -282,10 +282,10 @@
       ],
       "redistributionRule": "DERIVED_ONLY",
       "citation": "U.S. Census Bureau American Community Survey",
-      "status": "STAGED",
+      "status": "NOT_CONFIGURED",
       "tier": "A",
       "lastVerified": "2026-08-13",
-      "limitation": "Use aggregate tables only; estimates require margins of error and universe metadata."
+      "limitation": "Current Census API access requires a key, which is not configured; future activation will use ACS five-year aggregates with universe and margins of error."
     },
     {
       "providerId": "BEA_REGIONAL",
@@ -411,10 +411,10 @@
       ],
       "redistributionRule": "LINK_ONLY",
       "citation": "Office of the Federal Register",
-      "status": "STAGED",
+      "status": "READY",
       "tier": "A",
       "lastVerified": "2026-08-13",
-      "limitation": "Document publication is not implementation or measured policy effect."
+      "limitation": "Annual document-count snapshots for selected technology agencies passed QA; publication remains distinct from effective date, implementation and effect."
     },
     {
       "providerId": "OFFICIAL_PROGRAMS",

@@ -1,0 +1,255 @@
+{
+  "release": "NEXORA_RESEARCH_DATA_R2",
+  "retrievalDate": "2026-08-13",
+  "boundaries": [
+    "Descriptive public aggregates only",
+    "Business and policy signals are not causal effects",
+    "Federal Register publication is not implementation or outcome"
+  ],
+  "series": {
+    "nsfCaliforniaAccessDiagnostic": [
+      {
+        "year": 2015,
+        "awardCount": 1554,
+        "sampleRecordCount": 5,
+        "paginationStatus": "NONDETERMINISTIC_ORDER_BLOCKS_FULL_SNAPSHOT"
+      },
+      {
+        "year": 2016,
+        "awardCount": 1686,
+        "sampleRecordCount": 5,
+        "paginationStatus": "NONDETERMINISTIC_ORDER_BLOCKS_FULL_SNAPSHOT"
+      },
+      {
+        "year": 2017,
+        "awardCount": 1414,
+        "sampleRecordCount": 5,
+        "paginationStatus": "NONDETERMINISTIC_ORDER_BLOCKS_FULL_SNAPSHOT"
+      },
+      {
+        "year": 2018,
+        "awardCount": 1601,
+        "sampleRecordCount": 5,
+        "paginationStatus": "NONDETERMINISTIC_ORDER_BLOCKS_FULL_SNAPSHOT"
+      },
+      {
+        "year": 2019,
+        "awardCount": 1431,
+        "sampleRecordCount": 5,
+        "paginationStatus": "NONDETERMINISTIC_ORDER_BLOCKS_FULL_SNAPSHOT"
+      },
+      {
+        "year": 2020,
+        "awardCount": 1499,
+        "sampleRecordCount": 5,
+        "paginationStatus": "NONDETERMINISTIC_ORDER_BLOCKS_FULL_SNAPSHOT"
+      },
+      {
+        "year": 2021,
+        "awardCount": 1522,
+        "sampleRecordCount": 5,
+        "paginationStatus": "NONDETERMINISTIC_ORDER_BLOCKS_FULL_SNAPSHOT"
+      },
+      {
+        "year": 2022,
+        "awardCount": 1442,
+        "sampleRecordCount": 5,
+        "paginationStatus": "NONDETERMINISTIC_ORDER_BLOCKS_FULL_SNAPSHOT"
+      },
+      {
+        "year": 2023,
+        "awardCount": 1384,
+        "sampleRecordCount": 5,
+        "paginationStatus": "NONDETERMINISTIC_ORDER_BLOCKS_FULL_SNAPSHOT"
+      }
+    ],
+    "qcewCalifornia": [
+      {
+        "year": 2015,
+        "annualAverageEmployment": 16295204,
+        "annualAverageEstablishments": 1416493,
+        "averageAnnualPay": 61698
+      },
+      {
+        "year": 2016,
+        "annualAverageEmployment": 16718647,
+        "annualAverageEstablishments": 1471110,
+        "averageAnnualPay": 62964
+      },
+      {
+        "year": 2017,
+        "annualAverageEmployment": 17019702,
+        "annualAverageEstablishments": 1515798,
+        "averageAnnualPay": 65857
+      },
+      {
+        "year": 2018,
+        "annualAverageEmployment": 17355855,
+        "annualAverageEstablishments": 1553799,
+        "averageAnnualPay": 68478
+      },
+      {
+        "year": 2019,
+        "annualAverageEmployment": 17631489,
+        "annualAverageEstablishments": 1589417,
+        "averageAnnualPay": 71351
+      },
+      {
+        "year": 2020,
+        "annualAverageEmployment": 16378059,
+        "annualAverageEstablishments": 1621590,
+        "averageAnnualPay": 79480
+      },
+      {
+        "year": 2021,
+        "annualAverageEmployment": 16974870,
+        "annualAverageEstablishments": 1656986,
+        "averageAnnualPay": 85741
+      },
+      {
+        "year": 2022,
+        "annualAverageEmployment": 17903539,
+        "annualAverageEstablishments": 1706672,
+        "averageAnnualPay": 84436
+      },
+      {
+        "year": 2023,
+        "annualAverageEmployment": 18002893,
+        "annualAverageEstablishments": 1751430,
+        "averageAnnualPay": 87490
+      }
+    ],
+    "federalRegisterTechnologyAgencies": [
+      {
+        "year": 2015,
+        "documentCount": 5323
+      },
+      {
+        "year": 2016,
+        "documentCount": 5268
+      },
+      {
+        "year": 2017,
+        "documentCount": 4876
+      },
+      {
+        "year": 2018,
+        "documentCount": 5029
+      },
+      {
+        "year": 2019,
+        "documentCount": 4807
+      },
+      {
+        "year": 2020,
+        "documentCount": 5162
+      },
+      {
+        "year": 2021,
+        "documentCount": 5230
+      },
+      {
+        "year": 2022,
+        "documentCount": 5090
+      },
+      {
+        "year": 2023,
+        "documentCount": 5280
+      }
+    ],
+    "openAlexStanfordAnnualWorks": [
+      {
+        "year": 2015,
+        "worksCount": 15421
+      },
+      {
+        "year": 2016,
+        "worksCount": 16408
+      },
+      {
+        "year": 2017,
+        "worksCount": 17389
+      },
+      {
+        "year": 2018,
+        "worksCount": 18415
+      },
+      {
+        "year": 2019,
+        "worksCount": 21264
+      },
+      {
+        "year": 2020,
+        "worksCount": 25726
+      },
+      {
+        "year": 2021,
+        "worksCount": 23418
+      },
+      {
+        "year": 2022,
+        "worksCount": 23854
+      },
+      {
+        "year": 2023,
+        "worksCount": 22053
+      }
+    ]
+  },
+  "manifests": [
+    {
+      "providerId": "NSF_AWARDS",
+      "retrievalDate": "2026-08-13",
+      "query": "California awardee-state access diagnostic; not a research snapshot",
+      "recordCount": 9,
+      "checksum": "552163b8d196b2baf032d120b345bfc282d80edd78178a05d1ac1a05457a7182",
+      "schemaVersion": "r2.0.0",
+      "pipelineVersion": "r2.0.0",
+      "geography": "STATE:06",
+      "coverage": "2015-2023",
+      "sourceVintage": "live API retrieval",
+      "revisionStatus": "INITIAL",
+      "readiness": "STAGED",
+      "blockingIssue": "Full-result pagination lacks deterministic ordering and returns overlaps"
+    },
+    {
+      "providerId": "BLS",
+      "retrievalDate": "2026-08-13",
+      "query": "QCEW annual California total, all ownerships, industry 10",
+      "recordCount": 9,
+      "checksum": "be814e4cd6b6ecb2856f375d97482488110c9de9a2a274c88c63259e4943f9f4",
+      "schemaVersion": "r2.0.0",
+      "pipelineVersion": "r2.0.0",
+      "geography": "STATE:06",
+      "coverage": "2015-2023",
+      "sourceVintage": "annual files",
+      "revisionStatus": "INITIAL"
+    },
+    {
+      "providerId": "FEDERAL_REGISTER",
+      "retrievalDate": "2026-08-13",
+      "query": "Annual document counts for DOE, NSF, and Commerce",
+      "recordCount": 9,
+      "checksum": "e47cb72d97a44afdeb2be69a0dbb67c8a18bc1b5fc08aa501505cbe2890ab181",
+      "schemaVersion": "r2.0.0",
+      "pipelineVersion": "r2.0.0",
+      "geography": "COUNTRY:US",
+      "coverage": "2015-2023",
+      "sourceVintage": "live API retrieval",
+      "revisionStatus": "INITIAL"
+    },
+    {
+      "providerId": "OPENALEX",
+      "retrievalDate": "2026-08-13",
+      "query": "Exact public-ID institution resolution and annual works aggregation",
+      "recordCount": 9,
+      "checksum": "63f9b9ceeaa835792debd1aa90fd23d07dd3dece61c209de6d92f1d931ddc6f2",
+      "schemaVersion": "r2.0.0",
+      "pipelineVersion": "r2.0.0",
+      "geography": "INSTITUTION",
+      "coverage": "2015-2023",
+      "sourceVintage": "live API retrieval",
+      "revisionStatus": "INITIAL"
+    }
+  ]
+}
