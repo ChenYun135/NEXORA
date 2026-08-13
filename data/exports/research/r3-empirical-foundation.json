@@ -1,0 +1,611 @@
+{
+  "release": "NEXORA_RESEARCH_DATA_R3",
+  "retrievalDate": "2026-08-13",
+  "geography": "California",
+  "coverage": "2015-2023",
+  "boundaries": [
+    "Descriptive official aggregates only",
+    "BFS applications are not realized startups",
+    "SBIR/STTR awards are public support, not commercialization outcomes",
+    "BDS establishment entry is distinct from firm startup cohorts",
+    "Policy candidates are excluded until official timing review is complete"
+  ],
+  "diagnostics": {
+    "yearCount": 9,
+    "bdsMsaSeriesAvailable": 925,
+    "providerFamiliesActivated": [
+      "CENSUS_BFS",
+      "CENSUS_BDS",
+      "NCSES_HERD",
+      "SBIR_STTR",
+      "BEA_REGIONAL"
+    ]
+  },
+  "series": {
+    "bfsCalifornia": [
+      {
+        "year": 2015,
+        "businessApplications": 306664,
+        "highPropensityApplications": 157586,
+        "businessApplicationsWithPlannedWages": 64059,
+        "applicationsFromCorporations": 98009
+      },
+      {
+        "year": 2016,
+        "businessApplications": 315368,
+        "highPropensityApplications": 158109,
+        "businessApplicationsWithPlannedWages": 62982,
+        "applicationsFromCorporations": 98622
+      },
+      {
+        "year": 2017,
+        "businessApplications": 328198,
+        "highPropensityApplications": 160389,
+        "businessApplicationsWithPlannedWages": 62556,
+        "applicationsFromCorporations": 100515
+      },
+      {
+        "year": 2018,
+        "businessApplications": 366993,
+        "highPropensityApplications": 176934,
+        "businessApplicationsWithPlannedWages": 68262,
+        "applicationsFromCorporations": 110722
+      },
+      {
+        "year": 2019,
+        "businessApplications": 368475,
+        "highPropensityApplications": 172459,
+        "businessApplicationsWithPlannedWages": 62207,
+        "applicationsFromCorporations": 106268
+      },
+      {
+        "year": 2020,
+        "businessApplications": 439921,
+        "highPropensityApplications": 191703,
+        "businessApplicationsWithPlannedWages": 63052,
+        "applicationsFromCorporations": 113933
+      },
+      {
+        "year": 2021,
+        "businessApplications": 521553,
+        "highPropensityApplications": 222816,
+        "businessApplicationsWithPlannedWages": 73741,
+        "applicationsFromCorporations": 126821
+      },
+      {
+        "year": 2022,
+        "businessApplications": 490593,
+        "highPropensityApplications": 210695,
+        "businessApplicationsWithPlannedWages": 67309,
+        "applicationsFromCorporations": 121801
+      },
+      {
+        "year": 2023,
+        "businessApplications": 558350,
+        "highPropensityApplications": 225953,
+        "businessApplicationsWithPlannedWages": 71613,
+        "applicationsFromCorporations": 118381
+      }
+    ],
+    "bdsCalifornia": [
+      {
+        "year": 2015,
+        "firms": 633030,
+        "establishments": 800768,
+        "employment": 14071898,
+        "establishmentBirths": 89248,
+        "establishmentDeaths": 75223,
+        "jobCreation": 2026439,
+        "jobDestruction": 1554879,
+        "firmDeaths": 49005,
+        "startupFirms": 57849,
+        "startupEmployment": 320695
+      },
+      {
+        "year": 2016,
+        "firms": 644397,
+        "establishments": 817096,
+        "employment": 14347825,
+        "establishmentBirths": 91782,
+        "establishmentDeaths": 75459,
+        "jobCreation": 2023790,
+        "jobDestruction": 1718753,
+        "firmDeaths": 50088,
+        "startupFirms": 60802,
+        "startupEmployment": 321389
+      },
+      {
+        "year": 2017,
+        "firms": 652550,
+        "establishments": 826725,
+        "employment": 14654515,
+        "establishmentBirths": 89984,
+        "establishmentDeaths": 80350,
+        "jobCreation": 2161269,
+        "jobDestruction": 1828498,
+        "firmDeaths": 51046,
+        "startupFirms": 60868,
+        "startupEmployment": 323373
+      },
+      {
+        "year": 2018,
+        "firms": 661397,
+        "establishments": 834583,
+        "employment": 14979595,
+        "establishmentBirths": 88231,
+        "establishmentDeaths": 80160,
+        "jobCreation": 2008211,
+        "jobDestruction": 1705105,
+        "firmDeaths": 51878,
+        "startupFirms": 61272,
+        "startupEmployment": 342017
+      },
+      {
+        "year": 2019,
+        "firms": 672173,
+        "establishments": 847440,
+        "employment": 15304450,
+        "establishmentBirths": 92321,
+        "establishmentDeaths": 79403,
+        "jobCreation": 2027006,
+        "jobDestruction": 1692197,
+        "firmDeaths": 53587,
+        "startupFirms": 64516,
+        "startupEmployment": 339351
+      },
+      {
+        "year": 2020,
+        "firms": 685122,
+        "establishments": 862365,
+        "employment": 15375464,
+        "establishmentBirths": 99289,
+        "establishmentDeaths": 84334,
+        "jobCreation": 2044401,
+        "jobDestruction": 1909670,
+        "firmDeaths": 55829,
+        "startupFirms": 69797,
+        "startupEmployment": 356758
+      },
+      {
+        "year": 2021,
+        "firms": 683804,
+        "establishments": 859303,
+        "employment": 14520665,
+        "establishmentBirths": 101876,
+        "establishmentDeaths": 104859,
+        "jobCreation": 1891703,
+        "jobDestruction": 2736302,
+        "firmDeaths": 60939,
+        "startupFirms": 67895,
+        "startupEmployment": 298730
+      },
+      {
+        "year": 2022,
+        "firms": 718289,
+        "establishments": 893219,
+        "employment": 15662458,
+        "establishmentBirths": 120328,
+        "establishmentDeaths": 86207,
+        "jobCreation": 2889774,
+        "jobDestruction": 1717255,
+        "firmDeaths": 57969,
+        "startupFirms": 74582,
+        "startupEmployment": 336156
+      },
+      {
+        "year": 2023,
+        "firms": 725847,
+        "establishments": 903355,
+        "employment": 15907513,
+        "establishmentBirths": 102404,
+        "establishmentDeaths": 92125,
+        "jobCreation": 2130913,
+        "jobDestruction": 1903480,
+        "firmDeaths": 71550,
+        "startupFirms": 70055,
+        "startupEmployment": 310073
+      }
+    ],
+    "herdCalifornia": [
+      {
+        "year": 2015,
+        "institutionCount": 61,
+        "totalResearchAndDevelopmentThousands": 8656350,
+        "federalThousands": 4712174,
+        "stateAndLocalThousands": 380911,
+        "businessThousands": 554481,
+        "institutionFundsThousands": 1657162
+      },
+      {
+        "year": 2016,
+        "institutionCount": 63,
+        "totalResearchAndDevelopmentThousands": 8888492,
+        "federalThousands": 4745391,
+        "stateAndLocalThousands": 358029,
+        "businessThousands": 570398,
+        "institutionFundsThousands": 1773889
+      },
+      {
+        "year": 2017,
+        "institutionCount": 60,
+        "totalResearchAndDevelopmentThousands": 9226580,
+        "federalThousands": 4837266,
+        "stateAndLocalThousands": 365348,
+        "businessThousands": 611979,
+        "institutionFundsThousands": 1864823
+      },
+      {
+        "year": 2018,
+        "institutionCount": 64,
+        "totalResearchAndDevelopmentThousands": 10170328,
+        "federalThousands": 5081616,
+        "stateAndLocalThousands": 445408,
+        "businessThousands": 692891,
+        "institutionFundsThousands": 2248553
+      },
+      {
+        "year": 2019,
+        "institutionCount": 60,
+        "totalResearchAndDevelopmentThousands": 10478948,
+        "federalThousands": 5333890,
+        "stateAndLocalThousands": 427948,
+        "businessThousands": 702623,
+        "institutionFundsThousands": 2246559
+      },
+      {
+        "year": 2020,
+        "institutionCount": 63,
+        "totalResearchAndDevelopmentThousands": 10903554,
+        "federalThousands": 5516191,
+        "stateAndLocalThousands": 437245,
+        "businessThousands": 730849,
+        "institutionFundsThousands": 2389595
+      },
+      {
+        "year": 2021,
+        "institutionCount": 63,
+        "totalResearchAndDevelopmentThousands": 11221457,
+        "federalThousands": 5763165,
+        "stateAndLocalThousands": 435186,
+        "businessThousands": 731164,
+        "institutionFundsThousands": 2369665
+      },
+      {
+        "year": 2022,
+        "institutionCount": 62,
+        "totalResearchAndDevelopmentThousands": 12113681,
+        "federalThousands": 6591636,
+        "stateAndLocalThousands": 463427,
+        "businessThousands": 812819,
+        "institutionFundsThousands": 2481956
+      },
+      {
+        "year": 2023,
+        "institutionCount": 60,
+        "totalResearchAndDevelopmentThousands": 13477453,
+        "federalThousands": 7188754,
+        "stateAndLocalThousands": 548571,
+        "businessThousands": 876116,
+        "institutionFundsThousands": 2876915
+      }
+    ],
+    "sbirSttrCalifornia": [
+      {
+        "year": 2015,
+        "sbirPhaseI": {
+          "count": 606,
+          "amount": 103227225.95
+        },
+        "sbirPhaseII": {
+          "count": 331,
+          "amount": 352255819.88
+        },
+        "sttrPhaseI": {
+          "count": 91,
+          "amount": 16741158.78
+        },
+        "sttrPhaseII": {
+          "count": 30,
+          "amount": 27562442
+        }
+      },
+      {
+        "year": 2016,
+        "sbirPhaseI": {
+          "count": 653,
+          "amount": 115047317.48
+        },
+        "sbirPhaseII": {
+          "count": 362,
+          "amount": 421237219.4
+        },
+        "sttrPhaseI": {
+          "count": 85,
+          "amount": 17642933
+        },
+        "sttrPhaseII": {
+          "count": 40,
+          "amount": 41898042.96
+        }
+      },
+      {
+        "year": 2017,
+        "sbirPhaseI": {
+          "count": 681,
+          "amount": 120930161.19
+        },
+        "sbirPhaseII": {
+          "count": 421,
+          "amount": 506781678.27
+        },
+        "sttrPhaseI": {
+          "count": 102,
+          "amount": 19744114.38
+        },
+        "sttrPhaseII": {
+          "count": 40,
+          "amount": 38612895
+        }
+      },
+      {
+        "year": 2018,
+        "sbirPhaseI": {
+          "count": 658,
+          "amount": 124134105.77
+        },
+        "sbirPhaseII": {
+          "count": 329,
+          "amount": 375645204.09
+        },
+        "sttrPhaseI": {
+          "count": 70,
+          "amount": 13124732.26
+        },
+        "sttrPhaseII": {
+          "count": 34,
+          "amount": 35271647.11
+        }
+      },
+      {
+        "year": 2019,
+        "sbirPhaseI": {
+          "count": 834,
+          "amount": 143108618.32
+        },
+        "sbirPhaseII": {
+          "count": 435,
+          "amount": 568107735.5
+        },
+        "sttrPhaseI": {
+          "count": 78,
+          "amount": 15249474.21
+        },
+        "sttrPhaseII": {
+          "count": 34,
+          "amount": 38376110
+        }
+      },
+      {
+        "year": 2020,
+        "sbirPhaseI": {
+          "count": 813,
+          "amount": 134008932.53
+        },
+        "sbirPhaseII": {
+          "count": 489,
+          "amount": 638407873.84
+        },
+        "sttrPhaseI": {
+          "count": 121,
+          "amount": 25193998.83
+        },
+        "sttrPhaseII": {
+          "count": 42,
+          "amount": 40689237
+        }
+      },
+      {
+        "year": 2021,
+        "sbirPhaseI": {
+          "count": 762,
+          "amount": 143530524.62
+        },
+        "sbirPhaseII": {
+          "count": 424,
+          "amount": 524279703.67
+        },
+        "sttrPhaseI": {
+          "count": 163,
+          "amount": 34239313.2
+        },
+        "sttrPhaseII": {
+          "count": 43,
+          "amount": 54171925.36
+        }
+      },
+      {
+        "year": 2022,
+        "sbirPhaseI": {
+          "count": 594,
+          "amount": 121266688.6
+        },
+        "sbirPhaseII": {
+          "count": 499,
+          "amount": 652926593.61
+        },
+        "sttrPhaseI": {
+          "count": 124,
+          "amount": 28679819.57
+        },
+        "sttrPhaseII": {
+          "count": 59,
+          "amount": 67401307.91
+        }
+      },
+      {
+        "year": 2023,
+        "sbirPhaseI": {
+          "count": 623,
+          "amount": 132672484.57
+        },
+        "sbirPhaseII": {
+          "count": 422,
+          "amount": 728589348.83
+        },
+        "sttrPhaseI": {
+          "count": 113,
+          "amount": 23693778.96
+        },
+        "sttrPhaseII": {
+          "count": 44,
+          "amount": 59448694.25
+        }
+      }
+    ],
+    "beaCalifornia": [
+      {
+        "year": 2015,
+        "realGdpMillionsChained2017Dollars": 2545979.5
+      },
+      {
+        "year": 2016,
+        "realGdpMillionsChained2017Dollars": 2623711.7
+      },
+      {
+        "year": 2017,
+        "realGdpMillionsChained2017Dollars": 2740550.3
+      },
+      {
+        "year": 2018,
+        "realGdpMillionsChained2017Dollars": 2850970.3
+      },
+      {
+        "year": 2019,
+        "realGdpMillionsChained2017Dollars": 2969609
+      },
+      {
+        "year": 2020,
+        "realGdpMillionsChained2017Dollars": 2930654.6
+      },
+      {
+        "year": 2021,
+        "realGdpMillionsChained2017Dollars": 3151112.5
+      },
+      {
+        "year": 2022,
+        "realGdpMillionsChained2017Dollars": 3147211.4
+      },
+      {
+        "year": 2023,
+        "realGdpMillionsChained2017Dollars": 3204016.4
+      }
+    ]
+  },
+  "manifests": [
+    {
+      "providerId": "CENSUS_BFS",
+      "file": "census-bfs-monthly.csv",
+      "sourceUrl": "https://www.census.gov/econ/bfs/csv/bfs_monthly.csv",
+      "bytes": 2820955,
+      "sha256": "35b2936d45622303f3b2b65f6d529f493fe2845f9c35db08950985bd98e0312e"
+    },
+    {
+      "providerId": "CENSUS_BDS",
+      "file": "census-bds2023-state.csv",
+      "sourceUrl": "https://www2.census.gov/programs-surveys/bds/tables/time-series/2023/bds2023_st.csv",
+      "bytes": 377485,
+      "sha256": "9e0c86610ee685c2f7c8c4dec60bd213177cd8644fe539e5f66457efc8ef603c"
+    },
+    {
+      "providerId": "CENSUS_BDS",
+      "file": "census-bds2023-state-firm-age.csv",
+      "sourceUrl": "https://www2.census.gov/programs-surveys/bds/tables/time-series/2023/bds2023_st_fa.csv",
+      "bytes": 3776488,
+      "sha256": "adb23fccea76d1cbcc27291b43054f366151f146174979c11b9eeadedd9c679b"
+    },
+    {
+      "providerId": "CENSUS_BDS",
+      "file": "census-bds2023-msa.csv",
+      "sourceUrl": "https://www2.census.gov/programs-surveys/bds/tables/time-series/2023/bds2023_msa.csv",
+      "bytes": 5839428,
+      "sha256": "1efaa54b3926fddd410719cb77dcb65a8f2f47eb5ba070d0037be60cc6fc3b79"
+    },
+    {
+      "providerId": "NCSES_HERD",
+      "file": "ncses-herd-2015.zip",
+      "sourceUrl": "https://ncses.nsf.gov/821/assets/0/files/higher_education_r_and_d_2015.zip",
+      "bytes": 6405591,
+      "sha256": "7f4434b6111bc5eb1f3f4fbdae9b6950c7b4b476ada7c4ea749ac67ae27b2354"
+    },
+    {
+      "providerId": "NCSES_HERD",
+      "file": "ncses-herd-2016.zip",
+      "sourceUrl": "https://ncses.nsf.gov/821/assets/0/files/higher_education_r_and_d_2016.zip",
+      "bytes": 6497193,
+      "sha256": "604934647dcca15b0099444039114ed0b802bc1bdacb409828f188d4a5d22d8d"
+    },
+    {
+      "providerId": "NCSES_HERD",
+      "file": "ncses-herd-2017.zip",
+      "sourceUrl": "https://ncses.nsf.gov/821/assets/0/files/higher_education_r_and_d_2017.zip",
+      "bytes": 6691174,
+      "sha256": "a52dac2c7a7bf0450a6cb48de692c7f0b96f03371a2807152b6f40b0ae7592c7"
+    },
+    {
+      "providerId": "NCSES_HERD",
+      "file": "ncses-herd-2018.zip",
+      "sourceUrl": "https://ncses.nsf.gov/821/assets/0/files/higher_education_r_and_d_2018.zip",
+      "bytes": 6691074,
+      "sha256": "b0da489fa14bda3fcaa373208efd88849fd3fe471bbdc06a8a7e9e2ec1d7d9e6"
+    },
+    {
+      "providerId": "NCSES_HERD",
+      "file": "ncses-herd-2019.zip",
+      "sourceUrl": "https://ncses.nsf.gov/821/assets/0/files/higher_education_r_and_d_2019.zip",
+      "bytes": 6771149,
+      "sha256": "27725ddf2d7210771a6e0d5adb5b50566ad236045ac2e6540f2571b4503de529"
+    },
+    {
+      "providerId": "NCSES_HERD",
+      "file": "ncses-herd-2020.zip",
+      "sourceUrl": "https://ncses.nsf.gov/821/assets/0/files/higher_education_r_and_d_2020.zip",
+      "bytes": 6768552,
+      "sha256": "3a933aef8b47751d55bc42a5fd03cccdb78c59673c65163522404741d3d44b0e"
+    },
+    {
+      "providerId": "NCSES_HERD",
+      "file": "ncses-herd-2021.zip",
+      "sourceUrl": "https://ncses.nsf.gov/821/assets/0/files/higher_education_r_and_d_2021.zip",
+      "bytes": 6755997,
+      "sha256": "6a6a79c80e2c50eb907a29322660420df585060d14aaa37520f8d26835b87b52"
+    },
+    {
+      "providerId": "NCSES_HERD",
+      "file": "ncses-herd-2022.zip",
+      "sourceUrl": "https://ncses.nsf.gov/821/assets/0/files/higher_education_r_and_d_2022.zip",
+      "bytes": 7016611,
+      "sha256": "c30bf54acdbb38be3433b90f400090305d37d21bc36977fc792719a1c5c8f47d"
+    },
+    {
+      "providerId": "NCSES_HERD",
+      "file": "ncses-herd-2023.zip",
+      "sourceUrl": "https://ncses.nsf.gov/821/assets/0/files/higher_education_r_and_d_2023.zip",
+      "bytes": 7303706,
+      "sha256": "70273e5214eec1a8174525cd735f203d838a3a83165ec9c64ecc64d3a5e8c8e5"
+    },
+    {
+      "providerId": "SBIR_STTR",
+      "file": "sbir-award-data-no-abstract.csv",
+      "sourceUrl": "https://data.www.sbir.gov/mod_awarddatapublic_no_abstract/award_data_no_abstract.csv",
+      "bytes": 91426516,
+      "sha256": "2f97eb405b85c13559608ac5d1a7a836075f6e536aa852bc81763ec409b43043"
+    },
+    {
+      "providerId": "BEA_REGIONAL",
+      "file": "bea-sagdp.zip",
+      "sourceUrl": "https://apps.bea.gov/regional/zip/SAGDP.zip",
+      "bytes": 10161333,
+      "sha256": "5a90e0e6e03082089048d8f78e8a4df9993465c4f34f9de471258fed2a908183"
+    }
+  ]
+}

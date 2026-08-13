@@ -4,12 +4,12 @@
   "summary": {
     "total": 20,
     "tierA": 13,
-    "tierAReady": 4,
+    "tierAReady": 9,
     "byStatus": {
-      "READY": 4,
-      "STAGED": 4,
+      "READY": 9,
+      "STAGED": 2,
       "REVIEW_REQUIRED": 7,
-      "NOT_CONFIGURED": 5,
+      "NOT_CONFIGURED": 2,
       "UNAVAILABLE": 0,
       "DEGRADED": 0
     }
@@ -91,7 +91,7 @@
       "sourceType": "BULK_DOWNLOAD",
       "accessMethod": "Annual public-use CSV/ZIP files",
       "authentication": "NONE",
-      "licenseReuse": "Public-use files; use only publicly releasable fields with attribution",
+      "licenseReuse": "Public-use files; public release contains state-year aggregates with attribution",
       "updateFrequency": "Annual",
       "earliestYear": "1972",
       "latestYear": "2024",
@@ -109,22 +109,22 @@
         "PUBLIC_R&D",
         "RESEARCH"
       ],
-      "redistributionRule": "REVIEW_REQUIRED",
+      "redistributionRule": "DERIVED_ONLY",
       "citation": "NCSES Higher Education R&D Survey",
-      "status": "STAGED",
+      "status": "READY",
       "tier": "A",
       "lastVerified": "2026-08-13",
-      "limitation": "Institution identifiers and historical revisions must be harmonized by vintage."
+      "limitation": "California 2015–2023 state-year aggregates passed snapshot QA; institution-level analysis still requires vintage-aware identifier harmonization."
     },
     {
       "providerId": "SBIR_STTR",
       "officialName": "SBIR/STTR Award Data",
       "officialUrl": "https://www.sbir.gov/awards",
       "sourceType": "BULK_DOWNLOAD",
-      "accessMethod": "Official award search and downloadable records",
+      "accessMethod": "Official monthly bulk award file without abstracts",
       "authentication": "NONE",
-      "licenseReuse": "Official program records; verify abstract and bulk-file reuse terms",
-      "updateFrequency": "Ongoing",
+      "licenseReuse": "Official program records; public release contains state-year phase aggregates only",
+      "updateFrequency": "Monthly",
       "earliestYear": "1983",
       "latestYear": "current",
       "geographies": [
@@ -145,12 +145,12 @@
         "PUBLIC_R&D",
         "POLICY"
       ],
-      "redistributionRule": "REVIEW_REQUIRED",
+      "redistributionRule": "DERIVED_ONLY",
       "citation": "U.S. Small Business Administration SBIR/STTR",
-      "status": "STAGED",
+      "status": "READY",
       "tier": "A",
       "lastVerified": "2026-08-13",
-      "limitation": "Company identity deduplication and award amendments require QA."
+      "limitation": "California 2015–2023 phase and amount aggregates passed snapshot QA; awards measure public support, not commercialization success."
     },
     {
       "providerId": "BLS",
@@ -191,16 +191,17 @@
       "providerId": "CENSUS_BFS",
       "officialName": "Business Formation Statistics",
       "officialUrl": "https://www.census.gov/econ/bfs/",
-      "sourceType": "API",
-      "accessMethod": "Census API and official time-series downloads",
-      "authentication": "REQUIRED_KEY",
-      "licenseReuse": "Official aggregate statistics; retain variable definitions and revision vintage",
+      "sourceType": "BULK_DOWNLOAD",
+      "accessMethod": "Official monthly time-series CSV",
+      "authentication": "NONE",
+      "licenseReuse": "Official aggregate statistics; variable definitions and revision vintage retained",
       "updateFrequency": "Monthly",
       "earliestYear": "2004",
       "latestYear": "current release",
       "geographies": [
         "COUNTRY",
-        "STATE"
+        "STATE",
+        "COUNTY"
       ],
       "keyEntities": [
         "business applications",
@@ -212,19 +213,19 @@
       ],
       "redistributionRule": "DERIVED_ONLY",
       "citation": "U.S. Census Bureau Business Formation Statistics",
-      "status": "NOT_CONFIGURED",
+      "status": "READY",
       "tier": "A",
       "lastVerified": "2026-08-13",
-      "limitation": "Current Census API access requires a key, which is not configured; applications and projected formations are not realized startups."
+      "limitation": "California seasonally adjusted application aggregates for 2015–2023 passed snapshot QA; applications and projected formations are not realized startups."
     },
     {
       "providerId": "CENSUS_BDS",
       "officialName": "Business Dynamics Statistics",
-      "officialUrl": "https://www.census.gov/programs-surveys/bds/data.API.html",
-      "sourceType": "API",
-      "accessMethod": "Census time-series API",
-      "authentication": "REQUIRED_KEY",
-      "licenseReuse": "Official aggregate statistics; suppression flags must override displayed zero values",
+      "officialUrl": "https://www.census.gov/programs-surveys/bds/data.html",
+      "sourceType": "BULK_DOWNLOAD",
+      "accessMethod": "Official 2023 state, firm-age and MSA time-series CSV files",
+      "authentication": "NONE",
+      "licenseReuse": "Official aggregate statistics; suppression flags override displayed zero values",
       "updateFrequency": "Annual",
       "earliestYear": "1978",
       "latestYear": "2023",
@@ -247,10 +248,10 @@
       ],
       "redistributionRule": "DERIVED_ONLY",
       "citation": "U.S. Census Bureau Business Dynamics Statistics",
-      "status": "NOT_CONFIGURED",
+      "status": "READY",
       "tier": "A",
       "lastVerified": "2026-08-13",
-      "limitation": "API key is required; suppressed cells must be stored as SUPPRESSED, never observed zero."
+      "limitation": "California state-year realized dynamics for 2015–2023 passed snapshot QA; establishment entry and firm-age-zero cohorts remain distinct constructs."
     },
     {
       "providerId": "CENSUS_ACS",
@@ -291,10 +292,10 @@
       "providerId": "BEA_REGIONAL",
       "officialName": "BEA Regional Economic Accounts",
       "officialUrl": "https://apps.bea.gov/regional/",
-      "sourceType": "API",
-      "accessMethod": "BEA API and official downloads",
-      "authentication": "REQUIRED_KEY",
-      "licenseReuse": "Official federal statistics; table, line code, unit, and vintage required",
+      "sourceType": "BULK_DOWNLOAD",
+      "accessMethod": "Official SAGDP bulk ZIP",
+      "authentication": "NONE",
+      "licenseReuse": "Official federal statistics; table, line code, unit, and vintage retained",
       "updateFrequency": "Annual and quarterly by table",
       "earliestYear": "table dependent",
       "latestYear": "current release",
@@ -315,10 +316,10 @@
       ],
       "redistributionRule": "DERIVED_ONLY",
       "citation": "U.S. Bureau of Economic Analysis Regional Data",
-      "status": "NOT_CONFIGURED",
+      "status": "READY",
       "tier": "A",
       "lastVerified": "2026-08-13",
-      "limitation": "A configured key and explicit Regional table/line codes are required."
+      "limitation": "California SAGDP1 real GDP for 2015–2023 passed bulk-file QA; this activation does not imply all Regional products are ready."
     },
     {
       "providerId": "USPTO",
