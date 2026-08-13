@@ -1,0 +1,7 @@
+id,target,intensity_min,intensity_max,start_year_min,start_year_max,duration_min,duration_max,lag_min,lag_max,status
+public_research_support,research,0,1,0,15,1,15,0,4,ASSUMPTION
+workforce_development,talent,0,1,0,15,1,15,1,6,ASSUMPTION
+research_infrastructure,infrastructure,0,1,0,15,1,15,1,6,ASSUMPTION
+translation_support,commercialization,0,1,0,15,1,15,0,5,ASSUMPTION
+coordination_support,collaboration,0,1,0,15,1,15,0,4,ASSUMPTION
+public_procurement,adoption,0,1,0,15,1,15,0,3,ASSUMPTION

@@ -10,7 +10,7 @@
     "build": "vinext build",
     "start": "vinext start",
     "typecheck": "tsc --noEmit --incremental false",
-    "test": "npm run build && node --experimental-strip-types --test tests/radar-score.test.ts tests/ecosystem-graph.test.ts tests/policy-intelligence.test.ts tests/organization-intelligence.test.ts tests/public-data-pipeline.test.ts tests/ai-copilot.test.ts tests/simulator.test.ts tests/product-integration.test.ts tests/california-ai-case.test.ts tests/rendered-html.test.mjs",
+    "test": "npm run build && node --experimental-strip-types --test tests/radar-score.test.ts tests/ecosystem-graph.test.ts tests/policy-intelligence.test.ts tests/organization-intelligence.test.ts tests/public-data-pipeline.test.ts tests/ai-copilot.test.ts tests/simulator.test.ts tests/research-backbone.test.ts tests/product-integration.test.ts tests/california-ai-case.test.ts tests/rendered-html.test.mjs",
     "test:radar": "node --experimental-strip-types --test tests/radar-score.test.ts tests/rendered-html.test.mjs",
     "test:ecosystems": "node --experimental-strip-types --test tests/ecosystem-graph.test.ts tests/rendered-html.test.mjs",
     "test:policy": "node --experimental-strip-types --test tests/policy-intelligence.test.ts tests/rendered-html.test.mjs",
@@ -27,6 +27,7 @@
     "data:case:california-ai:export": "node --experimental-strip-types scripts/california-ai-exports.ts",
     "data:case:california-ai:uspto:dry-run": "node --experimental-strip-types scripts/california-ai-uspto.ts",
     "data:case:california-ai:uspto:live-dry-run": "node --experimental-strip-types scripts/california-ai-uspto.ts --live-dry-run",
+    "research:figures": "node --experimental-strip-types scripts/research-figures/generate.ts",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern research --ignore-pattern .public-release"
   },
   "dependencies": {

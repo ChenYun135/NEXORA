@@ -16,6 +16,8 @@ const content = {
       ["Scenarios", "Simulation explores trajectories under explicit assumptions, sensitivity, and uncertainty. It is not prediction, a forecast, or proof of policy impact."],
       ["California AI case", "The flagship is a selected evidence panel, not a statewide census. Complete research-year analysis uses 2015–2025; 2026 partial-year records are excluded from complete-year growth."],
       ["Missing evidence", "Unavailable, degraded, stale, and not configured remain visible states. Unsupported indicators are never filled with Demo, fabricated, or zero values."],
+      ["Four-layer research architecture", "Observed public evidence flows through transparent derivation and bounded analytical interpretation into optional simulation. Each layer retains provenance, version, evidence class and limitations."],
+      ["Model governance", "Model v1 is a partially calibrated conceptual simulator. Model v2 is a public research-design specification. Neither is a forecast or causal policy evaluation, and promotion requires explicit validation gates."],
     ],
   },
   zh: {
@@ -29,6 +31,8 @@ const content = {
       ["情景模拟", "模拟在明确假设、敏感性与不确定性下探索轨迹；它不是预测、预报或政策效果证明。"],
       ["加州 AI 案例", "旗舰案例是精选证据面板，而非全州普查。完整研究年度分析使用 2015–2025；2026 部分年度排除在完整年度增长之外。"],
       ["缺失证据", "不可用、降级、陈旧与未配置均保留为可见状态；不受支持指标绝不以演示、虚构或零值填补。"],
+      ["四层研究架构", "公共观测证据依次进入透明衍生、边界明确的分析解读与可选情景模拟；每一层均保留来源、版本、证据类别与局限。"],
+      ["模型治理", "模型 v1 是部分校准的概念模拟器，模型 v2 是公开研究设计规格。两者均不是预测或政策因果评估；状态升级必须通过明确验证门槛。"],
     ],
   },
 } as const;
@@ -36,5 +40,5 @@ const content = {
 export function PublicMethodologyPage() {
   const [lang, setLang] = useNexoraLanguage();
   const page = content[lang];
-  return <main className={styles.page}><header><Link href="/"><span>N</span>NEXORA</Link><nav aria-label="Language"><button className={lang === "en" ? styles.on : ""} onClick={() => setLang("en")}>EN</button><button className={lang === "zh" ? styles.on : ""} onClick={() => setLang("zh")}>中文</button></nav></header><section className={styles.hero}><p>{page.eyebrow}</p><h1>{page.title}</h1><h2>{page.intro}</h2><div><Link href="/data-status">{lang === "en" ? "Open Data Status" : "打开数据状态"} →</Link><Link href="/terms">{lang === "en" ? "Public disclaimer" : "公开免责声明"} →</Link></div></section><section className={styles.content}>{page.sections.map(([title, body], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h2>{title}</h2><p>{body}</p></div></article>)}</section></main>;
+  return <main className={styles.page}><header><Link href="/"><span>N</span>NEXORA</Link><nav aria-label="Language"><button className={lang === "en" ? styles.on : ""} onClick={() => setLang("en")}>EN</button><button className={lang === "zh" ? styles.on : ""} onClick={() => setLang("zh")}>中文</button></nav></header><section className={styles.hero}><p>{page.eyebrow}</p><h1>{page.title}</h1><h2>{page.intro}</h2><div><Link href="/data-status">{lang === "en" ? "Open Data Status" : "打开数据状态"} →</Link><a href="/research/RESEARCH_BACKBONE.md" download>{lang === "en" ? "Research backbone" : "研究骨架"} ↓</a><a href="/research/PUBLIC_DATA_PROVIDER_REGISTRY.md" download>{lang === "en" ? "Provider registry" : "数据源注册表"} ↓</a><Link href="/terms">{lang === "en" ? "Public disclaimer" : "公开免责声明"} →</Link></div></section><section className={styles.content}>{page.sections.map(([title, body], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h2>{title}</h2><p>{body}</p></div></article>)}</section></main>;
 }

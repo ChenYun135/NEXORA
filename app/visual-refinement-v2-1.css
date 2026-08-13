@@ -1,12 +1,12 @@
 /* NEXORA V2.1 — a scoped legibility layer for the existing editorial architecture. */
-main:has(> #workspace){--nx-readable:12px;--nx-caption:11px;--nx-body:14px}
+main:has(> #workspace){--nx-readable:14px;--nx-caption:12px;--nx-body:17px}
 main:has(> #workspace) [class*="sectionTitle"]>span,
 main:has(> #workspace) [class*="title"]>span{font-size:11px!important;line-height:1.5!important}
 main:has(> #workspace) [class*="sectionTitle"] p,
 main:has(> #workspace) [class*="title"] p{font-size:14px!important;line-height:1.7!important;max-width:760px}
 main:has(> #workspace) [class*="panelTitle"] p,
 main:has(> #workspace) [class*="panelBody"],
-main:has(> #workspace) [class*="panelBody"] p{font-size:12px!important;line-height:1.65!important}
+main:has(> #workspace) [class*="panelBody"] p{font-size:14px!important;line-height:1.7!important}
 main:has(> #workspace) [class*="panelTitle"] small,
 main:has(> #workspace) [class*="panelLabel"],
 main:has(> #workspace) [class*="label"]{font-size:10px!important;line-height:1.5!important}
@@ -18,7 +18,7 @@ main:has(> #workspace) [class*="trust"],
 main:has(> #workspace) [class*="disclaimer"],
 main:has(> #workspace) [class*="footer"]{font-size:10px!important;line-height:1.65!important}
 main:has(> #workspace) table th,
-main:has(> #workspace) table td{font-size:10px!important;line-height:1.45!important}
+main:has(> #workspace) table td{font-size:13px!important;line-height:1.5!important}
 
 /* Networks and maps: labels remain readable without obscuring the visual field. */
 main:has(> #workspace) [class*="node"]>span{font-size:10px!important;line-height:1.35!important}
@@ -92,6 +92,7 @@ main:has(> #workspace) [class*="chart"] span,
 main:has(> #workspace) [class*="chart"] b{font-size:9px!important}
 
 @media(max-width:700px){
+  main:has(> #workspace) p{font-size:16px!important;line-height:1.75!important}
   main:has(> #workspace) [class*="sectionTitle"] p,
   main:has(> #workspace) [class*="title"] p{font-size:13px!important}
   main:has(> #workspace) [class*="node"]>span{font-size:9px!important}

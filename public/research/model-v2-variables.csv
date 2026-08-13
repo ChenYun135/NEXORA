@@ -1,0 +1,9 @@
+id,layer,kind,unit,evidence_status
+research_capacity,simulation,stock,bounded index,DERIVED
+knowledge_stock,simulation,stock,bounded index,ASSUMPTION
+talent_pool,simulation,stock,bounded index,DERIVED
+collaboration_connectivity,analytical,stock,bounded index,DERIVED
+commercialization_capacity,simulation,stock,bounded index,ASSUMPTION
+venture_pipeline,simulation,stock,bounded index,ASSUMPTION
+commercialization_flow,simulation,flow,index/year,ASSUMPTION
+value_creation,simulation,output,simulated index,ASSUMPTION

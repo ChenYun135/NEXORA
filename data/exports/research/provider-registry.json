@@ -1,0 +1,13 @@
+{
+  "registryVersion": "2026-08-12",
+  "scope": "public research provider planning metadata",
+  "providers": [
+    {"id":"openalex","status":"CANDIDATE","access":"FREE_KEY_REQUIRED","documentation":"https://developers.openalex.org/"},
+    {"id":"crossref","status":"CANDIDATE","access":"PUBLIC_REST","documentation":"https://www.crossref.org/documentation/retrieve-metadata/rest-api/"},
+    {"id":"census-bfs","status":"CANDIDATE","access":"PUBLIC_FILES","documentation":"https://www.census.gov/data/tables/time-series/econ/bfs/business-formation-statistics.html"},
+    {"id":"bls","status":"CANDIDATE","access":"PUBLIC_API","documentation":"https://www.bls.gov/bls/api_features.htm"},
+    {"id":"ncses","status":"CANDIDATE_PUBLIC_USE_ONLY","access":"PUBLIC_TABLES_FILES","documentation":"https://ncses.nsf.gov/explore-data"},
+    {"id":"usaspending","status":"CANDIDATE","access":"PUBLIC_REST","documentation":"https://api.usaspending.gov/docs/endpoints"},
+    {"id":"uspto","status":"DEFERRED","access":"VALIDATION_REQUIRED","documentation":"https://developer.uspto.gov/"}
+  ]
+}
