@@ -25,7 +25,9 @@ NEXORA 连接公共数据、产业地理、新兴信号、创新网络、政策�
 
 NEXORA keeps Public Data, Normalized, Derived, Composite, Demo, Simulated, AI Interpretation, Unavailable, Degraded, Stale, and Not Configured states distinct. Missing evidence is never replaced with fabricated or zero values.
 
-Public methods and limitations are summarized in [METHODOLOGY_PUBLIC.md](docs/METHODOLOGY_PUBLIC.md) and [DATA_ARCHITECTURE_PUBLIC.md](docs/DATA_ARCHITECTURE_PUBLIC.md).
+Public methods and limitations are summarized in [PUBLIC_DATA_ARCHITECTURE.md](docs/PUBLIC_DATA_ARCHITECTURE.md), [DATA_PROVENANCE.md](docs/DATA_PROVENANCE.md), [PUBLIC_PROVIDER_CATALOG.md](docs/PUBLIC_PROVIDER_CATALOG.md), and [PUBLIC_DATA_LIMITATIONS.md](docs/PUBLIC_DATA_LIMITATIONS.md).
+
+The machine-readable public provider catalog covers 20 official provider families with conservative operational states. Run `npm run data:registry` to reproduce the JSON export and `npm run security:public-boundary` before any public commit.
 
 ## Technology
 

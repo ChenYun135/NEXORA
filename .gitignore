@@ -56,6 +56,14 @@ yarn-error.log*
 /temp/
 /.public-release/
 /research/private/
+/research/
+/papers/
+/manuscripts/
+/private/
+/calibration/
+/parameter-registries/
+/scenario-outputs/
+/qa-screenshots/
 /deployment-archives/
 *.zip
 *.tar
