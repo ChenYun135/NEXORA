@@ -81,3 +81,73 @@ export const buildRefreshReport = (policies: ProviderRefreshPolicy[], month: str
 });
 
 export const promotionAllowed = (checks:{schema:boolean;duplicates:boolean;missingness:boolean;suppression:boolean;units:boolean;geography:boolean;time:boolean;revisions:boolean;checksum:boolean}) => Object.values(checks).every(Boolean);
+
+type FetchLike=(input:string|URL,init?:RequestInit)=>Promise<Response>;
+type CacheEntry={expiresAt:number;response:{status:number;headers:Record<string,string>}};
+
+export class SafeRefreshClient {
+  private cache=new Map<string,CacheEntry>();
+  private circuits=new Map<string,{failures:number;openedAt:number}>();
+  private lastRequest=new Map<string,number>();
+  private transport:FetchLike;
+  private now:()=>number;
+  constructor(transport:FetchLike=fetch,now:()=>number=Date.now){this.transport=transport;this.now=now}
+
+  async probe(url:string,options:{timeoutMs?:number;maxRetries?:number;cacheTtlMs?:number;minIntervalMs?:number}={}) {
+    const target=new URL(url);
+    if(target.protocol!=="https:") throw new Error("NON_HTTPS_PROVIDER");
+    const cacheKey=target.toString(),cached=this.cache.get(cacheKey);
+    if(cached&&cached.expiresAt>this.now()) return {...cached.response,fromCache:true};
+    const circuit=this.circuits.get(target.origin);
+    if(circuit&&circuit.failures>=3&&this.now()-circuit.openedAt<300_000) throw new Error("PROVIDER_CIRCUIT_OPEN");
+    const timeoutMs=options.timeoutMs??10_000,maxRetries=options.maxRetries??2,minIntervalMs=options.minIntervalMs??150;
+    let last:unknown;
+    for(let attempt=0;attempt<=maxRetries;attempt++){
+      const since=this.now()-(this.lastRequest.get(target.origin)??0);
+      if(since<minIntervalMs) await new Promise(resolve=>setTimeout(resolve,minIntervalMs-since));
+      const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeoutMs);
+      try{
+        this.lastRequest.set(target.origin,this.now());
+        const response=await this.transport(target,{method:"HEAD",redirect:"follow",signal:controller.signal,headers:{accept:"application/json,text/csv,text/html;q=0.8,*/*;q=0.5","user-agent":"NEXORA-monthly-public-data-check/1.0"}});
+        if(response.status>=500||response.status===429) throw new Error(`UPSTREAM_${response.status}`);
+        const result={status:response.status,headers:Object.fromEntries(["etag","last-modified","content-type"].map(key=>[key,response.headers.get(key)??""]))};
+        this.cache.set(cacheKey,{expiresAt:this.now()+(options.cacheTtlMs??900_000),response:result});
+        this.circuits.delete(target.origin);
+        return {...result,fromCache:false};
+      }catch(error){
+        last=error;
+        if(attempt<maxRetries) await new Promise(resolve=>setTimeout(resolve,Math.min(250*2**attempt,2_000)));
+      }finally{clearTimeout(timer)}
+    }
+    const state=this.circuits.get(target.origin)??{failures:0,openedAt:this.now()};
+    this.circuits.set(target.origin,{failures:state.failures+1,openedAt:state.openedAt});
+    throw last instanceof Error?last:new Error("PROVIDER_PROBE_FAILED");
+  }
+
+  async paginate<T>(fetchPage:(cursor:string|null)=>Promise<{records:T[];nextCursor:string|null}>,maxPages=25){
+    if(maxPages<1||maxPages>100) throw new Error("INVALID_PAGE_LIMIT");
+    const records:T[]=[];let cursor:string|null=null;
+    for(let page=0;page<maxPages;page++){const result=await fetchPage(cursor);records.push(...result.records);cursor=result.nextCursor;if(!cursor)return {records,truncated:false};}
+    return {records,truncated:Boolean(cursor)};
+  }
+}
+
+const credentialKey=(providerId:string)=>({CENSUS_ACS:"CENSUS_API_KEY",USPTO:"USPTO_API_KEY"} as Record<string,string>)[providerId];
+
+export async function checkProviderMetadata(policies:ProviderRefreshPolicy[],env:Record<string,string|undefined>,client=new SafeRefreshClient(),checkedAt=new Date().toISOString()){
+  const next=new Date(Date.UTC(Number(checkedAt.slice(0,4)),Number(checkedAt.slice(5,7)),3)).toISOString().slice(0,10);
+  const results:ProviderRefreshPolicy[]=[];
+  for(const policy of policies){
+    const key=credentialKey(policy.provider_id);
+    if(policy.requires_credentials&&key&&!env[key]){results.push({...policy,last_checked_at:checkedAt,next_expected_check:next,status:"NOT_CONFIGURED",failure_count:0,last_error_class:"CREDENTIAL_NOT_CONFIGURED"});continue}
+    try{
+      const response=await client.probe(policy.official_url);
+      const status=response.status===405?"REVIEW_REQUIRED":policy.status==="UPDATED"?"CURRENT":policy.status;
+      results.push({...policy,last_checked_at:checkedAt,next_expected_check:next,status,failure_count:0,last_error_class:null});
+    }catch(error){
+      const failures=policy.failure_count+1;
+      results.push({...policy,last_checked_at:checkedAt,next_expected_check:next,status:failures>=3?"STALE":"DEGRADED",failure_count:failures,last_error_class:redactOperationalError(error).replace(/[^A-Z0-9_]/gi,"_").slice(0,80)});
+    }
+  }
+  return results;
+}

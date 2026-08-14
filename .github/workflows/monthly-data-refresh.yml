@@ -43,7 +43,7 @@ jobs:
           node-version: 22.13.0
           cache: npm
       - run: npm ci
-      - name: Generate refresh candidate
+      - name: Check official providers and generate refresh candidate
         shell: bash
         run: |
           args=(--mode "$REFRESH_MODE")

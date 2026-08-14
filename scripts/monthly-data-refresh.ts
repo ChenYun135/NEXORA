@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import type { ProviderRefreshPolicy, RefreshMode } from "../domain/monthly-refresh.ts";
-import { buildRefreshReport, credentialHealth, detectStaleState, ensurePublicOutputPaths, validateRefreshRegistry } from "../services/public-data/monthly-refresh.ts";
+import { buildRefreshReport, checkProviderMetadata, credentialHealth, ensurePublicOutputPaths, validateRefreshRegistry } from "../services/public-data/monthly-refresh.ts";
 
 const args=process.argv.slice(2);
 const option=(name:string)=>{const index=args.indexOf(name);return index>=0?args[index+1]:undefined};
@@ -22,9 +22,10 @@ if(registryErrors.length) throw new Error(`REFRESH_REGISTRY_INVALID:${registryEr
 const now=new Date();
 const checkedAt=now.toISOString();
 const month=checkedAt.slice(0,7);
-const next=new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth()+1,3)).toISOString().slice(0,10);
 const credentials=credentialHealth(["CENSUS_API_KEY","USPTO_API_KEY","BEA_API_KEY","OPENALEX_API_KEY","BLS_API_KEY"],process.env);
-const updated=rows.map(row=>selected.some(item=>item.provider_id===row.provider_id)?{...row,last_checked_at:checkedAt,next_expected_check:next,status:detectStaleState(row,now)}:row);
+const checked=await checkProviderMetadata(selected,process.env,undefined,checkedAt);
+const byProvider=new Map(checked.map(row=>[row.provider_id,row]));
+const updated=rows.map(row=>byProvider.get(row.provider_id)??row);
 const report=buildRefreshReport(updated.filter(row=>selected.some(item=>item.provider_id===row.provider_id)),month,mode,checkedAt);
 const outputDir=resolve(root,"data/operations/reports");
 const jsonPath=resolve(outputDir,`MONTHLY_DATA_REFRESH_REPORT_${month.replace("-","_")}.json`);
