@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @next/next/no-img-element -- approved local WebP artwork is intentionally preserved without a runtime image service. */
 import {useEffect,useRef,useState} from "react";
 import Link from "@/components/safe-link";
 import styles from "./module-showcase.module.css";

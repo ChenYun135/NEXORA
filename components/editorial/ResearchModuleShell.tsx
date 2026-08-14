@@ -1,4 +1,5 @@
 ﻿import Link from "@/components/safe-link";
+/* eslint-disable @next/next/no-img-element -- approved local hero artwork is intentionally preserved without a runtime image service. */
 import styles from "./research-module-shell.module.css";
 import { displayHeading } from "@/lib/display-text";
 import { ChartExplanation, ResearchFinding, type EvidenceState } from "./ResearchFindings";

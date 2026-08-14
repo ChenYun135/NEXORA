@@ -1,0 +1,70 @@
+name: Monthly public data refresh
+
+on:
+  schedule:
+    - cron: "17 9 3 * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Refresh scope
+        required: true
+        default: metadata-only
+        type: choice
+        options: [metadata-only, full, single-provider]
+      provider:
+        description: Provider ID for single-provider mode
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: monthly-public-data-refresh
+  cancel-in-progress: false
+
+jobs:
+  candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      REFRESH_MODE: ${{ inputs.mode || 'metadata-only' }}
+      REFRESH_PROVIDER: ${{ inputs.provider || '' }}
+      CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+      USPTO_API_KEY: ${{ secrets.USPTO_API_KEY }}
+      BEA_API_KEY: ${{ secrets.BEA_API_KEY }}
+      OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+      BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.13.0
+          cache: npm
+      - run: npm ci
+      - name: Generate refresh candidate
+        shell: bash
+        run: |
+          args=(--mode "$REFRESH_MODE")
+          if [[ "$REFRESH_MODE" == "single-provider" ]]; then args+=(--provider "$REFRESH_PROVIDER"); fi
+          npm run data:monthly -- "${args[@]}"
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run test:monthly
+      - run: npm run security:public-boundary
+      - name: Create candidate pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          if git diff --quiet; then echo "No candidate changes"; exit 0; fi
+          month="$(date -u +%Y-%m)"
+          branch="data/monthly-refresh-$month"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add data/operations
+          git commit -m "data: refresh public evidence $month"
+          git push origin "$branch"
+          gh pr create --base main --head "$branch" --title "data: refresh public evidence $month" --body "Automated public-data candidate. Requires human review before Sites deployment."

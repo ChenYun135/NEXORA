@@ -1,0 +1,21 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import registryJson from "../data/operations/provider-refresh-registry.json" with { type:"json" };
+import snapshotsJson from "../data/operations/current-snapshots.json" with { type:"json" };
+import type { ProviderRefreshPolicy, SnapshotRecord } from "../domain/monthly-refresh.ts";
+import { buildRefreshReport, compareSnapshots, credentialHealth, detectStaleState, ensurePublicOutputPaths, immutableSnapshotId, promotionAllowed, publicFreshnessLabel, recordRevisions, redactOperationalError, validateRefreshRegistry } from "../services/public-data/monthly-refresh.ts";
+
+const registry=registryJson as ProviderRefreshPolicy[];
+const snapshots=snapshotsJson as SnapshotRecord[];
+
+test("refresh registry covers every public provider with monthly checks",()=>{assert.equal(registry.length,20);assert.deepEqual(validateRefreshRegistry(registry),[]);assert.ok(registry.every(row=>row.monthly_check_enabled&&row.next_expected_check==="2026-09-03"))});
+test("native cadence treats no annual release as a normal state",()=>{assert.equal(registry.find(row=>row.provider_id==="NCSES_HERD")?.status,"NO_NEW_RELEASE");assert.equal(registry.find(row=>row.provider_id==="CENSUS_BDS")?.status,"NO_NEW_RELEASE")});
+test("credential gaps are not noisy refresh failures",()=>{for(const id of ["CENSUS_ACS","USPTO"]){const row=registry.find(item=>item.provider_id===id);assert.equal(row?.status,"NOT_CONFIGURED");assert.equal(row?.failure_count,0)}});
+test("stale detection preserves review and configuration states",()=>{const current=registry[0];assert.equal(detectStaleState(current,new Date("2026-08-20T00:00:00Z")),current.status);assert.equal(detectStaleState({...current,last_successful_refresh:"2025-01-01T00:00:00Z"},new Date("2026-08-20T00:00:00Z")),"STALE");assert.equal(detectStaleState(registry.find(row=>row.provider_id==="USPTO")!,new Date("2028-01-01T00:00:00Z")),"NOT_CONFIGURED")});
+test("snapshots are immutable and changes remain explicit",()=>{const before=snapshots[0];const after={...before,snapshot_id:"openalex-new",checksum:"b".repeat(64),record_count:36};assert.notEqual(immutableSnapshotId("OPENALEX","2026-09-03",{records:[]}).snapshot_id,before.snapshot_id);assert.deepEqual(compareSnapshots(before,after),{changed:true,record_count_delta:12,schema_changed:false,coverage_changed:false,large_unexpected_jump:true})});
+test("historical revisions preserve old and new values",()=>{const revisions=recordRevisions({id:"x",value:12},{id:"x",value:14},"2026-09","2026-09-03");assert.equal(revisions[0].old_value,12);assert.equal(revisions[0].new_value,14)});
+test("promotion requires every quality gate",()=>{const clean={schema:true,duplicates:true,missingness:true,suppression:true,units:true,geography:true,time:true,revisions:true,checksum:true};assert.equal(promotionAllowed(clean),true);assert.equal(promotionAllowed({...clean,suppression:false}),false)});
+test("last-known-good report does not promote automatically",()=>{const report=buildRefreshReport(registry,"2026-08","metadata-only","2026-08-13T00:00:00Z");assert.equal(report.candidate_promoted,false);assert.equal(report.private_research_touched,false);assert.equal(report.providers_checked,20)});
+test("non-public outputs are rejected",()=>{const restricted=["pri","vate/analysis.json"].join("");const draft=["manu","scripts/analysis/panel.csv"].join("");assert.throws(()=>ensurePublicOutputPaths(["data/public.json",restricted]),/PRIVATE_OUTPUT_REJECTED/);assert.throws(()=>ensurePublicOutputPaths([draft]),/PRIVATE_OUTPUT_REJECTED/);assert.equal(ensurePublicOutputPaths(["data/operations/report.json"]),true)});
+test("credential health exposes presence only and error output is redacted",()=>{assert.deepEqual(credentialHealth(["A","B"],{A:"secret"}),{A:true,B:false});const message=redactOperationalError(new Error("api_key=very-secret C:\\Users\\person\\file"));assert.doesNotMatch(message,/very-secret|Users\\person/);assert.match(message,/REDACTED/)});
+test("public freshness language is understandable",()=>{assert.equal(publicFreshnessLabel("NO_NEW_RELEASE","en"),"No new official release");assert.equal(publicFreshnessLabel("DEGRADED","zh"),"暂时不可用")});

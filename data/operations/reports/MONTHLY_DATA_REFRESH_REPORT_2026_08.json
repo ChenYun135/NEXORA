@@ -1,0 +1,14 @@
+{
+  "month":"2026-08",
+  "generated_at":"2026-08-13T00:00:00Z",
+  "mode":"metadata-only",
+  "providers_checked":20,
+  "providers_updated":[],
+  "providers_unchanged":["OPENALEX","NSF_AWARDS","NCSES_HERD","SBIR_STTR","BLS","CENSUS_BFS","CENSUS_BDS","BEA_REGIONAL","CALIFORNIA_LEGINFO","FEDERAL_REGISTER","OFFICIAL_PROGRAMS","IPEDS","USASPENDING","EDA_TECH_HUBS","NSF_ENGINES","DOE_PROGRAMS","CALIFORNIA_CEC","CALIFORNIA_GOBIZ"],
+  "providers_degraded":[],
+  "providers_not_configured":["CENSUS_ACS","USPTO"],
+  "qa_failures":[],
+  "public_aggregates_changed":false,
+  "candidate_promoted":false,
+  "private_research_touched":false
+}
